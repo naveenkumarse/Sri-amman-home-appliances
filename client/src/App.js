@@ -10,6 +10,7 @@ import Login from './components/login/login';
 import Register from './components/login/register';
 
 
+
 function App() {
   return (
     <div className="App">
@@ -29,16 +30,6 @@ function App() {
             <Route path="/register" element={
             <div>
               <NavBar />
-              <Register />
-            </div>
-          } />
-           <Route path="/login" element={
-            <div>
-              <Login />
-            </div>
-          } />
-           <Route path="/register" element={
-            <div>
               <Register />
             </div>
           } />

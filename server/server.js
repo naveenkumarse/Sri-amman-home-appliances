@@ -42,27 +42,29 @@ app.post("/signup", (req, res) => {
 //Login API
 app.post("/login", async(req, res) => {
     console.log(req.body)
-    const { email, password } = req.body;
-    
-        try {
-            // check if the user exists
-            const user = await User.findOne({ email: email });
-            if (user) {
-              //check if password matches
-              const result = req.body.password === user.password;
-              if (result) {
-                res.render("secret");
-              } else {
-                res.status(400).json({ error: "password doesn't match" });
-              }
-            } else {
-              res.status(400).json({ error: "User doesn't exist" });
+    const { email, password } = req.body
+    const data = await UserModel.findOne({ email: email });
+        if(data){
+
+            if (data) {
+                if (password == data.password) {
+                    console.log(data)
+                    res.send(data)
+                }
+                else {
+                    res.send({ message: "Password didn't match" })
+                }
             }
-          } catch (error) {
-            res.status(400).json({ error });
-          }
-    });
-})
+    
+            else {
+                res.send("This email id is not register")
+            }
+
+        }
+});
+
+  
+
 
 
 app.listen(8080, () => {
