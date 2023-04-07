@@ -9,7 +9,7 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [streetname, setStreetname] = useState('');
     const [city, setCity] = useState('');
-    const [state, setState] = useState('');
+    const [state, setState] = useState('Tamil Nadu');
     const [pincode, setPincode] = useState('')
     const onSignup = async(e) =>{
         e.preventDefault();
@@ -27,6 +27,10 @@ const Register = () => {
             console.error(err.message);
         }
     }
+    function handleAddrTypeChange(e) {
+        setState(e.target.value);
+        //console.log(addrtype)
+      }
     return (
         <div class="flex h-screen justify-center mt-8">
             <form class="w-full max-w-lg" >
@@ -92,7 +96,8 @@ const Register = () => {
                             State
                         </label>
                         <div class="relative">
-                            <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="state" name="state" onChange={(e) => setState(e.target.value)} value={state}  >
+                            <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="state" name="state" defaultValue={state}
+  onChange={handleAddrTypeChange}   >
                                 <option value="Tamil Nadu">Tamil Nadu</option>
                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
                                 <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -144,7 +149,7 @@ const Register = () => {
                 </div>
                 <br />
                 <div class="w-full justify-center px-3 mb-6 md:mb-0 ">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={onSignup}>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={onSignup} >
                         Register
                     </button>
 
