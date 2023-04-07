@@ -21,18 +21,18 @@ const NavBar = () => {
                     <li className="p-4"><Link to="/">Home</Link></li>
                     <li className="p-4"><Link to="/">Events</Link></li>
                     <li className="p-4"><Link to="/">About</Link></li>
-                    <li className="p-4"><Link to="/">History</Link></li>
+                    <li className="p-4"><Link to="/">Login</Link></li>
                 </ul>
                 <div onClick={handleNav} className='block md:hidden'>
                     {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
 
                 </div>
                 <div className={nav ? 'z-10 fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500 text-white' : 'fixed left-[-100%]'}>
-                    <h1 className="w-full text-3xl font-bold  m-4"> Expelliarmus </h1>
+                    <h1 className="w-full text-3xl font-bold  m-4"> Sri Amman Home Appliances </h1>
                     <ul className="uppercase p-4">
                         <li className="p-4 border-b border-gray-600"><Link to="/">Home</Link></li>
                         <li className="p-4 border-b border-gray-600"><Link to="/">Event</Link></li>
-                        <li className="p-4 border-b border-gray-600"><Link to="/">About</Link></li>
+                        <li className="p-4 border-b border-gray-600"><Link to="/">Login</Link></li>
                         <li className="p-4"><Link to="/">Others</Link></li>
                     </ul>
                 </div>
