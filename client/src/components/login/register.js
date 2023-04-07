@@ -29,7 +29,7 @@ const Register = () => {
     }
     function handleAddrTypeChange(e) {
         setState(e.target.value);
-        //console.log(addrtype)
+     
       }
     return (
         <div class="flex h-screen justify-center mt-8">

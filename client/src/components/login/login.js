@@ -22,7 +22,7 @@ const Login =()=> {
             if(jsonData.email == 'naveenelango.se@gmail.com'){
                 window.location = "/admin";              
             }else{
-                // window.location = "/";
+                window.location = "/";
             }
         } catch (err) {
             console.error(err.message);
