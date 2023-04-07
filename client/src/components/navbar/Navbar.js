@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai"
 import { Link } from "react-router-dom";
+import Login from "../login/Login";
+import Register from "../register/Register";
 // import logo from "./../assets/club_logo.png";
 // import keclogo from "./../assets/kec logo.png";
 
@@ -21,7 +23,7 @@ const NavBar = () => {
                     <li className="p-4"><Link to="/">Home</Link></li>
                     <li className="p-4"><Link to="/">Events</Link></li>
                     <li className="p-4"><Link to="/">About</Link></li>
-                    <li className="p-4"><Link to="/">Login</Link></li>
+                    <li className="p-4"><Link to="/login">Login</Link></li>
                 </ul>
                 <div onClick={handleNav} className='block md:hidden'>
                     {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
@@ -32,7 +34,7 @@ const NavBar = () => {
                     <ul className="uppercase p-4">
                         <li className="p-4 border-b border-gray-600"><Link to="/">Home</Link></li>
                         <li className="p-4 border-b border-gray-600"><Link to="/">Event</Link></li>
-                        <li className="p-4 border-b border-gray-600"><Link to="/">Login</Link></li>
+                        <li className="p-4 border-b border-gray-600"><Link to="/login">Login</Link></li>
                         <li className="p-4"><Link to="/">Others</Link></li>
                     </ul>
                 </div>
