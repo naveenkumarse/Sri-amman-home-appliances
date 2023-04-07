@@ -18,8 +18,9 @@ const NavBar = () => {
 
                 <ul className="hidden md:flex ">
                     <li className="p-4"><Link to="/">Home</Link></li>
-                    <li className="p-4"><Link to="/">Events</Link></li>
+                    <li className="p-4"><Link to="/">Products</Link></li>
                     <li className="p-4"><Link to="/">About</Link></li>
+                    <li className="p-4"><Link to="/">My cart</Link></li>
                     <li className="p-4"><Link to="/">Login/Register</Link></li>
                 </ul>
                 <div onClick={handleNav} className='block md:hidden '>
@@ -30,9 +31,12 @@ const NavBar = () => {
                     <h1 className="w-full text-2xl font-bold  m-2 font-poppins "> Sri Amman Home Appliances </h1>
                     <ul className="uppercase p-4">
                         <li className="p-4 border-b border-gray-600"><Link to="/">Home</Link></li>
-                        <li className="p-4 border-b border-gray-600"><Link to="/">Event</Link></li>
+
+                        <li className="p-4 border-b border-gray-600"><Link to="/">Products</Link></li>
+                        <li className="p-4 border-b border-gray-600"><Link to="/">About</Link></li>
+                        <li className="p-4 border-b border-gray-600"><Link to="/">My cart</Link></li>
                         <li className="p-4 border-b border-gray-600"><Link to="/">Login/register</Link></li>
-                        <li className="p-4"><Link to="/">Others</Link></li>
+
                     </ul>
                 </div>
             </div>
