@@ -5,7 +5,7 @@ import {
   Route,
   HashRouter
 } from "react-router-dom";
-import NavBar from './components/navbar/navbar';
+import NavBar from './components/navbar/Navbar';
 import Login from './components/login/login';
 import Register from './components/login/register';
 

@@ -11,6 +11,10 @@ export default function Register(){
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [pincode, setPincode] = useState('')
+    function handleAddrTypeChange(e) {
+      setState(e.target.value);
+      //console.log(addrtype)
+    }
     return(
         <>
        <Navbar/>
@@ -97,7 +101,9 @@ export default function Register(){
         State
       </label>
       <div class="relative">
-        <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="state" name="state" onChange={(e) => setState(e.target.value)} value={state}  >
+        <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="state" name="state" defaultValue={state}
+  onChange={handleAddrTypeChange}
+  className="browser-default custom-select"  >
         <option value="Tamil Nadu">Tamil Nadu</option>
         <option value="Andhra Pradesh">Andhra Pradesh</option>
 <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
