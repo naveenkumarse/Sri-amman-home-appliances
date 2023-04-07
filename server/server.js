@@ -4,7 +4,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 const cors = require("cors")
 app.use(cors())
-
+const UserModel = require("./model");
 // connecting with mongodb
 
 const mongoose = require("mongoose")
@@ -20,22 +20,22 @@ mongoose.connect("mongodb+srv://Naveenkumar:darksoul@cluster0.d0joefb.mongodb.ne
 // sign up API
 app.post("/signup", (req, res) => {
     console.log(req.body)
-    const { name, phone, email, password } = req.body;
-    UserModel.findOne({ email: email }, (err, user) => {
-        if (user) {
-            res.send({ message: "This email id already Register" })
-        }
-        else {
-            const user = new UserModel({
-                name,
-                phone,
-                email,
-                password,
-            })
-            user.save();
-            res.send({ message: "Successfull Register" })
-        }
+    const { firstname, lastname, email, phoneno, password, streetname, city, state, pincode } = req.body;
+
+    const user = new UserModel({
+        firstname,
+        lastname,
+        email,
+        phoneno,
+        password,
+        streetname,
+        city,
+        state,
+        pincode
     })
+    user.save();
+    res.send({ message: "Successfull Register" })
+
 })
 
 
@@ -61,3 +61,7 @@ app.post("/login", (req, res) => {
     )
 })
 
+
+app.listen(8080, () => {
+    console.log("Server is runing at port 8080")
+})

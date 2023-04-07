@@ -11,6 +11,22 @@ const Register = () => {
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [pincode, setPincode] = useState('')
+    const onSignup = async(e) =>{
+        e.preventDefault();
+        try {
+            const body = { firstname,lastname,email,phoneno,password,streetname,city,state,pincode }; 
+            console.log(body)
+            const response = await fetch("http://localhost:8080/signup", {
+                method: "POST",
+                headers: { "content-Type": "application/json" },
+                body: JSON.stringify(body)
+            });
+            alert("Successfully logged in")
+           window.location='/';
+        } catch (err) {
+            console.error(err.message);
+        }
+    }
     return (
         <div class="flex h-screen justify-center mt-8">
             <form class="w-full max-w-lg" >
@@ -128,7 +144,7 @@ const Register = () => {
                 </div>
                 <br />
                 <div class="w-full justify-center px-3 mb-6 md:mb-0 ">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={onSignup}>
                         Register
                     </button>
 
