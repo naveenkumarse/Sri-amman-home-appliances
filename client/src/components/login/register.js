@@ -11,6 +11,67 @@ const Register = () => {
     const [city, setCity] = useState('');
     const [state, setState] = useState('Tamil Nadu');
     const [pincode, setPincode] = useState('')
+    const validation = (e) => {
+        if (/^[A-Za-z]*$/.test(firstname) !== true ) {
+          alert('Name must contain alphabets only')
+          return;
+        }
+        if(firstname.trim().length=== 0 )
+        {
+            alert("name can't be empty")
+            return;
+        }
+        if (isNaN(phoneno)) {
+          alert('phone number must contain only number')
+          return;
+        }
+        if(phoneno.trim().length< 10 )
+        {
+            alert("enter correct phone number")
+            return;
+        }
+        if(password.trim().length < 8  )
+        {
+            alert("password must contain atleast 8 characters")
+            return;
+        }
+        if(state.trim().length=== 0 )
+        {
+            alert("state can't be empty")
+            return;
+        }
+        if (/^[A-Za-z]*$/.test(state) !== true ) {
+            alert('State must contain alphabets only')
+            return;
+          }
+        if(pincode.trim().length=== 0 )
+        {
+            alert("pincode can't be empty")
+            return;
+        }
+        if(city.trim().length=== 0 )
+        {
+            alert("city can't be empty")
+            return;
+        }
+        if (/^[A-Za-z]*$/.test(city) !== true ) {
+            alert('City must contain alphabets only')
+            return;
+          }
+        if(streetname.trim().length=== 0 )
+        {
+            alert("street name can't be empty")
+            return;
+        }
+        if (isNaN(pincode)) {
+            alert('pincode must contain only number')
+            return;
+          }
+        e.preventDefault()
+       
+      }
+      if(validation)
+      {
     const onSignup = async(e) =>{
         e.preventDefault();
         try {
@@ -27,6 +88,7 @@ const Register = () => {
             console.error(err.message);
         }
     }
+}
     function handleAddrTypeChange(e) {
         setState(e.target.value);
      
@@ -35,12 +97,20 @@ const Register = () => {
         <div class="flex h-screen justify-center mt-8">
             <form class="w-full max-w-lg" >
                 <div class="flex flex-wrap -mx-3 mb-6" >
+                {/* <div class="flex flex-col">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" required class=" peer appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"/>
+
+            <p class="invisible peer-invalid:visible text-red-700 font-light">
+                Please enter your name
+            </p>
+        </div> */}
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                             First Name
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="fname" name="fname" type="text" onChange={(e) => setFirstname(e.target.value)} value={firstname} placeholder="Raj" />
-
+                        <input class=" appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="name" name="fname" type="text" onChange={(e) => setFirstname(e.target.value)} value={firstname} placeholder="Raj" required />
+                     
                     </div>
                     <div class="w-full md:w-1/2 px-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
@@ -54,14 +124,15 @@ const Register = () => {
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                             Email
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="email" name="email" type="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="abc123@gmail.com" />
-
+                        <input class="  appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="email" name="email" type="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="abc123@gmail.com" required />
+                     
                     </div>
                     <div class="w-full md:w-1/2 px-3">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                        <label class=" peer block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                             Phone No
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="ph" name="ph" type="text" onChange={(e) => setPhoneno(e.target.value)} value={phoneno} placeholder="9876543210" />
+                        <input pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="peer appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="ph" name="ph" type="text" onChange={(e) => setPhoneno(e.target.value)} value={phoneno} placeholder="9876543210" required/>
+                    
                     </div>
                 </div>
        
@@ -70,8 +141,10 @@ const Register = () => {
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                             Password
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="password" name="password" onChange={(e) => setPassword(e.target.value)} value={password} type="password" placeholder="******************" />
-
+                        <input class="peer-focus:font-medium appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="password" name="password" onChange={(e) => setPassword(e.target.value)} value={password} type="password" placeholder="******************" required />
+                        {/* <p class="invisible peer-invalid:visible text-red-700 font-light">
+                Please enter a strong password
+            </p> */}
                     </div>
                 </div>
             
@@ -80,7 +153,7 @@ const Register = () => {
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                             Door no & street name
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="sname" name="sname" type="text" onChange={(e) => setStreetname(e.target.value)} value={streetname} placeholder="2/12,periyar street" />
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="sname" name="sname" type="text" onChange={(e) => setStreetname(e.target.value)} value={streetname} placeholder="2/12,periyar street" required/>
 
                     </div>
                 </div>
@@ -89,7 +162,7 @@ const Register = () => {
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
                             City
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="city" name="city" type="text" onChange={(e) => setCity(e.target.value)} value={city} placeholder="Chennai" />
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="city" name="city" type="text" onChange={(e) => setCity(e.target.value)} value={city} placeholder="Chennai" required />
                     </div>
                     <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
@@ -97,7 +170,7 @@ const Register = () => {
                         </label>
                         <div class="relative">
                             <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="state" name="state" defaultValue={state}
-  onChange={handleAddrTypeChange}   >
+  onChange={handleAddrTypeChange}  required >
                                 <option value="Tamil Nadu">Tamil Nadu</option>
                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
                                 <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -149,7 +222,7 @@ const Register = () => {
                 </div>
                 <br />
                 <div class="w-full justify-center px-3 mb-6 md:mb-0 ">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={onSignup} >
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={validation} >
                         Register
                     </button>
 
