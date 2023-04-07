@@ -5,7 +5,8 @@ import {
   Route,
   HashRouter
 } from "react-router-dom";
-import Navbar from './components/navbar/Navbar';
+import NavBar from './components/navbar/navbar.js';
+
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={
             <div>
-              <Navbar />
+              <NavBar />
             </div>
           } />
         </Routes>
