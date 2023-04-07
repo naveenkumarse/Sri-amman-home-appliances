@@ -6,8 +6,8 @@ import {
   HashRouter
 } from "react-router-dom";
 import NavBar from './components/navbar/Navbar.js';
-import Login from './components/login/Login.js';
-import Register from './components/login/Register.js';
+import Login from './components/login/login.js';
+import Register from './components/login/register.js';
 
 
 
