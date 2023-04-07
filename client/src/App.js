@@ -5,9 +5,10 @@ import {
   Route,
   HashRouter
 } from "react-router-dom";
-import Navbar from './components/navbar/Navbar';
-import Login from './components/login/Login';
-import Register from './components/register/Register';
+import NavBar from './components/navbar/Navbar.js';
+import Login from './components/login/login';
+import Register from './components/login/register';
+
 
 function App() {
   return (
@@ -16,7 +17,19 @@ function App() {
         <Routes>
           <Route path="/" element={
             <div>
-              <Navbar />
+              <NavBar />
+            </div>
+          } />
+          <Route path="/login" element={
+            <div>
+              <NavBar />
+              <Login />
+            </div>
+          } />
+            <Route path="/register" element={
+            <div>
+              <NavBar />
+              <Register />
             </div>
           } />
            <Route path="/login" element={
