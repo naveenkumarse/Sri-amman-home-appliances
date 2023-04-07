@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Login =()=> {
+    const [email,setEmail] = useState("")
+    const [password,setPassword] = useState("")
+
+    const onLogin =async(e)=>{
+        e.preventDefault();
+        try {
+            const body = { email, password };
+            console.log(body);
+            const res = await fetch("http://localhost:8080/login", {
+                method: "POST",
+                headers: { "content-Type": "application/json" },
+                body: JSON.stringify(body)
+            });
+            const jsonData = await res.json();
+            console.log(jsonData)
+            console.log(jsonData.email)
+            const param = jsonData.email
+            if(jsonData.email == 'naveenelango.se@gmail.com'){
+                window.location = "/admin";              
+            }else{
+                window.location = "/";
+            }
+        } catch (err) {
+            console.error(err.message);
+        }
+    }
     return (
         <>
 
@@ -12,7 +38,7 @@ const Login =()=> {
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                                 Username
                             </label>
-                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="email"  onChange={(e) => setEmail(e.target.value)} value={email}/>
                         </div>
                         <br />
 
@@ -20,12 +46,12 @@ const Login =()=> {
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
                                 Password
                             </label>
-                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" />
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************"  onChange={(e) => setPassword(e.target.value)} value={password} />
                             {/* <p class="text-red-500 text-xs italic">Please enter a password.</p> */}
                         </div>
                         <br />
                         <div class="w-full justify-center px-3 mb-6 md:mb-0 ">
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline " type="button">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline " type="button" onClick={onLogin}>
                                 SignIn
                             </button>
 
