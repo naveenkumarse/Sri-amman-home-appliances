@@ -17,11 +17,12 @@ const NavBar = () => {
                 <Link to="/"><h1 className="w-full text-2xl md:text-4xl  font-bold px-9 font-poppins "> Sri Amman Home Appliances </h1></Link>
 
                 <ul className="hidden md:flex ">
-                    <li className="p-4"><Link to="/">Home</Link></li>
-                    <li className="p-4"><Link to="/">Products</Link></li>
-                    <li className="p-4"><Link to="/">About</Link></li>
-                    <li className="p-4"><Link to="/">My cart</Link></li>
-                    <li className="p-4"><Link to="/">Login/Register</Link></li>
+                    <li className="px-3 text-lg"><Link to="/">Home</Link></li>
+                    <li className="px-3 text-lg"><Link to="/">Products</Link></li>
+                    <li className="px-3 text-lg"><Link to="/">About</Link></li>
+                    <li className="px-3 text-lg"><Link to="/">My cart</Link></li>
+                    <li className="px-3 text-lg"><Link to="/">Contact us</Link></li>
+                    <li className="px-3 text-lg"><Link to="/login">Login/Register</Link></li>
                 </ul>
                 <div onClick={handleNav} className='block md:hidden '>
                     {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
@@ -31,9 +32,9 @@ const NavBar = () => {
                     <h1 className="w-full text-2xl font-bold  m-2 font-poppins "> Sri Amman Home Appliances </h1>
                     <ul className="uppercase p-4">
                         <li className="p-4 border-b border-gray-600"><Link to="/">Home</Link></li>
-
                         <li className="p-4 border-b border-gray-600"><Link to="/">Products</Link></li>
                         <li className="p-4 border-b border-gray-600"><Link to="/">About</Link></li>
+                        <li className="p-4 border-b border-gray-600"><Link to="/">Contact us</Link></li>
                         <li className="p-4 border-b border-gray-600"><Link to="/">My cart</Link></li>
                         <li className="p-4 border-b border-gray-600"><Link to="/">Login/register</Link></li>
 
