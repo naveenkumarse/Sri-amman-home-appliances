@@ -18,8 +18,8 @@ const Login =()=> {
             const jsonData = await res.json();
             console.log(jsonData)
             alert(jsonData.email)
-            const param = jsonData.email
-            if(jsonData.email == 'naveenelango.se@gmail.com'){
+            // const param = jsonData.email
+            if(jsonData.email === 'naveenelango.se@gmail.com'){
                 window.location = "/admin";              
             }else{
                 window.location = "/";
@@ -30,7 +30,7 @@ const Login =()=> {
     }
     return (
         <>
-               <div class="flex h-screen justify-center mt-7">
+               <div class="flex  justify-center mt-7">
                 <div class="w-full max-w-xs">
                     <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                         <div class="mb-4">
