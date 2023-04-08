@@ -9,6 +9,7 @@ import NavBar from './components/navbar/Navbar.js';
 import Login from './components/login/login.js';
 import Register from './components/login/register.js';
 import Description from './components/Description';
+import Cart from './components/Cart';
 
 
 
@@ -38,6 +39,12 @@ function App() {
             <div>
               <NavBar />
               <Description/>
+            </div>
+          } />
+            <Route path="/cart" element={
+            <div>
+              <NavBar />
+              <Cart/>
             </div>
           } />
         </Routes>
