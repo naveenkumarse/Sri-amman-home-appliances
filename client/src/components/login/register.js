@@ -82,7 +82,7 @@ const Register = () => {
                 headers: { "content-Type": "application/json" },
                 body: JSON.stringify(body)
             });
-            alert("Successfully logged in")
+            alert("Successfully logged in"+response.toString());
            window.location='/';
         } catch (err) {
             console.error(err.message);
