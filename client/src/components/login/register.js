@@ -40,10 +40,10 @@ const Register = () => {
             alert("state can't be empty")
             return;
         }
-        if (/^[A-Za-z]*$/.test(state) !== true ) {
-            alert('State must contain alphabets only')
-            return;
-          }
+        // if (/^[A-Za-z]*$/.test(state) !== true ) {
+        //     alert('State must contain alphabets only')
+        //     return;
+        //   }
         if(pincode.trim().length=== 0 )
         {
             alert("pincode can't be empty")
