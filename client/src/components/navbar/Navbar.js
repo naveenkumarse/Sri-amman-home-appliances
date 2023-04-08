@@ -18,7 +18,7 @@ const NavBar = () => {
                 <ul className="hidden md:flex ">
                     <li className="px-3 text-lg"><Link to="/">Home</Link></li>
                     <li className="px-3 text-lg"><Link to="/">Products</Link></li>
-                    <li className="px-3 text-lg"><Link to="/">About</Link></li>
+                    <li className="px-3 text-lg"><Link to="/description">About</Link></li>
                     <li className="px-3 text-lg"><Link to="/">My cart</Link></li>
                     <li className="px-3 text-lg"><Link to="/">Contact us</Link></li>
                     <li className="px-3 text-lg"><Link to="/login">Login/Register</Link></li>
