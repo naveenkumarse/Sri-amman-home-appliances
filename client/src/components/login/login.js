@@ -1,14 +1,15 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../protectedRoutes/UserContext";
 
 
-const Login =()=> {
-    const [email,setEmail] = useState("")
-    const [password,setPassword] = useState("")
-    
-    const {user,setUser} = useContext(UserContext);
-    const onLogin =async(e)=>{
+const Login = () => {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+    const { user, setUser } = useContext(UserContext);
+    const navigate = useNavigate();
+    const onLogin = async (e) => {
         e.preventDefault();
         try {
             const body = { email, password };
@@ -22,12 +23,12 @@ const Login =()=> {
             console.log(jsonData)
             alert(jsonData.email)
             // const param = jsonData.email
-            if(jsonData.email === 'naveenelango.se@gmail.com'){
-                window.location = "/admin";   
-                
-            }else{
-                window.location = "/";
-                setUser(jsonData.email);        
+            if (jsonData.email === 'naveenelango.se@gmail.com') {
+
+                //navigate("/description")
+            } else {
+                //navigate("/description")
+                setUser(jsonData.email);
             }
         } catch (err) {
             console.error(err.message);
@@ -35,14 +36,14 @@ const Login =()=> {
     }
     return (
         <>
-               <div class="flex  justify-center mt-7">
+            <div class="flex  justify-center mt-7">
                 <div class="w-full max-w-xs">
                     <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                         <div class="mb-4">
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                                 Username
                             </label>
-                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="email"  onChange={(e) => setEmail(e.target.value)} value={email}/>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="email" onChange={(e) => setEmail(e.target.value)} value={email} />
                         </div>
                         <br />
 
@@ -50,7 +51,7 @@ const Login =()=> {
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
                                 Password
                             </label>
-                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************"  onChange={(e) => setPassword(e.target.value)} value={password} />
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" onChange={(e) => setPassword(e.target.value)} value={password} />
                             {/* <p class="text-red-500 text-xs italic">Please enter a password.</p> */}
                         </div>
                         <br />
@@ -67,7 +68,7 @@ const Login =()=> {
                         &copy;If not Registered : <Link to="/register"><div style={{ color: 'red' }}>Register</div></Link>
                     </p>
                 </div>
-                </div>
+            </div>
         </>
     )
 }
