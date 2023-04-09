@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../protectedRoutes/UserContext";
+
 
 const Login =()=> {
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
-
+    
+    const {user,setUser} = useContext(UserContext);
     const onLogin =async(e)=>{
         e.preventDefault();
         try {
@@ -20,9 +23,11 @@ const Login =()=> {
             alert(jsonData.email)
             // const param = jsonData.email
             if(jsonData.email === 'naveenelango.se@gmail.com'){
-                window.location = "/admin";              
+                window.location = "/admin";   
+                
             }else{
                 window.location = "/";
+                setUser(jsonData.email);        
             }
         } catch (err) {
             console.error(err.message);
