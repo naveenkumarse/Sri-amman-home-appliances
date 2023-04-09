@@ -17,11 +17,11 @@ import { useState } from 'react';
 
 
 function App() {
-  const [user, setuser] = useState('');
+  const [user, setUser] = useState('');
   return (
     <div className="App">
       <HashRouter>
-        <UserContext.Provider value={{ user, setuser }}>
+        <UserContext.Provider value={{ user, setUser }}>
           <Routes>
 
             <Route path="/" element={
@@ -44,31 +44,32 @@ function App() {
             } />
 
 
-          
+            <Route element={<ProtectedRoutes />}>
               <Route path="/description" element={
                 <div>
-                  <ProtectedRoutes >
+
                   <NavBar />
                   <Description />
-                  </ProtectedRoutes>
                 </div>
               } />
+            </Route>
 
+            <Route element={<ProtectedRoutes />}>
               <Route path="/cart" element={
                 <div>
-                   <ProtectedRoutes >
-                  <NavBar />
-                  <Cart />
-                  </ProtectedRoutes>
+               
+                    <NavBar />
+                    <Cart />
+               
                 </div>
               } />
-           
+            </Route>
 
           </Routes>
         </UserContext.Provider>
 
       </HashRouter>
-    </div>
+    </div >
   );
 }
 

@@ -23,13 +23,14 @@ const Login = () => {
             console.log(jsonData)
             alert(jsonData.email)
             // const param = jsonData.email
-            if (jsonData.email === 'naveenelango.se@gmail.com') {
+            // if (jsonData.email === 'naveenelango.se@gmail.com') {
 
-                //navigate("/description")
-            } else {
-                //navigate("/description")
-                setUser(jsonData.email);
-            }
+            //     //navigate("/description")
+            // } else {
+            //navigate("/description")
+            await setUser(jsonData.email);
+            alert(user);
+            // }
         } catch (err) {
             console.error(err.message);
         }
