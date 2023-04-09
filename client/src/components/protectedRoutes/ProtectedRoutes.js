@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+
 import { UserContext } from "./UserContext";
+import Login from "../login/login";
+import NavBar from "../navbar/Navbar";
 
 
 const ProtectedRoutes = (children) => {
@@ -14,7 +16,7 @@ const ProtectedRoutes = (children) => {
         }
     }, [user])
 
-    return login ? children : <Navigate to="/login" />;
+    return login ? children : <div><NavBar/><Login/></div>;
 };
 
 export default ProtectedRoutes;
