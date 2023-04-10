@@ -16,7 +16,7 @@ const NavBar = () => {
                 <Link to="/"><h1 className="w-full text-2xl md:text-4xl  font-bold px-9 font-poppins "> Sri Amman Home Appliances </h1></Link>
 
                 <ul className="hidden md:flex ">
-                    <li className="px-3 text-lg"><Link to="/">Home</Link></li>
+                    <li className="px-3 text-lg"><Link to="/home">Home</Link></li>
                     <li className="px-3 text-lg"><Link to="/">Products</Link></li>
                     <li className="px-3 text-lg"><Link to="/description">About</Link></li>
                     <li className="px-3 text-lg"><Link to="/cart">My cart</Link></li>

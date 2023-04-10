@@ -13,6 +13,7 @@ import Cart from './components/Cart';
 import ProtectedRoutes from './components/protectedRoutes/ProtectedRoutes';
 import { UserContext } from './components/protectedRoutes/UserContext';
 import { useState } from 'react';
+import DashBoard from './components/home/dashboard';
 
 
 
@@ -27,6 +28,7 @@ function App() {
             <Route path="/" element={
               <div>
                 <NavBar />
+                <DashBoard />
               </div>
             } />
 
