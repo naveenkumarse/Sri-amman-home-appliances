@@ -8,7 +8,6 @@ const Filters = () => {
       <button className="btnStyle bg-black text-bblue">Refrigerator</button>
       <button className="btnStyle  bg-black text-bblue"> Washing Machine</button >
       <button className="btnStyle bg-black text-bblue">Grinder</button>
-
     </section >
   )
 }

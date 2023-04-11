@@ -11,17 +11,17 @@ const NavBar = () => {
     }
     return (
         <div className="flex justify-between items-center flex-wrap h-42 relative text-bblue bg-black">
-            <img className=" ml-5" alt="kec logo" style={{width:"calc(100%*0.09)"}} src = {logo} ></img> 
+            <img className=" ml-5" alt="kec logo" style={{ width: "calc(100%*0.09)" }} src={logo} ></img>
             <div className="text-dark flex justify-between items-center h-24 w-4/5 max-w-[1240px] ">
 
                 <Link to="/"><h1 className="w-full text-2xl md:text-4xl  font-bold font-poppins tracking-wide text-white "> Sri Amman Home Appliances </h1></Link>
 
                 <ul className="hidden md:flex ">
-                    <li className="px-3 text-lg"><Link to="/home">Home</Link></li>
+                    <li className="px-3 text-lg"><Link to="/">Home</Link></li>
                     <li className="px-3 text-lg"><Link to="/productlist">Products</Link></li>
-                    <li className="px-3 text-lg"><Link to="/about">About</Link></li>
-                    <li className="px-3 text-lg"><Link to="/cart">My cart</Link></li>
                     <li className="px-3 text-lg"><Link to="/">Contact us</Link></li>
+                    <li className="px-3 text-lg"><Link to="/cart">My cart</Link></li>
+
                     <li className="px-3 text-lg"><Link to="/login">Login/Register</Link></li>
                 </ul>
                 <div onClick={handleNav} className='block md:hidden '>
@@ -33,7 +33,7 @@ const NavBar = () => {
                     <ul className="uppercase p-4">
                         <li className="p-4 border-b border-gray-600"><Link to="/home">Home</Link></li>
                         <li className="p-4 border-b border-gray-600"><Link to="/productlist">Products</Link></li>
-                        <li className="p-4 border-b border-gray-600"><Link to="/description">About</Link></li>
+
                         <li className="p-4 border-b border-gray-600"><Link to="/cart">My cart</Link></li>
                         <li className="p-4 border-b border-gray-600"><Link to="/">Contact us</Link></li>
                         <li className="p-4 border-b border-gray-600"><Link to="/login">Login/register</Link></li>

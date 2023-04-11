@@ -1,9 +1,11 @@
 import React from "react";
 import img1 from "./../../assets/placeholder.png";
 import { Carousel } from "flowbite-react";
+import About from "../about/About";
 
 const DashBoard = () => {
   return (
+    <>
     <div className="flex mt-20 items-center justify-evenly">
       <div className="w-1/3">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque eveniet
@@ -43,7 +45,10 @@ const DashBoard = () => {
           />
         </Carousel>
       </div>
+     
     </div>
+    <About/>
+    </>
   );
 };
 

@@ -42,6 +42,69 @@ const product = [
     name: 'Samsung',
     description: 'Samsung RR24T287YCR/NL 230L 3 Star Inverter Direct-Cool Refrigerator',
     price: 25000
+  },
+  {
+    id: 7,
+    image: '7',
+    name: 'Bosch',
+    description: 'Bosch 7.5 Kg 5 Star Fully Automatic Top Load Washing Machine WOE753M0IN (Maroon)',
+    price: 18000
+  },
+  {
+    id: 8,
+    image: '8',
+    name: 'Whirlpool',
+    description: 'Whirlpool 7 kg Fully Automatic 5 Star, Hard Water wash,(WHITEMAGIC ELITE 7.0 GREY 10YMW)',
+    price: 19000
+  },
+  {
+    id: 9,
+    image: '9',
+    name: 'Panasonic',
+    description: 'Panasonic 8Kg Fully-Automatic Front Loading Washing Machine (Na-128Xb1w01, White)',
+    price: 15000
+  },
+  {
+    id: 10,
+    image: '10',
+    name: 'Rohinhood',
+    description: 'Panasonic 8Kg Fully-Automatic Front Loading Washing Machine (Na-128Xb1w01, White)',
+    price: 20000
+  },
+  {
+    id: 11,
+    image: '11',
+    name: 'LG',
+    description: 'LG 10.0 Kg Inverter Wi-Fi Fully-Automatic Top Loading Machine (THD10SWP,Stainless Steel)',
+    price: 22000
+  },
+  {
+    id: 12,
+    image: '12',
+    name: 'Samsung',
+    description: 'Samsung WW60R20EKMW/TL 6Kg Front Loading Washing Machine',
+    price: 26000
+  },
+  {
+    id: 13,
+    image: '13',
+    name: 'Maharaja',
+    description: 'Ultramax HD Black 1000W Mixer Grinder Online (Maharaja Whiteline)',
+    price: 4500
+  },
+  {
+    id: 14,
+    image: '14',
+    name: 'Preethi',
+    description: 'Preethi 150W Wet Grinder, Purple Color (1 Year Warrenty)',
+    price: 5000
+  },
+  {
+    id: 15,
+    image: '15',
+    name: 'Prestige',
+    description: 'Prestige Delight Mixer Grinder 750 W (With 3 Stainless Steel Jars)',
+    price: 4000
   }
 
 ]
