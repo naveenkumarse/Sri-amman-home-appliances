@@ -13,6 +13,7 @@ import MyFooter from "./components/footer/footer";
 import img1 from "./assets/placeholder.png";
 import ProductList from "./components/products/productList";
 import About from "./components/about/About";
+import Footer from "./components/footer/footer";
 function App() {
   
   // const [user, setUser] = useState("");
@@ -104,7 +105,7 @@ function App() {
               <div>
                 <NavBar />
                 <About/>
-                <Description/>
+                <Footer/>
               </div>
             }
           />
@@ -114,6 +115,7 @@ function App() {
               <div>
                 <NavBar />
                 <Cart />
+                <Footer/>
               </div>
             }
           />
