@@ -17,7 +17,7 @@ const NavBar = () => {
 
                 <ul className="hidden md:flex ">
                     <li className="px-3 text-lg"><Link to="/home">Home</Link></li>
-                    <li className="px-3 text-lg"><Link to="/">Products</Link></li>
+                    <li className="px-3 text-lg"><Link to="/productlist">Products</Link></li>
                     <li className="px-3 text-lg"><Link to="/description">About</Link></li>
                     <li className="px-3 text-lg"><Link to="/cart">My cart</Link></li>
                     <li className="px-3 text-lg"><Link to="/">Contact us</Link></li>
@@ -30,12 +30,12 @@ const NavBar = () => {
                 <div className={nav ? 'z-10 fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500 text-white' : 'fixed left-[-100%]'}>
                     <h1 className="w-full text-2xl font-bold  m-2 font-poppins "> Sri Amman Home Appliances </h1>
                     <ul className="uppercase p-4">
-                        <li className="p-4 border-b border-gray-600"><Link to="/">Home</Link></li>
-                        <li className="p-4 border-b border-gray-600"><Link to="/">Products</Link></li>
-                        <li className="p-4 border-b border-gray-600"><Link to="/">About</Link></li>
+                        <li className="p-4 border-b border-gray-600"><Link to="/home">Home</Link></li>
+                        <li className="p-4 border-b border-gray-600"><Link to="/productlist">Products</Link></li>
+                        <li className="p-4 border-b border-gray-600"><Link to="/description">About</Link></li>
+                        <li className="p-4 border-b border-gray-600"><Link to="/cart">My cart</Link></li>
                         <li className="p-4 border-b border-gray-600"><Link to="/">Contact us</Link></li>
-                        <li className="p-4 border-b border-gray-600"><Link to="/">My cart</Link></li>
-                        <li className="p-4 border-b border-gray-600"><Link to="/">Login/register</Link></li>
+                        <li className="p-4 border-b border-gray-600"><Link to="/login">Login/register</Link></li>
 
                     </ul>
                 </div>
