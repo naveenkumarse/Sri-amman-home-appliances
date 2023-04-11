@@ -7,8 +7,16 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'poppins': ['Poppins', 'sans-serif']
+        'poppins': ['Poppins', 'sans-serif'],
+        display:['Cinzel'],
+        body:['Poppins']
       },
+      colors: {
+        'lblue': '#E9F1FA',
+        'bblue': '#00ABE4',
+        'white': '#FFFFFF',
+
+      }
     },
   },
   plugins: [

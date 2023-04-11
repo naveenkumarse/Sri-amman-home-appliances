@@ -2,17 +2,19 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import arr from "../data/data";
 
+
 export default function Description() {
+
   const productid = useParams();
   const addCart = (product) => {
     product["count"] = 1;
     if (localStorage.getItem("cartdata")) {
       var appendProduct = JSON.parse(localStorage.getItem("cartdata"));
-      var count =  appendProduct.filter( (e) => e.productid === product.productid );
+      var count = appendProduct.filter((e) => e.productid === product.productid);
       // console.log(  );
-      if( count.length === 1 ){
+      if (count.length === 1) {
         alert("Already in cart");
-      }else {
+      } else {
         appendProduct.push(product);
         localStorage.setItem("cartdata", JSON.stringify(appendProduct));
       }
@@ -26,7 +28,7 @@ export default function Description() {
       arr.push(product);
       localStorage.setItem("cartdata", JSON.stringify(arr));
     }
-    // route to cart
+
   };
   return (
     <>
@@ -53,12 +55,12 @@ export default function Description() {
 
                     <div className="flex">
                       <span className="title-font font-medium text-2xl text-gray-900">
-                      ₹ {e.productprice}
+                        ₹ {e.productprice}
                       </span>
                       <button
                         onClick={() => addCart(e)}
-                        className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
-                      >
+                        className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" >
+
                         Add To Cart
                       </button>
                     </div>
@@ -68,6 +70,10 @@ export default function Description() {
             </section>
           );
         })}
+      
     </>
   );
 }
+
+
+

@@ -14,6 +14,8 @@ import img1 from "./assets/placeholder.png";
 import ProductList from "./components/products/productList";
 import About from "./components/about/About";
 import Footer from "./components/footer/footer";
+import Filters from "./components/listproducts/Filters";
+import Items from "./components/listproducts/Items";
 function App() {
   
   // const [user, setUser] = useState("");
@@ -58,10 +60,8 @@ function App() {
             <Route element={<ProtectedRoutes />}>
               <Route path="/cart" element={
                 <div>
-               
                     <NavBar />
                     <Cart />
-               
                 </div>
               } />
             </Route>
@@ -85,11 +85,15 @@ function App() {
             element={
               <div>
                 <NavBar />
-                <ProductList />
+                {/* <ProductList /> */}
+                <Filters />
+                <Items />
                 <MyFooter />
               </div>
             }
           />
+
+          
           <Route
             path="/register"
             element={
@@ -109,6 +113,13 @@ function App() {
               </div>
             }
           />
+          <Route path="/description/:param" element={
+                <div>
+
+                  <NavBar />
+                  <Description />
+                </div>
+              } />
           <Route
             path="/cart"
             element={
