@@ -12,7 +12,7 @@ import DashBoard from "./components/home/dashboard";
 import MyFooter from "./components/footer/footer";
 import img1 from "./assets/placeholder.png";
 import ProductList from "./components/products/productList";
-
+import About from "./components/about/About";
 function App() {
   
   // const [user, setUser] = useState("");
@@ -99,10 +99,11 @@ function App() {
             }
           />
           <Route
-            path="/description/:param"
+            path="/about"
             element={
               <div>
                 <NavBar />
+                <About/>
                 <Description/>
               </div>
             }

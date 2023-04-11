@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import About from "../about/About";
 
 const NavBar = () => {
     const [nav, setNav] = useState(false)
@@ -18,7 +19,7 @@ const NavBar = () => {
                 <ul className="hidden md:flex ">
                     <li className="px-3 text-lg"><Link to="/home">Home</Link></li>
                     <li className="px-3 text-lg"><Link to="/productlist">Products</Link></li>
-                    <li className="px-3 text-lg"><Link to="/description">About</Link></li>
+                    <li className="px-3 text-lg"><Link to="/about">About</Link></li>
                     <li className="px-3 text-lg"><Link to="/cart">My cart</Link></li>
                     <li className="px-3 text-lg"><Link to="/">Contact us</Link></li>
                     <li className="px-3 text-lg"><Link to="/login">Login/Register</Link></li>
