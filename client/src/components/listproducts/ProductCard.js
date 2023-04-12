@@ -1,8 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const ProductCard = ({ product }) => {
+  const { image, name, description, price, pid } = product
 
-  const { image, name, description, price } = product
+
+  const AddToCart = async () => {
+    
+    try {
+    
+      const body = { image, name, description, price, pid };
+      console.log(body);
+      const res = await fetch("http://localhost:8080/addtocart", {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+      });
+      const jsonData = await res.json();
+      console.log(jsonData)
+      alert("Successfully added to the cart!")
+
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
+
+
+
   return (
     <div className='rounded-2xl overflow-hidden  shadow-xl tranform hover:scale-110 duration-100'>
       <div className='w-full h-72'>
@@ -13,7 +36,7 @@ const ProductCard = ({ product }) => {
         <span className='font-body text-slate-500 block font-bold text-xl'>{name}</span>
         <center><span className='font-body text-slate-500 block my-3'>{description}</span></center>
         <span className='font-body text-slate-500'>₹{price}</span>
-        <button className='bg-black hover:bg-lblue hover:text-black text-bblue font-bold py-2 px-4 my-3 rounded-full'>Add to Cart </button>
+        <button className='bg-black hover:bg-lblue hover:text-black text-bblue font-bold py-2 px-4 my-3 rounded-full' onClick={AddToCart}>Add to Cart </button>
       </div>
     </div>
   )

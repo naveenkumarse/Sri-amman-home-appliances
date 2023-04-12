@@ -4,9 +4,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 const cors = require("cors")
 app.use(cors())
-const UserModel = require("./model");
-
-const ProductModel = require("./productModel")
+const UserModel = require("./model/model");
+const AddToCartModel = require("./model/AddToCartModel");
+const ProductModel = require("./model/productModel")
 // connecting with mongodb
 
 const mongoose = require("mongoose")
@@ -84,7 +84,6 @@ app.post("/addproducts", (req, res) => {
 
 
 //list product
-
 app.get("/listproducts", async (req, res) => {
     
     const data = await ProductModel.find({});
@@ -96,6 +95,34 @@ app.get("/listproducts", async (req, res) => {
     }
 });
 
+
+//Add to cart
+
+app.post("/addtocart", (req, res) => {
+    console.log(req.body)
+    const { image, pid, name, description, price } = req.body;
+
+    const addToCart = new AddToCartModel({
+        image,
+        pid,
+        name,
+        description,
+        price
+    })
+    addToCart.save();
+    res.send({ message: "Successfull added to cart" })
+})
+
+app.get("/mycart", async (req, res) => {
+    
+    const data = await AddToCartModel.find({});
+    if (data) {
+        console.log(data);
+        res.send(data);
+    } else {
+        res.send(err);
+    }
+});
 
 app.listen(8080, () => {
     console.log("Server is runing at port 8080")

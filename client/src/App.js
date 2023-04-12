@@ -17,6 +17,7 @@ import Footer from "./components/footer/footer";
 import Filters from "./components/listproducts/Filters";
 
 import AddProduct from "./pages/admin/AddProduct";
+import MyCart from "./components/listproducts/MyCart";
 function App() {
 
   const [user, setUser] = useState("");
@@ -87,7 +88,7 @@ function App() {
               <Route path="/cart" element={
                 <div>
                   <NavBar />
-                  <Cart />
+                  <MyCart />
                   <Footer />
                 </div>
               } />
