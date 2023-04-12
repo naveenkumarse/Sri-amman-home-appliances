@@ -40,7 +40,7 @@ function App() {
                   <NavBar />
                   {/* <ProductList /> */}
                   <Filters />
-                  <Items />
+                  {/* <Items /> */}
                   <MyFooter />
                 </div>
               }
