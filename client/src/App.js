@@ -15,7 +15,8 @@ import ProductList from "./components/products/productList";
 import About from "./components/about/About";
 import Footer from "./components/footer/footer";
 import Filters from "./components/listproducts/Filters";
-import Items from "./components/listproducts/Items";
+
+import AddProduct from "./pages/admin/AddProduct";
 function App() {
 
   const [user, setUser] = useState("");
@@ -50,6 +51,13 @@ function App() {
 
                 <NavBar />
                 <Description />
+              </div>
+            } />
+
+            <Route path="/admin" element={
+              <div>
+                <NavBar />
+                <AddProduct />
               </div>
             } />
 

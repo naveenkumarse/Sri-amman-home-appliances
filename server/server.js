@@ -5,6 +5,8 @@ app.use(express.urlencoded({ extended: false }))
 const cors = require("cors")
 app.use(cors())
 const UserModel = require("./model");
+
+const ProductModel = require("./productModel")
 // connecting with mongodb
 
 const mongoose = require("mongoose")
@@ -40,31 +42,59 @@ app.post("/signup", (req, res) => {
 
 
 //Login API
-app.post("/login", async(req, res) => {
+app.post("/login", async (req, res) => {
     console.log(req.body)
     const { email, password } = req.body
     const data = await UserModel.findOne({ email: email });
-        if(data){
+    if (data) {
 
-            if (data) {
-                if (password == data.password) {
-                    console.log(data)
-                    res.send(data)
-                }
-                else {
-                    res.send({ message: "Password didn't match" })
-                }
+        if (data) {
+            if (password == data.password) {
+                console.log(data)
+                res.send(data)
             }
-    
             else {
-                res.send("This email id is not register")
+                res.send({ message: "Password didn't match" })
             }
-
         }
+
+        else {
+            res.send("This email id is not register")
+        }
+
+    }
 });
 
-  
+// Add Products
+app.post("/addproducts", (req, res) => {
+    console.log(req.body)
+    const { image, pid, name, description, price } = req.body;
 
+    const product = new ProductModel({
+        image,
+        pid,
+        name,
+        description,
+        price
+    })
+    product.save();
+    res.send({ message: "Successfull Register" })
+
+})
+
+
+//list product
+
+app.get("/listproducts", async (req, res) => {
+    
+    const data = await ProductModel.find({});
+    if (data) {
+        console.log(data);
+        res.send(data);
+    } else {
+        res.send(err);
+    }
+});
 
 
 app.listen(8080, () => {
