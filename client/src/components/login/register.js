@@ -25,16 +25,16 @@ const Register = () => {
           alert('phone number must contain only number')
           return;
         }
-        if(phoneno.trim().length< 10 )
+        if(phoneno.trim().length<10 )
         {
             alert("enter correct phone number")
             return;
         }
-        if(password.trim().length < 8  )
-        {
-            alert("password must contain atleast 8 characters")
-            return;
-        }
+        // if(password.trim().length < 8  )
+        // {
+        //     alert("password must contain atleast 8 characters")
+        //     return;
+        // }
         if(state.trim().length=== 0 )
         {
             alert("state can't be empty")
@@ -70,9 +70,11 @@ const Register = () => {
         e.preventDefault()
        
       }
-      if(validation)
-      {
-    const onSignup = async(e) =>{
+     
+    function handleAddrTypeChange(e) {
+        setState(e.target.value);
+      }
+      const onSignup = async(e) =>{
         e.preventDefault();
         try {
             const body = { firstname,lastname,email,phoneno,password,streetname,city,state,pincode }; 
@@ -88,11 +90,6 @@ const Register = () => {
             console.error(err.message);
         }
     }
-}
-    function handleAddrTypeChange(e) {
-        setState(e.target.value);
-     
-      }
     return (
         <div class="flex h-screen justify-center mt-8">
             <form class="w-full max-w-lg" >
@@ -222,7 +219,7 @@ const Register = () => {
                 </div>
                 <br />
                 <div class="w-full justify-center px-3 mb-6 md:mb-0 ">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={validation} >
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={onSignup()} >
                         Register
                     </button>
 

@@ -10,7 +10,7 @@ const ProductModel = require("./model/productModel")
 // connecting with mongodb
 
 const mongoose = require("mongoose")
-mongoose.connect("mongodb+srv://Naveenkumar:darksoul@cluster0.d0joefb.mongodb.net/sahadb?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://shwethachandran:saha@cluster0.u2ae1kb.mongodb.net/sahadb?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
