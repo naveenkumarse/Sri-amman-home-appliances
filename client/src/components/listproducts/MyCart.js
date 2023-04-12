@@ -54,13 +54,25 @@ const MyCart = () => {
 
   useEffect(() => {
     onListCart()
+    UpdateTotal()
   }, []);
 
+  const UpdateTotal = () =>{
+    mycart.map((e)=>{
+      setSubtotal(subtotal+e.price);
+    })
+
+     setTotal(total + subtotal + 35 + 35);
+  }
+
+ 
+
+    
 
   return (
     <>
       <div
-        className="w-full h-full bg-black bg-opacity-50 top-0 overflow-y-auto overflow-x-hidden fixed sticky-0"
+        className="w-full h-full bg-black bg-opacity-50 top-0 overflow-y-auto overflow-x-hidden "
         id="chec-div"
       >
         <div
@@ -114,7 +126,7 @@ const MyCart = () => {
                       Total
                     </p>
                     <p className="text-2xl font-bold leading-normal text-right text-gray-800">
-                      ₹{total}
+                      ₹{ subtotal + 35 +35}
                     </p>
                   </div>
                   <button className="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white">
