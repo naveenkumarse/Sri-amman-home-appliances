@@ -18,6 +18,7 @@ import Filters from "./components/listproducts/Filters";
 
 import AddProduct from "./pages/admin/AddProduct";
 import MyCart from "./components/listproducts/MyCart";
+import Contact from "./components/contact/Contact";
 function App() {
 
   const [user, setUser] = useState("");
@@ -31,6 +32,14 @@ function App() {
               <div>
                 <NavBar />
                 <DashBoard />
+                <MyFooter />
+              </div>
+            } />
+
+            <Route path="/contact" element={
+              <div>
+                <NavBar />
+                <Contact />
                 <MyFooter />
               </div>
             } />
