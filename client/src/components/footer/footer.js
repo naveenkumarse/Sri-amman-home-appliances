@@ -175,7 +175,7 @@ export default function Footer() {
                 Our Details
               </h6>
               <p class="mb-4">
-                <a href="#!" class="text-neutral-600 dark:text-neutral-200"><Link to='/about'>About Us</Link> </a >
+                <a href="#!" class="text-neutral-600 dark:text-neutral-200"><Link to='/'>About Us</Link> </a >
               </p>
               <p class="mb-4">
                 <a href="#!" class="text-neutral-600 dark:text-neutral-200"><Link to='/productlist'>Contact</Link> </a>

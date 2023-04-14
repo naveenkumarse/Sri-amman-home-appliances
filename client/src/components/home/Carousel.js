@@ -3,7 +3,7 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 
 const MyCarousel =()=>{
-
+<br/>
     const slides = [
         {
           url: 'https://oasis.opstatics.com/content/dam/oasis/page/2023/in/kv-banner/40-y1s/HeroBanner_PC.jpg.thumb.webp',
@@ -42,7 +42,10 @@ const MyCarousel =()=>{
       };
     
       return (
-        <div className='max-w-5/12 h-[580px] w-full m-auto py-2 px-0  relative group'>
+        
+        <div className='max-w-5/12 h-[580px] w-full m-auto py-2 px-0  relative group ' data-carousel="slide" data-te-carousel-init
+        data-te-carousel-slide>
+          <  br/>
           <div
             style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
             className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
