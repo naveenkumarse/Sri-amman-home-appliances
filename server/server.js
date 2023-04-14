@@ -6,10 +6,12 @@ const cors = require("cors")
 app.use(cors())
 const UserModel = require("./model/model");
 const AddToCartModel = require("./model/AddToCartModel");
-const ProductModel = require("./model/productModel")
+const ProductModel = require("./model/productModel");
+const CounterModel = require("./model/counterModel");
 // connecting with mongodb
 
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
 mongoose.connect("mongodb+srv://shwethachandran:saha@cluster0.u2ae1kb.mongodb.net/sahadb?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -20,11 +22,34 @@ mongoose.connect("mongodb+srv://shwethachandran:saha@cluster0.u2ae1kb.mongodb.ne
 })
 
 // sign up API
-app.post("/signup", (req, res) => {
+app.post("/signup", async (req, res) => {
+    let userid;
+    const value = await CounterModel.findOneAndUpdate(
+        { id: "autoval" },
+        { "$inc": { "seq": 1 } },
+        { new: true })
+            
+                
+                if (value == null) {
+                    const newval = new CounterModel({ id: "autoval", seq: 1 })
+                    newval.save();
+                    userid = 1;
+                    
+                } else {
+                    userid = value.seq;
+                    console.log(value.seq);
+                }
+            
+        
+   
+
+
+
     console.log(req.body)
     const { firstname, lastname, email, phoneno, password, streetname, city, state, pincode } = req.body;
 
     const user = new UserModel({
+        userid,
         firstname,
         lastname,
         email,
@@ -43,8 +68,10 @@ app.post("/signup", (req, res) => {
 
 //Login API
 app.post("/login", async (req, res) => {
+
     console.log(req.body)
-    const { email, password } = req.body
+    const { email, password } = req.body;
+    // jwt.sign({id},"jwtwebtoken",{expiresIn: 300})
     const data = await UserModel.findOne({ email: email });
     if (data) {
 
@@ -85,7 +112,7 @@ app.post("/addproducts", (req, res) => {
 
 //list product
 app.get("/listproducts", async (req, res) => {
-    
+
     const data = await ProductModel.find({});
     if (data) {
         console.log(data);
@@ -114,7 +141,7 @@ app.post("/addtocart", (req, res) => {
 })
 
 app.get("/mycart", async (req, res) => {
-    
+
     const data = await AddToCartModel.find({});
     if (data) {
         console.log(data);
@@ -124,6 +151,32 @@ app.get("/mycart", async (req, res) => {
     }
 });
 
+
+//
+// const verifyJwt = (req,res,next) =>{
+//     const token = req.headers["access-token"];
+//     if(!token){
+//         return res.json("We need token please provide it for next time")
+//     }else{
+//         jwt.verify(token,"jwtSecretKey",(err,decoded)=>{
+//             if(err){
+//                 res.json("Not Authenticated");
+//             }else{
+//                 res.userId = decoded.id;
+//                 next();
+//             }
+//         })
+//     }
+// }
+
+/// localstorage.setItem("token",res.data.token);
+/// headers: {'access-token': localStorage.getItem("token");} // app.get 
 app.listen(8080, () => {
     console.log("Server is runing at port 8080")
 })
+
+
+// jwt.sign({ id }, "jwtwebtoken", { expiresIn: 300 })
+
+// return res.json({Login:true, token,data});
+
