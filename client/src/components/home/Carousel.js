@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 
@@ -24,7 +24,16 @@ const MyCarousel =()=>{
       ];
     
       const [currentIndex, setCurrentIndex] = useState(0);
-    
+      useEffect(()=>{
+        const timer=setTimeout(()=>{
+          if(currentIndex===4){
+            setCurrentIndex(0)
+          }else{
+            setCurrentIndex(currentIndex+1)
+          }
+        },5000)
+        return()=>clearTimeout(timer)
+      },[currentIndex])
       const prevSlide = () => {
         const isFirstSlide = currentIndex === 0;
         const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
@@ -43,7 +52,7 @@ const MyCarousel =()=>{
     
       return (
         
-        <div className='max-w-5/12 h-[580px] w-full m-auto py-2 px-0  relative group ' data-carousel="slide" data-te-carousel-init
+        <div className='max-w-5/12 h-[580px] w-full px-0  relative group ' data-carousel="slide" data-te-carousel-init
         data-te-carousel-slide>
           <  br/>
           <div
