@@ -7,10 +7,10 @@ import MyCarousel from "./Carousel";
 const DashBoard = () => {
   return (
     <>
-    <div className="py-0">
+    
       <MyCarousel/>
      
-    </div>
+   
     <About/>
     </>
   );
