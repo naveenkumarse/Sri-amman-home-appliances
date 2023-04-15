@@ -12,7 +12,7 @@ const ProtectedRoutes = (children) => {
     const { user } = useContext(UserContext);
     useEffect(() => {
         
-        if (user != '') {
+        if (user !== '') {
             setLogin(true);
         }
     }, [user])

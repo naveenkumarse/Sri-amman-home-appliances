@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import { AiOutlineAppstoreAdd } from "react-icons/ai";
+import React from "react";
+// import { AiOutlineAppstoreAdd } from "react-icons/ai";
 
 function Cart() {
   const products = JSON.parse(localStorage.getItem("cartdata"));
   var subtotal = 0;
   
-  products && products.map( (e) => {
-    subtotal += e.productprice ;
-  } );
+  products && products.array.forEach( (e) =>  subtotal += e.productprice );
   
   var total = 75+subtotal;
   
@@ -22,7 +20,7 @@ function Cart() {
   return (
     <>
       <div
-        className="w-full h-full bg-black bg-opacity-50 top-0 overflow-y-auto overflow-x-hidden fixed sticky-0"
+        className=" bg-black bg-opacity-50 top-0 -z-20 overflow-x-hidden"
         id="chec-div"
       >
         <div
@@ -38,49 +36,51 @@ function Cart() {
                 Your Cart
               </p>
               {products ? (
-                products.map((e) => (
-                  <div key={e.productid} className="md:flex items-center py-8 border-t border-gray-200">
-                    <div className="w-1/4">
-                      <img
-                        src={e.productimg}
-                        alt = "product img"
-                        className="w-full h-full object-center object-cover"
-                      />
-                    </div>
-                    <div className="md:pl-3 md:w-3/4 h-48 flex flex-col  justify-between ">
-                      <div className="flex w-full pt-1">
-                        <p className="text-sm leading-3 text-gray-800 md:pt-0 pt-4">
-                          {e.productid}
-                        </p>
-                      </div>
-                      <div className="flex items-center justify-between w-full pt-1">
-                        <p className="text-base font-black leading-none text-gray-800">
-                          {e.productname}
-                        </p>
-                        <div className="flex w-24 justify-between">
-                          <div className="border-2 w-1/3 mx-1 border-black">
-                            <button onClick={() =>minus(e)} >-</button>
-                          </div>
-                          <div className="border-2 w-1/3 mx-1 border-black">
-                            <p>{e.count}</p>
-                          </div>
-                          <div className="border-2	w-1/3 mx-1 border-black">
-                            <button onClick={() =>plus(e)}>+</button>
-                          </div >
-                        </div>
-                      </div>
-
-                      <p className=" text-xs leading-3 text-gray-600">
-                        {e.productdesc}
+                products.map((e) => {
+                  return <div key={e.productid} className="md:flex items-center py-8 border-t border-gray-200">
+                  <div className="w-1/4">
+                    <img
+                      src={e.productimg}
+                      alt = "product img"
+                      className="w-full h-full object-center object-cover"
+                    />
+                  </div>
+                  <div className="md:pl-3 md:w-3/4 h-48 flex flex-col  justify-between ">
+                    <div className="flex w-full pt-1">
+                      <p className="text-sm leading-3 text-gray-800 md:pt-0 pt-4">
+                        {e.productid}
                       </p>
-                      <div className="flex items-center justify-end pt-5 pr-6">
-                        <p className="text-base font-black leading-none text-gray-800">
-                          ₹{e.productprice}
-                        </p>
+                    </div>
+                    <div className="flex items-center justify-between w-full pt-1">
+                      <p className="text-base font-black leading-none text-gray-800">
+                        {e.productname}
+                      </p>
+                      <div className="flex w-24 justify-between">
+                        <div className="border-2 w-1/3 mx-1 border-black">
+                          <button onClick={() =>minus(e)} >-</button>
+                        </div>
+                        <div className="border-2 w-1/3 mx-1 border-black">
+                          <p>{e.count}</p>
+                        </div>
+                        <div className="border-2	w-1/3 mx-1 border-black">
+                          <button onClick={() =>plus(e)}>+</button>
+                        </div >
                       </div>
+                    </div>
+
+                    <p className=" text-xs leading-3 text-gray-600">
+                      {e.productdesc}
+                    </p>
+                    <div className="flex items-center justify-end pt-5 pr-6">
+                      <p className="text-base font-black leading-none text-gray-800">
+                        ₹{e.productprice}
+                      </p>
                     </div>
                   </div>
-                ))
+                </div>
+                } 
+                
+                )
               ) : (
                 <div> No Items In Cart </div>
               )}

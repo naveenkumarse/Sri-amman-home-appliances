@@ -11,65 +11,65 @@ const Register = () => {
     const [city, setCity] = useState('');
     const [state, setState] = useState('Tamil Nadu');
     const [pincode, setPincode] = useState('')
-    const validation = (e) => {
-        if (/^[A-Za-z]*$/.test(firstname) !== true ) {
-          alert('Name must contain alphabets only')
-          return;
-        }
-        if(firstname.trim().length=== 0 )
-        {
-            alert("name can't be empty")
-            return;
-        }
-        if (isNaN(phoneno)) {
-          alert('phone number must contain only number')
-          return;
-        }
-        if(phoneno.trim().length<10 )
-        {
-            alert("enter correct phone number")
-            return;
-        }
-        // if(password.trim().length < 8  )
-        // {
-        //     alert("password must contain atleast 8 characters")
-        //     return;
-        // }
-        if(state.trim().length=== 0 )
-        {
-            alert("state can't be empty")
-            return;
-        }
-        // if (/^[A-Za-z]*$/.test(state) !== true ) {
-        //     alert('State must contain alphabets only')
-        //     return;
-        //   }
-        if(pincode.trim().length=== 0 )
-        {
-            alert("pincode can't be empty")
-            return;
-        }
-        if(city.trim().length=== 0 )
-        {
-            alert("city can't be empty")
-            return;
-        }
-        if (/^[A-Za-z]*$/.test(city) !== true ) {
-            alert('City must contain alphabets only')
-            return;
-          }
-        if(streetname.trim().length=== 0 )
-        {
-            alert("street name can't be empty")
-            return;
-        }
-        if (isNaN(pincode)) {
-            alert('pincode must contain only number')
-            return;
-          }
-        e.preventDefault()
+    // const validation = (e) => {
+    //     if (/^[A-Za-z]*$/.test(firstname) !== true ) {
+    //       alert('Name must contain alphabets only')
+    //       return;
+    //     }
+    //     if(firstname.trim().length=== 0 )
+    //     {
+    //         alert("name can't be empty")
+    //         return;
+    //     }
+    //     if (isNaN(phoneno)) {
+    //       alert('phone number must contain only number')
+    //       return;
+    //     }
+    //     if(phoneno.trim().length<10 )
+    //     {
+    //         alert("enter correct phone number")
+    //         return;
+    //     }
+    //     // if(password.trim().length < 8  )
+    //     // {
+    //     //     alert("password must contain atleast 8 characters")
+    //     //     return;
+    //     // }
+    //     if(state.trim().length=== 0 )
+    //     {
+    //         alert("state can't be empty")
+    //         return;
+    //     }
+    //     // if (/^[A-Za-z]*$/.test(state) !== true ) {
+    //     //     alert('State must contain alphabets only')
+    //     //     return;
+    //     //   }
+    //     if(pincode.trim().length=== 0 )
+    //     {
+    //         alert("pincode can't be empty")
+    //         return;
+    //     }
+    //     if(city.trim().length=== 0 )
+    //     {
+    //         alert("city can't be empty")
+    //         return;
+    //     }
+    //     if (/^[A-Za-z]*$/.test(city) !== true ) {
+    //         alert('City must contain alphabets only')
+    //         return;
+    //       }
+    //     if(streetname.trim().length=== 0 )
+    //     {
+    //         alert("street name can't be empty")
+    //         return;
+    //     }
+    //     if (isNaN(pincode)) {
+    //         alert('pincode must contain only number')
+    //         return;
+    //       }
+    //     e.preventDefault()
        
-      }
+    //   }
      
     function handleAddrTypeChange(e) {
         setState(e.target.value);

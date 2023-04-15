@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 const ProductCard = ({ product }) => {
   const { image, name, description, price, pid } = product

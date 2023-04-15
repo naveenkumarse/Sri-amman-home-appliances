@@ -164,7 +164,7 @@ const Filters = () => {
       </div>
       <section className='w-5/6 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16 my-10 py-10'>
         {
-          products.filter(product => product.pid == pid).map((filterproduct) => {
+          products.filter(product => product.pid === pid).map((filterproduct) => {
             return <ProductCard key={filterproduct.id} product={filterproduct} />
           })
         }

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { UserContext } from "../protectedRoutes/UserContext";
 
 
@@ -8,7 +8,7 @@ const Login = () => {
     const [password, setPassword] = useState("")
 
     const { user, setUser } = useContext(UserContext);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const onLogin = async (e) => {
         e.preventDefault();
         try {

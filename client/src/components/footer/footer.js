@@ -44,10 +44,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
-  return (
-    <>
-      <footer
-        class="text-center text-bblue bg-black lg:text-left">
+  return <footer
+        class="z-20 text-center text-bblue bg-black lg:text-left">
         <div
           class="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
           <div class="mr-12 hidden lg:block">
@@ -253,6 +251,6 @@ export default function Footer() {
           >
         </div>
       </footer>
-    </>
-  )
+    
+  
 }

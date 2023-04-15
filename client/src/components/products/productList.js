@@ -11,19 +11,19 @@ const ProductList = () => {
           className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow"
           key={e.productid}
         >
-          <a href="#">
+          {/* <a href="#"> */}
             <img
               className="mx-auto my-3 rounded-t-lg"
               src={e.productimg}
-              alt="product image"
+              alt="productimage"
             />
-          </a>
+          {/* </a> */}
           <div className="px-5 pb-5">
-            <a href="#">
+            {/* <a href="#"> */}
               <h5 className="text-xl font-semibold tracking-tight text-gray-900 ">
                 {e.productname}
               </h5>
-            </a>
+            {/* </a> */}
             <div className="flex items-center justify-between mt-9">
               <span className="text-3xl font-bold text-gray-900 ">
                 {e.productprice}

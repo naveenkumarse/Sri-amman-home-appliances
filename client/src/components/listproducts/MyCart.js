@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { AiOutlineAppstoreAdd } from "react-icons/ai";
+// import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import CartCard from "./CartCard";
-import NavBar from "../navbar/Navbar";
+// import NavBar from "../navbar/Navbar";
 
 // function Cart() {
 
