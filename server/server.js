@@ -4,14 +4,16 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 const cors = require("cors")
 app.use(cors())
-const UserModel = require("./model/model");
+
 const AddToCartModel = require("./model/AddToCartModel");
 const ProductModel = require("./model/productModel");
-const CounterModel = require("./model/counterModel");
+// const CounterModel = require("./model/counterModel");
 // connecting with mongodb
 
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
+const {  SignUp, Login } = require("./controllers/user");
+const { AddProduct, ListProduct } = require("./controllers/product");
 mongoose.connect("mongodb+srv://shwethachandran:saha@cluster0.u2ae1kb.mongodb.net/sahadb?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -22,134 +24,26 @@ mongoose.connect("mongodb+srv://shwethachandran:saha@cluster0.u2ae1kb.mongodb.ne
 })
 
 // sign up API
-app.post("/signup", async (req, res) => {
-    let userid;
-    const value = await CounterModel.findOneAndUpdate(
-        { id: "autoval" },
-        { "$inc": { "seq": 1 } },
-        { new: true })
-            
-                
-                if (value == null) {
-                    const newval = new CounterModel({ id: "autoval", seq: 1 })
-                    newval.save();
-                    userid = 1;
-                    
-                } else {
-                    userid = value.seq;
-                    console.log(value.seq);
-                }
-            
-        
-   
-
-
-
-    console.log(req.body)
-    const { firstname, lastname, email, phoneno, password, streetname, city, state, pincode } = req.body;
-
-    const user = new UserModel({
-        userid,
-        firstname,
-        lastname,
-        email,
-        phoneno,
-        password,
-        streetname,
-        city,
-        state,
-        pincode
-    })
-    user.save();
-    res.send({ message: "Successfull Register" })
-
-})
+app.post("/signup",SignUp)
 
 
 //Login API
-app.post("/login", async (req, res) => {
+app.post("/login",Login);
 
-    console.log(req.body)
-    const { email, password } = req.body;
-    // jwt.sign({id},"jwtwebtoken",{expiresIn: 300})
-    const data = await UserModel.findOne({ email: email });
-    if (data) {
-
-        if (data) {
-            if (password == data.password) {
-                console.log(data)
-                res.send(data)
-            }
-            else {
-                res.send({ message: "Password didn't match" })
-            }
-        }
-
-        else {
-            res.send("This email id is not register")
-        }
-
-    }
-});
 
 // Add Products
-app.post("/addproducts", (req, res) => {
-    console.log(req.body)
-    const { image, pid, name, description, price } = req.body;
-
-    const product = new ProductModel({
-        image,
-        pid,
-        name,
-        description,
-        price
-    })
-    product.save();
-    res.send({ message: "Successfull Register" })
-
-})
+app.post("/addproducts", AddProduct);
 
 
 //list product
-app.get("/listproducts", async (req, res) => {
-
-    const data = await ProductModel.find({});
-    if (data) {
-        console.log(data);
-        res.send(data);
-    } else {
-        res.send(err);
-    }
-});
+app.get("/listproducts", ListProduct);
 
 
 //Add to cart
 
-app.post("/addtocart", (req, res) => {
-    console.log(req.body)
-    const { image, pid, name, description, price } = req.body;
+app.post("/addtocart",AddProduct )
 
-    const addToCart = new AddToCartModel({
-        image,
-        pid,
-        name,
-        description,
-        price
-    })
-    addToCart.save();
-    res.send({ message: "Successfull added to cart" })
-})
-
-app.get("/mycart", async (req, res) => {
-
-    const data = await AddToCartModel.find({});
-    if (data) {
-        console.log(data);
-        res.send(data);
-    } else {
-        res.send(err);
-    }
-});
+app.get("/mycart", ListProduct);
 
 
 //
