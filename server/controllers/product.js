@@ -1,6 +1,6 @@
 const Product = require('../model/productModel');
 
-exports.AddProduct = async(req,res)=>{
+exports.CreateProduct = async(req,res)=>{
     console.log(req.body)
     const { image, pid, name, description, price } = req.body;
 

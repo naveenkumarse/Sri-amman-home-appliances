@@ -10,8 +10,8 @@ app.use(cors())
 const mongoose = require("mongoose");
 // const jwt = require("jsonwebtoken");
 const {  SignUp, Login, ListUser } = require("./controllers/user");
-const { AddProduct, ListProduct, UpdateProduct, DeleteProduct } = require("./controllers/product");
-const { ListAllOrder, ListMyOrder, ListMycart } = require("./controllers/order");
+const {  ListProduct, UpdateProduct, DeleteProduct, CreateProduct } = require("./controllers/product");
+const { ListAllOrder, ListMyOrder, ListMycart, AddOrder } = require("./controllers/order");
 mongoose.connect("mongodb+srv://shwethachandran:saha@cluster0.u2ae1kb.mongodb.net/sahadb?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -32,14 +32,14 @@ app.post("/login",Login);
 app.get("/admin/listuser",ListUser);
 
 // Add Products
-app.post("/addproducts", AddProduct);
+app.post("/addproducts", CreateProduct);
 
 //list product
 app.get("/listproducts", ListProduct);
 
 //Add to cart
 
-app.post("/addtocart",AddProduct )
+app.post("/addtocart",AddOrder )
 
 //List all products
 
