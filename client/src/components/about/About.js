@@ -49,82 +49,82 @@ const About = () => {
       <div>
         <br />
 
-        <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-          <div class="rounded overflow-hidden shadow-lg hover:shadow-xl">
+        <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+          <div className="rounded overflow-hidden shadow-lg hover:shadow-xl">
             <img
-              class="w-full transform h-64 bg-blue-400 w-100   transition duration-500 hover:scale-125  hover:bg-blue-600 flex justify-center items-center"
+              className="w-full transform h-64 bg-blue-400 w-100   transition duration-500 hover:scale-125  hover:bg-blue-600 flex justify-center items-center"
               src="https://images.samsung.com/is/image/samsung/assets/levant/p6_gro2/p6_initial_explore_detail/wellbeing/3-ways-parents-can-boost-their-familys-digital-security/im0064_article-thumbnail_pc_1440x960.jpg"
               alt="Mountain"
             />
-            <div class="px-6 py-9 ">
-              <div class="font-bold text-xl mb-2">
+            <div className="px-6 py-9 ">
+              <div className="font-bold text-xl mb-2">
                 Making Home a feel good place
               </div>
 
-              {/* <p class="text-gray-700 text-base">
+              {/* <p className="text-gray-700 text-base">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
         </p> */}
             </div>
-            <div class="px-6 pt-4 pb-2">
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+            <div className="px-6 pt-4 pb-2">
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 #photography
               </span>
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 #travel
               </span>
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 #winter
               </span>
             </div>
           </div>
 
-          <div class="rounded overflow-hidden shadow-lg hover:shadow-2xl">
+          <div className="rounded overflow-hidden shadow-lg hover:shadow-2xl">
             <img
-              class="w-full transform h-64 bg-blue-400 w-100 transition duration-500 hover:scale-125  hover:bg-blue-600 flex justify-center items-center"
+              className="w-full transform h-64 bg-blue-400 w-100 transition duration-500 hover:scale-125  hover:bg-blue-600 flex justify-center items-center"
               src="https://images.samsung.com/is/image/samsung/assets/levant/p6_gro2/p6_initial_explore_detail/life-hacks/bring-art-home/920x613_3.jpg"
               alt="River"
             />
-            <div class="px-6 py-9">
-              <div class="font-bold text-xl mb-2">
+            <div className="px-6 py-9">
+              <div className="font-bold text-xl mb-2">
                 Capture The Galaxy with #Galaxy
               </div>
-              {/* <p class="text-gray-700 text-base">
+              {/* <p className="text-gray-700 text-base">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
         </p> */}
             </div>
-            <div class="px-6 pt-4 pb-2">
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+            <div className="px-6 pt-4 pb-2">
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 #brand
               </span>
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 #innovation
               </span>
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 #inspiration
               </span>
             </div>
           </div>
 
-          <div class="rounded overflow-hidden shadow-lg hover:shadow-2xl">
+          <div className="rounded overflow-hidden shadow-lg hover:shadow-2xl">
             <img
-              class="w-full transform h-64 bg-blue-400 w-100 transition duration-500 hover:scale-125  hover:bg-blue-600 flex justify-center items-center"
+              className="w-full transform h-64 bg-blue-400 w-100 transition duration-500 hover:scale-125  hover:bg-blue-600 flex justify-center items-center"
               src="https://images.samsung.com/is/image/samsung/assets/levant/p6_gro2/capture-the-galaxy-withgalaxy/im0073_article-thumbnail_pc_1440x960.jpg"
               alt="Forest"
             />
-            <div class="px-6 py-9">
-              <div class="font-bold text-xl mb-2">Make Living Easy</div>
-              {/* <p class="text-gray-700 text-base">
+            <div className="px-6 py-9">
+              <div className="font-bold text-xl mb-2">Make Living Easy</div>
+              {/* <p className="text-gray-700 text-base">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
         </p> */}
             </div>
-            <div class="px-6 pt-4 pb-2">
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+            <div className="px-6 pt-4 pb-2">
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 #life_hacks
               </span>
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 #social_value
               </span>
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 #tips
               </span>
             </div>
@@ -149,12 +149,12 @@ const About = () => {
           <p className="font-normal text-base leading-6 text-gray-600 ">
             <br />
             <pre> </pre>
-            <hr />
+            {/* <hr /> */}
             <p>
               {" "}
               <b>Living Doesn't Have To Be Hard.</b>
             </p>
-            <hr />
+            {/* <hr /> */}
             <br /> <br />
             We strive to deliver the greatest possible customer benefit through
             our products and services with the highest safety standards, minimal
