@@ -7,7 +7,6 @@ const ProductCard = ({ product }) => {
   const AddToCart = async () => {
     
     try {
-    
       const body = { image, name, description, price, pid };
       console.log(body);
       const res = await fetch("http://localhost:8080/addtocart", {

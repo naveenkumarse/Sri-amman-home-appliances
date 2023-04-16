@@ -98,7 +98,7 @@ function App() {
               <Route path="/cart" element={
                 <div>
                   <NavBar />
-                  <MyCart />
+                  {/* <MyCart /> */}
                   <Footer />
                 </div>
               } />
