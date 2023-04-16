@@ -1,16 +1,16 @@
 const Product = require('../model/productModel');
 
-exports.AddProduct = async(req,res)=>{
+exports.CreateProduct = async(req,res)=>{
     console.log(req.body)
     const { image, pid, name, description, price } = req.body;
 
     const product = new Product({
         image,
-        pid,
+        
         name,
         description,
         price,
-        placeorder
+        
     })
     product.save();
     res.send({ message: "Successfull Register" })
