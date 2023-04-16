@@ -55,7 +55,7 @@ app.delete("/product/deleteone",DeleteProduct);//checked
 
 // Order products
 
-app.get("/admin/listOrder",ListAllOrder);//checked
+app.get("/admin/listorder",ListAllOrder);//checked
 
 app.post("/user/listmycart",ListMycart); //checked 
 

@@ -2,7 +2,7 @@ const Order = require('../model/OrderModel');
 
 exports.AddOrder = async (req, res) => {
     console.log(req.body)
-    const { image,uid,cid, pid, name, description, price,success } = req.body;
+    const { image, uid, cid, pid, name, description, price,success } = req.body;
 
     const addToCart = new Order({
         image,
