@@ -12,7 +12,7 @@ const ProductModel = require("./model/productModel");
 
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
-const {  SignUp, Login } = require("./controllers/user");
+const {  SignUp, Login, ListUser } = require("./controllers/user");
 const { AddProduct, ListProduct } = require("./controllers/product");
 mongoose.connect("mongodb+srv://shwethachandran:saha@cluster0.u2ae1kb.mongodb.net/sahadb?retryWrites=true&w=majority", {
     useNewUrlParser: true,
@@ -29,6 +29,11 @@ app.post("/signup",SignUp)
 
 //Login API
 app.post("/login",Login);
+
+// Get all user 
+
+app.get("/admin/listuser",ListUser);
+
 
 
 // Add Products

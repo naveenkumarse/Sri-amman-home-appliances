@@ -28,3 +28,34 @@ exports.ListProduct= async(req,res)=>{
     }
 }
 
+
+exports.DeleteProduct = async (req,res)=>{
+    try {
+        await Product.deleteOne(req.body.id);
+        res.status(200).json({
+            msg: 'deleted'
+        })
+    } catch (err) {
+        res.status(500).json({
+            msg: 'server internal error'
+        })
+    }
+}
+
+
+exports.UpdateProduct =async(req,res)=>{
+    try {
+        const myquery = req.body.id;
+        const {}
+
+        const value = req.body;
+       
+        res.status(200).json({
+            msg: 'updated'
+        })
+    } catch (err) {
+        res.status(500).json({
+            msg: 'Server internal error'
+        })
+    }
+}

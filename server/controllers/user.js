@@ -61,3 +61,17 @@ exports.Login = async (req, res) => {
 
     }
 }
+
+exports.ListUser=async(req,res)=>{
+    try {
+        const expense = await User.find();
+        // console.log(expenses);
+        return res.status(200).json({
+            data: expense,
+            length: expense.length
+        })
+    } catch (error) {
+        return res.send(error);
+    }
+}
+
