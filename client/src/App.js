@@ -20,6 +20,8 @@ import AddProduct from "./pages/admin/AddProduct";
 import MyCart from "./components/listproducts/MyCart";
 import Contact from "./components/contact/Contact";
 import AdminProductList from "./pages/admin/adminProductList";
+import AdminNavBar from "./components/navbar/AdminNavbar";
+import AdminFilters from "./pages/admin/AdminFilters";
 function App() {
 
   const [user, setUser] = useState("");
@@ -67,8 +69,9 @@ function App() {
 
             <Route path="/admin" element={
               <div>
-                <NavBar />
+                <AdminNavBar />
                 <AddProduct />
+                <Footer />
               </div>
             } />
 
@@ -106,8 +109,9 @@ function App() {
 
               <Route path="/adminProductList" element={
                 <div>
-                  <NavBar />
-                  <AdminProductList />
+                  <AdminNavBar />
+                  <AdminFilters />
+                  {/* <AdminProductList /> */}
                   <Footer />
                 </div>
               } />
