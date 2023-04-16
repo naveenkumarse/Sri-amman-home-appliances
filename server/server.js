@@ -22,40 +22,40 @@ mongoose.connect("mongodb+srv://shwethachandran:saha@cluster0.u2ae1kb.mongodb.ne
 })
 
 // sign up API
-app.post("/signup",SignUp)
+app.post("/signup",SignUp)//checked
 
 //Login API
-app.post("/login",Login);
+app.post("/login",Login);//checked
 
 // Get all user 
 
-app.get("/admin/listuser",ListUser);
+app.get("/admin/listuser",ListUser);//checked
 
 // Add Products
-app.post("/addproducts", CreateProduct);
+app.post("/addproducts", CreateProduct);//checked
 
 //list product
-app.get("/listproducts", ListProduct);
+app.get("/listproducts", ListProduct);//checked
 
 //Add to cart
 
-app.post("/addtocart",AddOrder )
+app.post("/addtocart",AddOrder );//result came but not added to cart
 
 //List all products
 
-app.get("/mycart", ListProduct);
+app.get("/mycart", ListProduct);//checked
 
 //update product
 
-app.put("/product/updateone",UpdateProduct);
+app.put("/product/updateone",UpdateProduct);//checked
 
 // delete product 
 
-app.delete("/product/deleteone",DeleteProduct);
+app.delete("/product/deleteone",DeleteProduct);//checked
 
 // Order products
 
-app.post("/admin/listOrder",ListAllOrder);
+app.get("/admin/listOrder",ListAllOrder);//checked
 
 app.get("/user/listmycart",ListMycart);
 
