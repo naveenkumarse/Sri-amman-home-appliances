@@ -6,11 +6,11 @@ exports.CreateProduct = async(req,res)=>{
 
     const product = new Product({
         image,
-        pid,
+        
         name,
         description,
         price,
-        placeorder
+        
     })
     product.save();
     res.send({ message: "Successfull Register" })
