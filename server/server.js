@@ -5,15 +5,12 @@ app.use(express.urlencoded({ extended: false }))
 const cors = require("cors")
 app.use(cors())
 
-const AddToCartModel = require("./model/AddToCartModel");
-const ProductModel = require("./model/productModel");
-// const CounterModel = require("./model/counterModel");
 // connecting with mongodb
 
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const {  SignUp, Login, ListUser } = require("./controllers/user");
-const { AddProduct, ListProduct } = require("./controllers/product");
+const { AddProduct, ListProduct, UpdateProduct, DeleteProduct } = require("./controllers/product");
 mongoose.connect("mongodb+srv://shwethachandran:saha@cluster0.u2ae1kb.mongodb.net/sahadb?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -26,7 +23,6 @@ mongoose.connect("mongodb+srv://shwethachandran:saha@cluster0.u2ae1kb.mongodb.ne
 // sign up API
 app.post("/signup",SignUp)
 
-
 //Login API
 app.post("/login",Login);
 
@@ -34,22 +30,28 @@ app.post("/login",Login);
 
 app.get("/admin/listuser",ListUser);
 
-
-
 // Add Products
 app.post("/addproducts", AddProduct);
 
-
 //list product
 app.get("/listproducts", ListProduct);
-
 
 //Add to cart
 
 app.post("/addtocart",AddProduct )
 
+//List all products
+
 app.get("/mycart", ListProduct);
 
+
+//update product
+
+app.put("/product/updateone",UpdateProduct);
+
+// delete product 
+
+app.delete("/product/deleteone",DeleteProduct);
 
 //
 // const verifyJwt = (req,res,next) =>{
