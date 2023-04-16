@@ -44,9 +44,11 @@ exports.DeleteProduct = async (req,res)=>{
 
 exports.UpdateProduct =async(req,res)=>{
     try {
-        const myquery = req.body.id;    
+        const myquery = req.body._id;    
         const value = req.body;
-        await Product.updateOne(myquery, value);
+        console.log(myquery)
+        console.log(value)
+        await Product.updateOne({"_id":myquery}, value);
         res.status(200).json({
             msg: 'updated'
         })
