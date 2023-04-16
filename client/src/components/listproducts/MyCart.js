@@ -39,7 +39,7 @@ const MyCart = () => {
   const onListCart = async (callback) => {
    
     try {
-      const response = await fetch("http://localhost:8080/mycart");
+      const response = await fetch("http://localhost:8080/user/listmycart");
       console.log(response);
       if (response) {
         const res = await response.json();

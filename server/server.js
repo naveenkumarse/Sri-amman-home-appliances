@@ -43,7 +43,7 @@ app.post("/addtocart",AddOrder )
 
 //List all products
 
-app.get("/mycart", ListProduct);
+
 
 //update product
 

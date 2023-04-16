@@ -19,7 +19,7 @@ import Filters from "./components/listproducts/Filters";
 import AddProduct from "./pages/admin/AddProduct";
 import MyCart from "./components/listproducts/MyCart";
 import Contact from "./components/contact/Contact";
-import AdminProductList from "./pages/admin/adminProductList";
+
 import AdminNavBar from "./components/navbar/AdminNavbar";
 import AdminFilters from "./pages/admin/AdminFilters";
 function App() {
@@ -101,7 +101,7 @@ function App() {
               <Route path="/cart" element={
                 <div>
                   <NavBar />
-                  {/* <MyCart /> */}
+                  <MyCart />
                   <Footer />
                 </div>
               } />

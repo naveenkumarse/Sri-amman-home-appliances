@@ -1,13 +1,13 @@
 import React from 'react'
 
 const ProductCard = ({ product }) => {
-  const { image, name, description, price, pid } = product
-
+  const { image, name, description, price, pid, id } = product
+ 
 
   const AddToCart = async () => {
-    
+    alert(id);
     try {
-      const body = { image, name, description, price, pid };
+      const body = { image, name, description, price, pid ,};
       console.log(body);
       const res = await fetch("http://localhost:8080/addtocart", {
         method: "POST",
