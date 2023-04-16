@@ -19,6 +19,7 @@ import Filters from "./components/listproducts/Filters";
 import AddProduct from "./pages/admin/AddProduct";
 import MyCart from "./components/listproducts/MyCart";
 import Contact from "./components/contact/Contact";
+import AdminProductList from "./pages/admin/adminProductList";
 function App() {
 
   const [user, setUser] = useState("");
@@ -103,6 +104,13 @@ function App() {
               } />
             </Route>
 
+              <Route path="/adminProductList" element={
+                <div>
+                  <NavBar />
+                  <AdminProductList />
+                  <Footer />
+                </div>
+              } />
           </Routes>
         </UserContext.Provider>
       </HashRouter>
