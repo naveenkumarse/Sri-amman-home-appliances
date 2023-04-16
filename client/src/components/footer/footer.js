@@ -81,8 +81,8 @@ export default function Footer() {
                 viewBox="0 0 24 24">
                 <path
                   d="M7 11v2.4h3.97c-.16 1.029-1.2 3.02-3.97 3.02-2.39 0-4.34-1.979-4.34-4.42 0-2.44 1.95-4.42 4.34-4.42 1.36 0 2.27.58 2.79 1.08l1.9-1.83c-1.22-1.14-2.8-1.83-4.69-1.83-3.87 0-7 3.13-7 7s3.13 7 7 7c4.04 0 6.721-2.84 6.721-6.84 0-.46-.051-.81-.111-1.16h-6.61zm0 0 17 2h-3v3h-2v-3h-3v-2h3v-3h2v3h3v2z"
-                  fill-rule="evenodd"
-                  clip-rule="evenodd" />
+                  fillRule="evenodd"
+                  clipRule="evenodd" />
               </svg>
             </a>
             <a href="#!" class="mr-6 text-neutral-600 dark:text-neutral-200">
@@ -209,9 +209,9 @@ export default function Footer() {
                   fill="currentColor"
                   class="mr-3 h-5 w-5">
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
-                    clip-rule="evenodd" />
+                    clipRule="evenodd" />
                 </svg>
                 9944607077
               </p>
@@ -223,9 +223,9 @@ export default function Footer() {
                   fill="currentColor"
                   class="mr-3 h-5 w-5">
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
-                    clip-rule="evenodd" />
+                    clipRule="evenodd" />
                 </svg>
                 9944963499
               </p>
