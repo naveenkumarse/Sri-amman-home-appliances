@@ -4,10 +4,6 @@ const ProductSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
-    pid: {
-      type: String,
-      required: true,
-    },
     name: {
       type: String,
       required: true,
@@ -20,7 +16,6 @@ const ProductSchema = new mongoose.Schema({
       type: Number,
       required: 0,
     },
-    
   });
   
   const Product = mongoose.model("Product", ProductSchema);
