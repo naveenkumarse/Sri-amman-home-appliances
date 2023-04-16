@@ -36,15 +36,17 @@ const MyCart = () => {
   const [subtotal,setSubtotal] =useState(0)
   const [total,setTotal] = useState(0) 
 
-  const onListCart = async () => {
+  const onListCart = async (callback) => {
    
     try {
       const response = await fetch("http://localhost:8080/mycart");
       console.log(response);
       if (response) {
         const res = await response.json();
-        console.log(res);
-        setMyCart(res);
+       
+        callback(res);
+         setMyCart(res);
+        
       }
 
     } catch (err) {
@@ -53,14 +55,16 @@ const MyCart = () => {
   }
 
   useEffect(() => {
-    onListCart()
-    UpdateTotal()
-  }, []);
+    onListCart(UpdateTotal)
+  }, [subtotal]);
 
-  const UpdateTotal = () =>{
-    mycart.map((e)=>{
-      setSubtotal(subtotal+e.price);
+  const UpdateTotal = (res) =>{
+    
+
+    res.map((e)=>{
+      subtotal = e.price;
     })
+    setSubtotal(subtotal);
 
      setTotal(total + subtotal + 35 + 35);
   }
