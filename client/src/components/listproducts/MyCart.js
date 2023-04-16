@@ -69,7 +69,9 @@ const MyCart = () => {
      setTotal(total + subtotal + 35 + 35);
   }
 
- 
+ const pay = () => {
+  alert("Paid SuccessFully and Order Placed");
+ }
 
     
 
@@ -133,8 +135,8 @@ const MyCart = () => {
                       ₹{ subtotal + 35 +35}
                     </p>
                   </div>
-                  <button className="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white">
-                    Checkout
+                  <button onClick={pay} className="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white">
+                    Buy
                   </button>
                 </div>
               </div>

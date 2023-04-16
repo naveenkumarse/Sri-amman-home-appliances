@@ -1,22 +1,23 @@
 const Product = require('../model/productModel');
 
-exports.CreateProduct = async(req,res)=>{
+exports.CreateProduct = async (req, res) => {
     console.log(req.body)
     const { image, name, description, price } = req.body;
 
     const product = new Product({
         image,
+
         name,
         description,
         price,
-        
+
     })
     product.save();
     res.send({ message: "Successfull Register" })
 }
 
 
-exports.ListProduct= async(req,res)=>{
+exports.ListProduct = async (req, res) => {
     const data = await Product.find({});
     if (data) {
         console.log(data);
@@ -27,7 +28,7 @@ exports.ListProduct= async(req,res)=>{
 }
 
 
-exports.DeleteProduct = async (req,res)=>{
+exports.DeleteProduct = async (req, res) => {
     try {
         await Product.deleteOne(req.body.id);
         res.status(200).json({
@@ -41,11 +42,13 @@ exports.DeleteProduct = async (req,res)=>{
 }
 
 
-exports.UpdateProduct =async(req,res)=>{
+exports.UpdateProduct = async (req, res) => {
     try {
-        const myquery = req.body.id;    
+        const myquery = req.body._id;
         const value = req.body;
-        await Product.updateOne(myquery, value);
+        console.log(myquery)
+        console.log(value)
+        await Product.updateOne({ "_id": myquery }, value);
         res.status(200).json({
             msg: 'updated'
         })
