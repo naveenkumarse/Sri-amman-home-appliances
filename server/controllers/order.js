@@ -22,8 +22,8 @@ exports.ListMycart = async (req, res) => {
     const uid = req.body.uid;
     console.log("uid"+uid);
     const data = await Order.find({
-        "uid": {"$in": uid},
-        "success" : {"$in":"false"}
+        "uid":  uid,
+        "placeorder" :false
     });
     if (data) {
         console.log(data);
@@ -50,13 +50,33 @@ exports.ListMyOrder = async (req, res) => {
     const uid = req.body.uid;
     console.log("uid"+uid);
     const data = await Order.find({
-        "uid": {"$in": uid},
-        "success" : {"$in":"true"}
+        "uid": uid,
+        "placeorder" : true
     });
     if (data) {
         console.log(data);
         res.send(data);
     } else {
         res.send(err);
+    }
+}
+
+
+
+
+
+exports.PlaceOrder = async(req,res)=>{
+    try {
+        const myquery = req.body._id;
+        console.log(myquery);
+         
+        await Order.updateOne({ "_id": myquery }, {"placeorder":true});
+        res.status(200).json({
+            msg: 'updated'
+        })
+    } catch (err) {
+        res.status(500).json({
+            msg: 'Server internal error'
+        })
     }
 }
