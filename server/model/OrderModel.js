@@ -8,6 +8,10 @@ const OrderSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    cid: {
+        type: String,
+        required: true,
+    },
     pid: {
         type: String,
         required: true,

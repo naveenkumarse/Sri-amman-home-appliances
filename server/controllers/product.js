@@ -6,8 +6,8 @@ exports.CreateProduct = async (req, res) => {
 
     const product = new Product({
         image,
-
         name,
+        cid,
         description,
         price,
 
