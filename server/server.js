@@ -8,7 +8,7 @@ app.use(cors())
 // connecting with mongodb
 
 const mongoose = require("mongoose");
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 const {  SignUp, Login, ListUser } = require("./controllers/user");
 const { AddProduct, ListProduct, UpdateProduct, DeleteProduct } = require("./controllers/product");
 const { ListAllOrder, ListMyOrder, ListMycart } = require("./controllers/order");
