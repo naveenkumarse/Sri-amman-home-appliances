@@ -6,7 +6,6 @@ exports.AddProduct = async(req,res)=>{
 
     const product = new Product({
         image,
-        uid,
         pid,
         name,
         description,

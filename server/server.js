@@ -11,6 +11,7 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const {  SignUp, Login, ListUser } = require("./controllers/user");
 const { AddProduct, ListProduct, UpdateProduct, DeleteProduct } = require("./controllers/product");
+const { ListAllOrder, ListMyOrder, ListMycart } = require("./controllers/order");
 mongoose.connect("mongodb+srv://shwethachandran:saha@cluster0.u2ae1kb.mongodb.net/sahadb?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -44,7 +45,6 @@ app.post("/addtocart",AddProduct )
 
 app.get("/mycart", ListProduct);
 
-
 //update product
 
 app.put("/product/updateone",UpdateProduct);
@@ -53,7 +53,15 @@ app.put("/product/updateone",UpdateProduct);
 
 app.delete("/product/deleteone",DeleteProduct);
 
-//
+// Order products
+
+app.post("/admin/listOrder",ListAllOrder);
+
+app.get("/user/listmycart",ListMycart);
+
+app.get("/user/listmyorder",ListMyOrder);
+
+
 // const verifyJwt = (req,res,next) =>{
 //     const token = req.headers["access-token"];
 //     if(!token){
