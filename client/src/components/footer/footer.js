@@ -234,13 +234,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div class="bg-lblue p-6 text-center dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400">
+        {/* <div class="bg-lblue p-6 text-center dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400">
           <span>Developed by:   </span>
           <a
             class="font-semibold "
             href="https://tailwind-elements.com/"
           >Dreamimbue</a>
-        </div>
+        </div> */}
       </footer>
     
   
