@@ -10,7 +10,7 @@ const OrderSchema = new mongoose.Schema({
     },
     cid: {
         type: String,
-        required: true,
+        
     },
     pid: {
         type: String,

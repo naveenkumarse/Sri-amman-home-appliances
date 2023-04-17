@@ -8,8 +8,9 @@ const ProductCard = ({ product }) => {
   const AddToCart = async () => {
     alert(id);
     var uid = localStorage.getItem("uid");
-    const body = { image, name, description, price, pid ,uid};
-    addOrder(body);
+    
+    const body = { image, name, description, price,uid,pid};
+    const val = addOrder(body);
     // try {
      
     //   console.log(body);
