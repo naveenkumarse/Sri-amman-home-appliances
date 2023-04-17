@@ -29,39 +29,39 @@ const AddProduct = () => {
     }
   };
 
-  const handleImgChange = (e) => {
-    if (e.target.files[0]) {
-      setImage(e.target.files[0]);
-    }
-  };
+  // const handleImgChange = (e) => {
+  //   if (e.target.files[0]) {
+  //     setImage(e.target.files[0]);
+  //   }
+  // };
   // console.log(image);
 
-  const uploadImg = () => {
-    if (image === null) {
-      alert("NO IMG SELECTED");
-      return;
-    } else {
-      console.log(image.name);
+  // const uploadImg = () => {
+  //   if (image === null) {
+  //     alert("NO IMG SELECTED");
+  //     return;
+  //   } else {
+  //     console.log(image.name);
 
-      const imgRef = ref(storage, `/productimgs/${image.name}`);
+  //     const imgRef = ref(storage, `/productimgs/${image.name}`);
 
-      uploadBytes(imgRef, image)
-        .then(() => {
-          getDownloadURL(imgRef)
-            .then((url) => {
-              setUrl(url);
-            })
-            .catch((error) => {
-              console.log(error.message, "error getting url");
-            });
-            setImage(null);
-        })
-        .catch((error) => {
-          console.log(error.message);
-        });
-    }
-    // console.log(url);
-  };
+  //     uploadBytes(imgRef, image)
+  //       .then(() => {
+  //         getDownloadURL(imgRef)
+  //           .then((url) => {
+  //             setUrl(url);
+  //           })
+  //           .catch((error) => {
+  //             console.log(error.message, "error getting url");
+  //           });
+  //           setImage(null);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error.message);
+  //       });
+  //   }
+  //   // console.log(url);
+  // };
 
   return (
     <>
@@ -76,16 +76,24 @@ const AddProduct = () => {
                 image
               </label>
               <div className="flex justify-between items-center">
-                <input
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="image"
+                type="text"
+                placeholder="image"
+                onChange={(e) => setImage(e.target.value)}
+                value={image}
+              />
+                {/* <input
                   className=" w-3/5 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="email"
                   type="file"
                   placeholder="Image"
                   onChange={handleImgChange}
-                />
-                <Button onClick={uploadImg}> Upload </Button>
+                /> */}
+                {/* <Button onClick={uploadImg}> Upload </Button> */}
               </div>
-              <p>{url}</p>
+             
             </div>
             <br />
 

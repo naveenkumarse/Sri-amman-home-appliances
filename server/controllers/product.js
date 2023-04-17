@@ -2,12 +2,12 @@ const Product = require('../model/productModel');
 
 exports.CreateProduct = async (req, res) => {
     console.log(req.body)
-    const { image, name, description, price } = req.body;
+    const { image, name, description, price ,pid} = req.body;
 
     const product = new Product({
         image,
         name,
-        cid,
+        pid,
         description,
         price,
 

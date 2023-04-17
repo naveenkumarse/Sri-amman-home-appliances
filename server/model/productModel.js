@@ -8,7 +8,7 @@ const ProductSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  cid: {
+  pid: {
     type: String,
     required: true,
   },
