@@ -1,7 +1,14 @@
 import { Table } from "flowbite-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import OrderItem from "./OrderItem";
+import { getAllOrders } from "../../api";
 
 const Orderlist = () => {
+  const [allOrders,setAllOrders ] = useState([]);
+  useEffect(()=>{
+      getAllOrders(setAllOrders)
+  },[])
+
   return (
     <div className="m-20">
       <Table>
@@ -14,15 +21,10 @@ const Orderlist = () => {
           <Table.HeadCell>placeorder</Table.HeadCell>
         </Table.Head>
         <Table.Body className="divide-y">
-          <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-            <Table.Cell>uid</Table.Cell>
-            <Table.Cell>pid</Table.Cell>
-            <Table.Cell>name</Table.Cell>
-            <Table.Cell>description</Table.Cell>
-            <Table.Cell>price</Table.Cell>
-            <Table.Cell>placeorder</Table.Cell>
-          </Table.Row>
-          // loop rows
+          {allOrders.map((r)=>{
+              return <OrderItem key={r._id} uid ={r.uid} pid={r.pid} name={r.name} description={r.description} price={r.price} placeorder={r.placeorder}/>
+          })}
+          
         </Table.Body>
       </Table>
     </div>

@@ -1,7 +1,13 @@
 import { Table } from "flowbite-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import UserItem from "./UserItem";
+import { getUserList } from "../../api";
 
 const Userlist = () => {
+  const [alluser,setAllUser] = useState([])
+  useEffect(()=>{
+      getUserList(setAllUser)
+  },[])
   return (
     <div className="m-20">
       <Table>
@@ -17,18 +23,12 @@ const Userlist = () => {
            <Table.HeadCell> pincode </Table.HeadCell>
         </Table.Head>
         <Table.Body className="divide-y">
-          <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-            <Table.Cell>userid </Table.Cell>
-            <Table.Cell>firstname </Table.Cell>
-            <Table.Cell>lastname </Table.Cell>
-            <Table.Cell>email</Table.Cell>
-            <Table.Cell>phoneno </Table.Cell>
-            <Table.Cell>streetname </Table.Cell>
-            <Table.Cell>city</Table.Cell>
-            <Table.Cell>state </Table.Cell>
-            <Table.Cell>pincode </Table.Cell>
-          </Table.Row>
-          // loop rows
+
+          {alluser.map((r)=>{
+            return   <UserItem key={r._id} userid={r.userid} firstname={r.firstname} lastname={r.lastname} email={r.email} phoneno={r.phoneno} streetname={r.streetname} city={r.city} state={r.state} pincode={r.pincode} />
+          })}
+       
+              
         </Table.Body>
       </Table>
     </div>

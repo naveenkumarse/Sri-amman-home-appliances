@@ -109,7 +109,7 @@ function App() {
               } />
             </Route>
 
-              <Route path="/adminProductList" element={
+              <Route path="/adminproduct" element={
                 <div>
                   <AdminNavBar />
                   <AdminFilters />
@@ -117,6 +117,8 @@ function App() {
                   <Footer />
                 </div>
               } />
+
+
               <Route path="/usersList" element={
                 <div>
                   <AdminNavBar />

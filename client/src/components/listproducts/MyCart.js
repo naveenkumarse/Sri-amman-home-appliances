@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import CartCard from "./CartCard";
+// import { listMyCart } from "../../api";
 // import NavBar from "../navbar/Navbar";
 
 // function Cart() {
@@ -54,9 +55,10 @@ const MyCart = () => {
     }
   }
 
-  useEffect(() => {
-    onListCart(UpdateTotal)
-  }, [subtotal]);
+  // useEffect(() => {
+    
+  //   listMyCart(UpdateTotal)
+  // }, [subtotal]);
 
   const UpdateTotal = (res) =>{
     

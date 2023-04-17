@@ -27,10 +27,10 @@ const AdminNavBar = () => {
 
         <ul className="hidden md:flex ">
           <li className="px-3 text-lg">
-            <Link to="/admin">Home</Link>
+            <Link to="/admin">Add products</Link>
           </li>
           <li className="px-3 text-lg">
-            <Link to="/adminProductList">Products</Link>
+            <Link to="/adminProduct">Products</Link>
           </li>
           <li className="px-3 text-lg">
             <Link to="/orderList">Orders</Link>
@@ -38,9 +38,7 @@ const AdminNavBar = () => {
           <li className="px-3 text-lg">
             <Link to="/usersList">Users</Link>
           </li>
-          <li className="px-3 text-lg">
-            <Link to="/login">Login/Register</Link>
-          </li>
+       
         </ul>
         <div onClick={handleNav} className="block md:hidden ">
           {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
