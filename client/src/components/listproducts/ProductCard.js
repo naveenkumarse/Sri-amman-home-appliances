@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { addOrder } from '../../api';
 
 const ProductCard = ({ product }) => {
   const { image, name, description, price, pid, id } = product
@@ -6,21 +7,24 @@ const ProductCard = ({ product }) => {
 
   const AddToCart = async () => {
     alert(id);
-    try {
-      const body = { image, name, description, price, pid ,};
-      console.log(body);
-      const res = await fetch("http://localhost:8080/addtocart", {
-        method: "POST",
-        headers: { "content-Type": "application/json" },
-        body: JSON.stringify(body)
-      });
-      const jsonData = await res.json();
-      console.log(jsonData)
-      alert("Successfully added to the cart!")
+    var uid = localStorage.getItem("uid");
+    const body = { image, name, description, price, pid ,uid};
+    addOrder(body);
+    // try {
+     
+    //   console.log(body);
+    //   const res = await fetch("http://localhost:8080/addtocart", {
+    //     method: "POST",
+    //     headers: { "content-Type": "application/json" },
+    //     body: JSON.stringify(body)
+    //   });
+    //   const jsonData = await res.json();
+    //   console.log(jsonData)
+    //   alert("Successfully added to the cart!")
 
-    } catch (err) {
-      console.error(err.message);
-    }
+    // } catch (err) {
+    //   console.error(err.message);
+    // }
   }
 
 

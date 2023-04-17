@@ -8,6 +8,7 @@ const Login = () => {
     const [password, setPassword] = useState("")
 
     const { user, setUser } = useContext(UserContext);
+   
     // const navigate = useNavigate();
     const onLogin = async (e) => {
         e.preventDefault();
@@ -21,7 +22,8 @@ const Login = () => {
             });
             const jsonData = await res.json();
             console.log(jsonData)
-            alert(jsonData.email)
+            localStorage.setItem("uid",jsonData.id);
+            alert(jsonData.id)
             // const param = jsonData.email
             // if (jsonData.email === 'naveenelango.se@gmail.com') {
 

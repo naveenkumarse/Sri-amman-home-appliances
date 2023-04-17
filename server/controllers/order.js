@@ -20,8 +20,9 @@ exports.AddOrder = async (req, res) => {
 
 
 exports.ListMycart = async (req, res) => {
+    console.log(req);
     const uid = req.body.uid;
-    console.log("uid"+uid);
+    console.log("--->uid"+uid);
     const data = await Order.find({
         "uid":  uid,
         "placeorder" :false

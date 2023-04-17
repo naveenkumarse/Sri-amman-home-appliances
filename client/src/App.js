@@ -27,10 +27,11 @@ import Orderlist from "./pages/admin/OrderList";
 function App() {
 
   const [user, setUser] = useState("");
+  // const [userid ,setUserId] = useState(0); const { user } = useContext(UserContext);
   return (
     <div className="App">
       <HashRouter>
-        <UserContext.Provider value={{ user, setUser }}>
+        <UserContext.Provider value={{ user, setUser }}  >
           <Routes>
 
             <Route path="/" element={

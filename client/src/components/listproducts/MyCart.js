@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 // import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import CartCard from "./CartCard";
+import { listMyCart } from "../../api";
+
+// import { ListMycart } from "../../../../server/controllers/order";
 // import { listMyCart } from "../../api";
 // import NavBar from "../navbar/Navbar";
 
@@ -37,28 +40,28 @@ const MyCart = () => {
   const [subtotal,setSubtotal] =useState(0)
   const [total,setTotal] = useState(0) 
 
-  const onListCart = async (callback) => {
+  // const onListCart = async (callback) => {
    
-    try {
-      const response = await fetch("http://localhost:8080/user/listmycart");
-      console.log(response);
-      if (response) {
-        const res = await response.json();
+  //   try {
+  //     const response = await fetch("http://localhost:8080/user/listmycart");
+  //     console.log(response);
+  //     if (response) {
+  //       const res = await response.json();
        
-        callback(res);
-         setMyCart(res);
+  //       callback(res);
+  //        setMyCart(res);
         
-      }
+  //     }
 
-    } catch (err) {
-      console.error(err.message);
-    }
-  }
-
-  // useEffect(() => {
-    
-  //   listMyCart(UpdateTotal)
-  // }, [subtotal]);
+  //   } catch (err) {
+  //     console.error(err.message);
+  //   }
+  // }
+  const uid = localStorage.getItem("uid")
+  const body = {uid};
+  useEffect(() => {
+    listMyCart(setMyCart,body)
+  }, [subtotal]);
 
   const UpdateTotal = (res) =>{
     
