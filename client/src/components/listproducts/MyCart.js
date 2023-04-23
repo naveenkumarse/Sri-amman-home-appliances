@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CartCard from "./CartCard";
-import { listMyCart } from "../../api";
+import { listMyCart, placeOrder } from "../../api";
 
 const MyCart = () => {
   const [mycart,setMyCart] = useState([])
@@ -13,8 +13,13 @@ const MyCart = () => {
   useEffect(() => {
     listMyCart(setMyCart,body)
   }, []);
+  const getMyOrders = ({orderdata}) =>{
+      
+  }
 
  const pay = () => {
+  
+  placeOrder()
   alert("Paid SuccessFully and Order Placed");
  }
  
@@ -40,7 +45,7 @@ const MyCart = () => {
               </p>
               {mycart ? (
                 mycart.map((product) => (
-                  <CartCard key={product.id} product={product} />
+                  <CartCard key={product.id} product={product}  />
                 ))
               ) : (
                 <div> No Items In Cart </div>

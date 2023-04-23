@@ -24,6 +24,7 @@ import AdminNavBar from "./components/navbar/AdminNavbar";
 import AdminFilters from "./pages/admin/AdminFilters";
 import Userlist from "./pages/admin/UserList";
 import Orderlist from "./pages/admin/OrderList";
+import MyOrders from "./components/myorders/MyOrders";
 function App() {
 
   const [user, setUser] = useState("");
@@ -109,7 +110,15 @@ function App() {
                 </div>
               } />
             </Route>
-
+            {/* <Route element={<ProtectedRoutes />}> */}
+              <Route path="/myorders" element={
+                <div>
+                  <NavBar />
+                  <MyOrders />
+                  <Footer />
+                </div>
+              } />
+            {/* </Route> */}
               <Route path="/adminproduct" element={
                 <div>
                   <AdminNavBar />

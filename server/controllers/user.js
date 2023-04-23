@@ -48,8 +48,6 @@ exports.Login = async (req, res) => {
         if (data) {
             if (password == data.password) {
                 console.log(data.id)
-              
-              
                 res.send(data)
             }
             else {

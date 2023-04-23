@@ -1,26 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Label, Modal, TextInput, Textarea } from "flowbite-react";
 import { deleteProduct, updateProduct } from "../../api";
 
 const AdminProductCard = ({ product }) => {
   const { image, name, description, price,quantity } = product;
-  const [uname,setUname] = useState(name);
-  const [uprice,setUprice] = useState(price);
-  const [udesc,setUdesc] = useState(description);
-  const updateName = (uname)=>{
-    setUname(uname);
-    
-  }
-  const updatePrice = (uprice)=>{
-    setUprice(uprice);
-    // onChange(uprice);
-  }
-  const updateDesc = (udesc) =>{
-    setUdesc(udesc);
-    // onChange(udesc);
-  }
-  
-  
+  const [uname,setUname] = useState();
+  const [uprice,setUprice] = useState();
+  const [udesc,setUdesc] = useState();
+   
   const  Uname = product.name  ;
   const  Udescription  =  product.description ;
   const  Uprice  =  product.price ;
@@ -30,6 +17,11 @@ const AdminProductCard = ({ product }) => {
     const body = {pid};
     deleteProduct(body);
   };
+  useEffect(()=>{
+
+  },[]
+  )
+
   const updateOneProduct =()=>{
     const body = {pid,uname,uprice,udesc,image,quantity}
     updateProduct(body) 
@@ -98,9 +90,9 @@ const AdminProductCard = ({ product }) => {
                     </div>
                     <TextInput
                       type="text"
-                      id="email"
+                      id="email" 
                       value={uname}
-                      required={true} onChange={(e) => updateName(e.target.value)}
+                       onChange={(e) => setUname(e.target.value)}
                     />
                   </div>
                   <div>
@@ -110,21 +102,20 @@ const AdminProductCard = ({ product }) => {
                     <TextInput
                       type="text"
                       id="price"
-                      defaultValue={Uprice} 
-                      onChange={(e) => updatePrice(e.target.value)}
+                       value={uprice}
+                      onChange={(e) => setUprice(e.target.value)}
                     />
                   </div>
                   <div>
                     <div className="mb-2 block">
                       <Label htmlFor="text" value="Description" />
                     </div>
-                    <Textarea id="desc" type="text" required={true} value= {udesc} onChange={(e) => updateDesc(e.target.value)}/>
+                    <Textarea id="desc" type="text" value= {udesc} onChange={(e) => setUdesc(e.target.value)}/>
                   </div>
                   
                   <div className="flex justify-center">
                     <Button onClick={updateOneProduct}>Update</Button>
                   </div>
-                  
                 </div>
               </Modal.Body>
             </Modal>
