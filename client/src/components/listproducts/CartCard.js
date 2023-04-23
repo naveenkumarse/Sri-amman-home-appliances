@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const CartCard = ({product}) => {
-    const { image, name, description, price, pid,id } = product;
+    const { image, name, description, price, pid,id,quantity} = product;
 
     const [count, setCount] = useState(1);
 
@@ -10,7 +10,7 @@ const CartCard = ({product}) => {
             <div key={id} className="md:flex items-center py-8 border-t border-gray-200">
                 <div className="w-1/4">
                     <img
-                        src={require(`../../assets/products/${image}.jpg`)}
+                        src={`${image}`}
                         alt="product img"
                         className="w-full h-full object-center object-cover"
                     />

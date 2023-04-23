@@ -4,13 +4,15 @@ const OrderSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    date:{
+        type: String,
+    },
     uid: {
         type: String,
         required: true,
     },
     cid: {
         type: String,
-        
     },
     pid: {
         type: String,
@@ -31,6 +33,10 @@ const OrderSchema = new mongoose.Schema({
     placeorder:{
         type:Boolean,
         default: false
+    },
+    quantity:{
+        type:Number,
+        default:1
     }
 
 });

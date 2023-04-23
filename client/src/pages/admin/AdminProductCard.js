@@ -3,13 +3,13 @@ import { Button, Label, Modal, TextInput, Textarea } from "flowbite-react";
 import { deleteProduct, updateProduct } from "../../api";
 
 const AdminProductCard = ({ product }) => {
-  const { image, name, description, price } = product;
+  const { image, name, description, price,quantity } = product;
   const [uname,setUname] = useState(name);
   const [uprice,setUprice] = useState(price);
   const [udesc,setUdesc] = useState(description);
   const updateName = (uname)=>{
     setUname(uname);
-    // onChange(uname);
+    
   }
   const updatePrice = (uprice)=>{
     setUprice(uprice);
@@ -31,7 +31,7 @@ const AdminProductCard = ({ product }) => {
     deleteProduct(body);
   };
   const updateOneProduct =()=>{
-    const body = {pid,uname,uprice,udesc,image}
+    const body = {pid,uname,uprice,udesc,image,quantity}
     updateProduct(body) 
   }
   const [modelShow, updateModelShow] = useState(false);
@@ -40,7 +40,7 @@ const AdminProductCard = ({ product }) => {
     <div className="rounded-2xl overflow-hidden  shadow-xl tranform hover:scale-110 duration-100">
       <div className="w-full h-72">
         <img
-          src={require(`../../assets/products/${image}.jpg`)}
+          src={`${image}`}
           alt={`${image}`}
           className="w-full h-full object-contain	"
         />
@@ -53,6 +53,12 @@ const AdminProductCard = ({ product }) => {
           <span className="font-body text-slate-500 block my-3">
             {description}
           </span>
+        </center>
+        <center>
+          <span className="font-body text-slate-500 block my-3">
+            Stocks: <span className="text-black"> {quantity}</span>
+          </span>
+
         </center>
         <span className="font-body text-slate-500">₹{price}</span>
         <div className="flex justify-between w-1/2">

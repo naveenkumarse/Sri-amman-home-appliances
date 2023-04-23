@@ -2,7 +2,7 @@ const Product = require('../model/productModel');
 
 exports.CreateProduct = async (req, res) => {
     console.log(req.body)
-    const { image, name, description, price ,pid} = req.body;
+    const { image, name, description, price ,pid,quantity} = req.body;
 
     const product = new Product({
         image,
@@ -10,6 +10,7 @@ exports.CreateProduct = async (req, res) => {
         pid,
         description,
         price,
+        quantity
 
     })
     product.save();

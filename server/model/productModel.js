@@ -18,8 +18,12 @@ const ProductSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    required: 0,
+    default: 0,
   },
+  quantity:{
+    type: Number,
+    default: 1
+  }
 });
 
 const Product = mongoose.model("Product", ProductSchema);

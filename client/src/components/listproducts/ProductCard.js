@@ -2,14 +2,14 @@ import React, { useEffect } from 'react'
 import { addOrder } from '../../api';
 
 const ProductCard = ({ product }) => {
-  const { image, name, description, price, pid, id } = product
+  const { image, name, description, price, pid, id,quantity} = product
  
 
   const AddToCart = async () => {
     alert(id);
     var uid = localStorage.getItem("uid");
     
-    const body = { image, name, description, price,uid,pid};
+    const body = { image, name, description, price,uid,pid,quantity};
     const val = addOrder(body);
     // try {
      
@@ -33,7 +33,7 @@ const ProductCard = ({ product }) => {
   return (
     <div className='rounded-2xl overflow-hidden  shadow-xl tranform hover:scale-110 duration-100'>
       <div className='w-full h-72'>
-        <img src={require(`../../assets/products/${image}.jpg`)} alt={`${image}`}
+        <img src={`${image}`} alt={`${image}`}
           className='w-full h-full object-contain	' />
       </div>
       <div className='flex flex-col items-center my-2 py-2'>

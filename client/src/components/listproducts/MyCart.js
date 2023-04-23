@@ -1,87 +1,23 @@
 import React, { useEffect, useState } from "react";
-// import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import CartCard from "./CartCard";
 import { listMyCart } from "../../api";
 
-// import { ListMycart } from "../../../../server/controllers/order";
-// import { listMyCart } from "../../api";
-// import NavBar from "../navbar/Navbar";
-
-// function Cart() {
-
-//   var subtotal = 0;
-
-//   products && products.map((e) => {
-//     subtotal += e.productprice;
-//   });
-
-//   var total = 75 + subtotal;
-
-//   const minus = (e) => {
-//     e.count = e.count + 1;
-//   }
-
-//   const plus = (e) => {
-//     e.count = e.count - 1;
-//   }
-
-//   return (
-//     <>
-
-//     </>
-//   );
-// }
-
-// export default Cart;
-
-
 const MyCart = () => {
   const [mycart,setMyCart] = useState([])
-  // const [subtotal,setSubtotal] =useState(0)
-  // const [total,setTotal] = useState(0)
-
-  const subtotal = mycart.reduce((acc, cur) => acc + cur.price, 0)
+  
+  const subtotal = mycart.reduce((acc, cur) => acc + cur.price*cur.quantity, 0)
 
   console.log(mycart)
-
-  // const onListCart = async (callback) => {
-   
-  //   try {
-  //     const response = await fetch("http://localhost:8080/user/listmycart");
-  //     console.log(response);
-  //     if (response) {
-  //       const res = await response.json();
-       
-  //       callback(res);
-  //        setMyCart(res);
-        
-  //     }
-
-  //   } catch (err) {
-  //     console.error(err.message);
-  //   }
-  // }
   const uid = localStorage.getItem("uid")
   const body = {uid};
   useEffect(() => {
     listMyCart(setMyCart,body)
   }, []);
 
-  // const UpdateTotal = (res) =>{
-    
-
-  //   res.map((e)=>{
-  //     subtotal = e.price;
-  //   })
-  //   setSubtotal(subtotal);
-
-  //    setTotal(total + subtotal + 35 + 35);
-  // }
-
  const pay = () => {
   alert("Paid SuccessFully and Order Placed");
  }
-
+ 
     
 
   return (
@@ -124,16 +60,8 @@ const MyCart = () => {
                       ₹{subtotal}
                     </p>
                   </div>
-                  <div className="flex items-center justify-between pt-5">
-                    <p className="text-base leading-none text-gray-800">
-                      Delivery
-                    </p>
-                    <p className="text-base leading-none text-gray-800">₹30</p>
-                  </div>
-                  <div className="flex items-center justify-between pt-5">
-                    <p className="text-base leading-none text-gray-800">Tax</p>
-                    <p className="text-base leading-none text-gray-800">₹35</p>
-                  </div>
+                  
+                
                 </div>
                 <div>
                   <div className="flex items-center pb-6 justify-between lg:pt-5 pt-20">
@@ -141,7 +69,7 @@ const MyCart = () => {
                       Total
                     </p>
                     <p className="text-2xl font-bold leading-normal text-right text-gray-800">
-                      ₹{ subtotal + 35 +35}
+                      ₹{ subtotal }
                     </p>
                   </div>
                   <button onClick={pay} className="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white">
