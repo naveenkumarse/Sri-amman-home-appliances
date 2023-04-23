@@ -58,29 +58,29 @@ export const listMyCart = async(setMyCart,body)=>{
 // } 
 
 
-// export const deleteProduct = async(postData = {}) =>{
-//     console.log(postData);
-//     const res = await fetch("http://localhost:8080/product/deleteone", {
-//         method: "DELETE",
-//         headers: { "content-Type": "application/json" },
-//         body: JSON.stringify(body)
-//     });
-//     const jsonData = await res.json();
-//     console.log(jsonData)
-//     return jsonData;
-// }
+export const deleteProduct = async(body) =>{
+    console.log(body);
+    const res = await fetch("http://localhost:8080/product/deleteone", {
+        method: "DELETE",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    // const jsonData = await res.json();
+    
+    return res;
+}
 
-// export const updateProduct = async(postData = {}) =>{
-//     console.log(postData);
-//     const res = await fetch("http://localhost:8080/product/updateone", {
-//         method: "PUT",
-//         headers: { "content-Type": "application/json" },
-//         body: JSON.stringify(body)
-//     });
-//     const jsonData = await res.json();
-//     console.log(jsonData)
-//     return jsonData;
-// }
+export const updateProduct = async(body = {}) =>{
+    console.log(body);
+    const res = await fetch("http://localhost:8080/product/updateone", {
+        method: "PUT",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    console.log(jsonData)
+    return jsonData;
+}
 
 // export const placeOrder = async(postData = {}) =>{
 //     console.log(postData);

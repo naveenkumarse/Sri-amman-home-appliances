@@ -22,7 +22,7 @@ const Login = () => {
             });
             const jsonData = await res.json();
             console.log(jsonData)
-            localStorage.setItem("uid",jsonData.id);
+            localStorage.setItem("uid",jsonData._id);
             alert(jsonData.id)
             // const param = jsonData.email
             // if (jsonData.email === 'naveenelango.se@gmail.com') {

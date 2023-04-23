@@ -37,8 +37,12 @@ import { listMyCart } from "../../api";
 
 const MyCart = () => {
   const [mycart,setMyCart] = useState([])
-  const [subtotal,setSubtotal] =useState(0)
-  const [total,setTotal] = useState(0) 
+  // const [subtotal,setSubtotal] =useState(0)
+  // const [total,setTotal] = useState(0)
+
+  const subtotal = mycart.reduce((acc, cur) => acc + cur.price, 0)
+
+  console.log(mycart)
 
   // const onListCart = async (callback) => {
    
@@ -61,18 +65,18 @@ const MyCart = () => {
   const body = {uid};
   useEffect(() => {
     listMyCart(setMyCart,body)
-  }, [subtotal]);
+  }, []);
 
-  const UpdateTotal = (res) =>{
+  // const UpdateTotal = (res) =>{
     
 
-    res.map((e)=>{
-      subtotal = e.price;
-    })
-    setSubtotal(subtotal);
+  //   res.map((e)=>{
+  //     subtotal = e.price;
+  //   })
+  //   setSubtotal(subtotal);
 
-     setTotal(total + subtotal + 35 + 35);
-  }
+  //    setTotal(total + subtotal + 35 + 35);
+  // }
 
  const pay = () => {
   alert("Paid SuccessFully and Order Placed");

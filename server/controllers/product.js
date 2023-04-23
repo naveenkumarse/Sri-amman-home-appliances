@@ -30,10 +30,14 @@ exports.ListProduct = async (req, res) => {
 
 exports.DeleteProduct = async (req, res) => {
     try {
-        await Product.deleteOne(req.body.id);
+        console.log(req.body)
+        
+        
+        await Product.findByIdAndDelete(req.body.pid);
         res.status(200).json({
             msg: 'deleted'
         })
+        console.log("deleted");
     } catch (err) {
         res.status(500).json({
             msg: 'server internal error'
@@ -44,11 +48,10 @@ exports.DeleteProduct = async (req, res) => {
 
 exports.UpdateProduct = async (req, res) => {
     try {
-        const myquery = req.body._id;
-        const value = req.body;
-        console.log(myquery)
+        const {uname:name,uprice:price,udesc:description,image} =req.body;
+        const value ={name,price,description,image};
         console.log(value)
-        await Product.updateOne({ "_id": myquery }, value);
+        await Product.findByIdAndUpdate(req.body.pid,value);
         res.status(200).json({
             msg: 'updated'
         })
