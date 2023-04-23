@@ -93,7 +93,7 @@ const AdminProductCard = ({ product }) => {
                       type="text"
                       id="email" 
                       value={uname}
-                       onChange={(e) => setUname(e.target.value)}
+                       onMouseLeave={(e) => setUname(e.target.value)}
                     />
                     
                   </div>
@@ -105,14 +105,14 @@ const AdminProductCard = ({ product }) => {
                       type="text"
                       id="price"
                        value={uprice}
-                      onChange={(e) => setUprice(e.target.value)}
+                      onMouseLeave={(e) => setUprice(e.target.value)}
                     />
                   </div>
                   <div>
                     <div className="mb-2 block">
                       <Label htmlFor="text" value="Description" />
                     </div>
-                    <Textarea id="desc" type="text" value= {udesc} onChange={(e) => setUdesc(e.target.value)}/>
+                    <Textarea id="desc" type="text" value= {udesc} onMouseLeave={(e) => setUdesc(e.target.value)}/>
                   </div>
                   
                   <div className="flex justify-center">
