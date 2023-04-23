@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import { Button, Label, Modal, TextInput, Textarea } from "flowbite-react";
 import { deleteProduct, updateProduct } from "../../api";
 
 const AdminProductCard = ({ product }) => {
   const { image, name, description, price,quantity } = product;
-  const [uname,setUname] = useState(name);
-  const [uprice,setUprice] = useState(price);
-  const [udesc,setUdesc] = useState(description);
+  const [uname,setUname] = useState();
+  const [uprice,setUprice] = useState();
+  const [udesc,setUdesc] = useState();
   const updateName = (uname)=>{
     setUname(uname);
     
@@ -97,11 +97,16 @@ const AdminProductCard = ({ product }) => {
                       <Label htmlFor="email" value="Product Name" />
                     </div>
                     <TextInput
+                    defaultValue={Uname}
                       type="text"
                       id="email"
                       value={uname}
-                      required={true} onChange={(e) => updateName(e.target.value)}
+                      required={true} 
+                      onMouseLeave={(e)=>{
+                        updateName(e.target.value)
+                      }}
                     />
+                    
                   </div>
                   <div>
                     <div className="mb-2 block">
@@ -111,14 +116,14 @@ const AdminProductCard = ({ product }) => {
                       type="text"
                       id="price"
                       defaultValue={Uprice} 
-                      onChange={(e) => updatePrice(e.target.value)}
+                      onMouseLeave={(e) => updatePrice(e.target.value)}
                     />
                   </div>
                   <div>
                     <div className="mb-2 block">
                       <Label htmlFor="text" value="Description" />
                     </div>
-                    <Textarea id="desc" type="text" required={true} value= {udesc} onChange={(e) => updateDesc(e.target.value)}/>
+                    <Textarea id="desc" type="text" required={true} value= {udesc} onMouseLeave={(e) => updateDesc(e.target.value)}/>
                   </div>
                   
                   <div className="flex justify-center">

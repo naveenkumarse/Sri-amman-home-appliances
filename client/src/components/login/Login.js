@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../protectedRoutes/UserContext";
+import { Navigate } from "react-router-dom";
 
 
 const Login = () => {
@@ -24,12 +25,13 @@ const Login = () => {
             console.log(jsonData)
             localStorage.setItem("uid",jsonData._id);
             alert(jsonData.id)
+            console.log(jsonData.email)
             // const param = jsonData.email
             // if (jsonData.email === 'naveenelango.se@gmail.com') {
 
-            //     //navigate("/description")
+            //     //navigate("/admin");
             // } else {
-            //navigate("/description")
+            //Navigate("/")
             await setUser(jsonData.email);
             alert(user);
             // }
