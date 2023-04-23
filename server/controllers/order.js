@@ -49,10 +49,11 @@ exports.ListAllOrder = async (req,res)=>{
 }
 
 exports.ListMyOrder = async (req, res) => {
+    console.log(req.body);
     const uid = req.body.uid;
     console.log("uid"+uid);
     const data = await Order.find({
-        "uid": uid,
+        "uid": req.body.uid,
         "placeorder" : true
     });
     if (data) {

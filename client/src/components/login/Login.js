@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../protectedRoutes/UserContext";
 import { Navigate } from "react-router-dom";
 
@@ -10,7 +10,7 @@ const Login = () => {
 
     const { user, setUser } = useContext(UserContext);
    
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const onLogin = async (e) => {
         e.preventDefault();
         try {
@@ -25,16 +25,15 @@ const Login = () => {
             console.log(jsonData)
             localStorage.setItem("uid",jsonData._id);
             alert(jsonData.id)
-            console.log(jsonData.email)
-            // const param = jsonData.email
-            // if (jsonData.email === 'naveenelango.se@gmail.com') {
+            const param = jsonData.email
+            if (jsonData.email === 'naveenelango.se@gmail.com') {
 
-            //     //navigate("/admin");
-            // } else {
-            //Navigate("/")
+                navigate("/admin")
+            } else {
+            navigate("/")
             await setUser(jsonData.email);
             alert(user);
-            // }
+             }
         } catch (err) {
             console.error(err.message);
         }

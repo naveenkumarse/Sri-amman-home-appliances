@@ -1,7 +1,7 @@
 import { Button } from "flowbite-react";
 import React, { useState } from "react";
-import { storage } from "../../firebase";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+// import { storage } from "../../firebase";
+// import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const AddProduct = () => {
   const [image, setImage] = useState(null);

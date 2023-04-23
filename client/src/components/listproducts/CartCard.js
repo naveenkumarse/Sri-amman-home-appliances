@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const CartCard = ({product}) => {
     const { image, name, description, price, pid,id,quantity} = product;
 
     const [count, setCount] = useState(1);
+    let newprice = 1;
+   const  onCountChange = () =>{
+        newprice = count*newprice;
+    }
+    useEffect(()=>{
+        onCountChange()
+    },[count])
+    
 
     return (
         <>
@@ -36,8 +44,9 @@ const CartCard = ({product}) => {
                                 <button onClick={() => setCount(count + 1)}>+</button>
                             </div >
                         </div>
+                      
                     </div>
-
+                 
                     <p className=" text-xs leading-3 text-gray-600">
                         {description}
                     </p>
@@ -47,6 +56,7 @@ const CartCard = ({product}) => {
                         </p>
                     </div>
                 </div>
+                
             </div>
         </>
     )
