@@ -10,7 +10,6 @@ const OrderItem = (props)=>{
             <Table.Cell>{date}</Table.Cell>
             <Table.Cell>{total}</Table.Cell>
             <Table.Cell>{rid}</Table.Cell>
-            
             <Table.Cell>{orderstatus}</Table.Cell>
           </Table.Row>
     )
