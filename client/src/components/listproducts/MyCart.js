@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CartCard from "./CartCard";
-import { listMyCart, placeOrder } from "../../api";
+import { addToOrder, listMyCart, placeOrder } from "../../api";
 
 const MyCart = () => {
   const [mycart,setMyCart] = useState([])
@@ -20,7 +20,16 @@ const MyCart = () => {
   // }
 
  const pay = () => {
-  placeOrder(mycart)
+  let tdate = new Date()
+let day = tdate.getDate();
+let month = tdate.getMonth()+1;
+let year = tdate.getFullYear();
+
+let date = `${day}.${month}.${year}.`;
+let total = subtotal;
+const body = {date,uid,total}
+ console.log(body);
+addToOrder(body);
   alert("Paid SuccessFully and Order Placed");
  }
  

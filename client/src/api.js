@@ -96,3 +96,15 @@ export const placeOrder = async(data = {}) =>{
     return jsonData;
 }
 
+
+export const addToOrder = async (postData) => {
+    console.log(postData);
+    const res = await fetch("http://localhost:8080/addtoorder", {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(postData)
+    });
+    const jsonData = await res.json();
+    console.log(jsonData)
+    return jsonData;
+}

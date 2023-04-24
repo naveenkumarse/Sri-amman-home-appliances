@@ -3,9 +3,9 @@ import { addOrder } from '../../api';
 import { Button, Label, Modal, TextInput } from 'flowbite-react';
 
 const ProductCard = ({ product }) => {
-  const { image, name, description, price, pid, id,quantity} = product
+  const { image, name, description, price, pid, id,stocks} = product
   const [modelShow, updateModelShow] = useState(false);
-  const [oquantity,setOquantity] = useState(1);
+  const [quantity,setQuantity] = useState();
 
   const AddToCart = async () => {
     updateModelShow(!modelShow);
@@ -14,6 +14,7 @@ const ProductCard = ({ product }) => {
     var uid = localStorage.getItem("uid");
     
     const body = { image, name, description, price,uid,pid,quantity};
+    alert(quantity)
     const val = addOrder(body);
     // try {
      
@@ -45,7 +46,7 @@ const ProductCard = ({ product }) => {
         <span className='font-body text-slate-500 block font-bold text-xl'>{name}</span>
         <center><span className='font-body text-slate-500 block my-3'>{description}</span></center>
         <span className='font-body text-slate-500'>₹{price}</span>
-        <span className='font-body text-slate-500'>Stocks remaining :  {quantity}</span>
+        <span className='font-body text-slate-500'>Stocks remaining :  {stocks}</span>
         <button className='bg-black hover:bg-lblue hover:text-black text-bblue font-bold py-2 px-4 my-3 rounded-full' onClick={()=>updateModelShow(!modelShow)}>Add to Cart </button>
       </div>
       <>
@@ -71,13 +72,13 @@ const ProductCard = ({ product }) => {
                     <TextInput
                       type="text"
                       id="price"
-                       value={oquantity}
-                      onChange={(e) => setOquantity(e.target.value)}
+                       value={quantity}
+                       onMouseLeave={(e) => setQuantity(e.target.value)}
                     />
                   </div>
                 
                   <div className="flex justify-center">
-                    <Button onClick={AddToCart}>Update</Button> //
+                    <Button onClick={AddToCart}>Update</Button>
                   </div>
                 </div>
               </Modal.Body>

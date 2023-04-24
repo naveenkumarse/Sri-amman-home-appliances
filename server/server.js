@@ -12,6 +12,7 @@ const mongoose = require("mongoose");
 const {  SignUp, Login, ListUser } = require("./controllers/user");
 const {  ListProduct, UpdateProduct, DeleteProduct, CreateProduct } = require("./controllers/product");
 const { ListAllOrder, ListMyOrder, ListMycart, AddOrder, PlaceOrder } = require("./controllers/order");
+const { CreateOrder } = require("./controllers/orderedProducts");
 mongoose.connect("mongodb+srv://shwethachandran:saha@cluster0.u2ae1kb.mongodb.net/sahadb?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -63,6 +64,7 @@ app.put("/user/placeorder",PlaceOrder); //checked
 
 app.post("/user/listmyorder",ListMyOrder); // checked
 
+app.post("/addtoorder", CreateOrder);//checked
 
 // const verifyJwt = (req,res,next) =>{
 //     const token = req.headers["access-token"];
