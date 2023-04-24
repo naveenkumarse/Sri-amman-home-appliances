@@ -12,7 +12,7 @@ const mongoose = require("mongoose");
 const {  SignUp, Login, ListUser } = require("./controllers/user");
 const {  ListProduct, UpdateProduct, DeleteProduct, CreateProduct } = require("./controllers/product");
 const { ListAllOrder, ListMyOrder, ListMycart, AddOrder, PlaceOrder } = require("./controllers/order");
-const { CreateOrder } = require("./controllers/orderedProducts");
+const { CreateOrder, ListMyOrders, OrderList } = require("./controllers/orderedProducts");
 mongoose.connect("mongodb+srv://shwethachandran:saha@cluster0.u2ae1kb.mongodb.net/sahadb?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -56,7 +56,9 @@ app.delete("/product/deleteone",DeleteProduct);//checked
 
 // Order products
 
-app.get("/admin/listorder",ListAllOrder);//checked
+app.get("/admin/listorder",OrderList);//checked
+
+app.get("/admin/listmyorder",ListMyOrders);
 
 app.post("/user/listmycart",ListMycart); //checked 
 

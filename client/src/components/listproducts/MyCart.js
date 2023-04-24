@@ -30,6 +30,8 @@ let total = subtotal;
 const body = {date,uid,total}
  console.log(body);
 addToOrder(body);
+const data = {uid}
+placeOrder(data)
   alert("Paid SuccessFully and Order Placed");
  }
  

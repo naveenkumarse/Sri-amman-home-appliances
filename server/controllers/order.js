@@ -71,10 +71,10 @@ exports.ListMyOrder = async (req, res) => {
 
 exports.PlaceOrder = async(req,res)=>{
     try {
-        const myquery = req.body._id;
+        const myquery = req.body.uid;
         console.log(myquery);
          
-        await Order.updateOne({ "_id": myquery }, {"placeorder":true});
+        await Order.findByIdAndUpdate( {_id:req.body.uid} , {placeorder:true});
         res.status(200).json({
             msg: 'updated'
         })

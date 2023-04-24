@@ -14,15 +14,15 @@ const Orderlist = () => {
       <Table>
         <Table.Head>
           <Table.HeadCell>uid</Table.HeadCell>
-          <Table.HeadCell>pid</Table.HeadCell>
-          <Table.HeadCell>name</Table.HeadCell>
-          <Table.HeadCell>description</Table.HeadCell>
-          <Table.HeadCell>price</Table.HeadCell>
-          <Table.HeadCell>placeorder</Table.HeadCell>
+          <Table.HeadCell>Date</Table.HeadCell>
+          <Table.HeadCell>Total</Table.HeadCell>
+          
+          <Table.HeadCell>Order-Id</Table.HeadCell>
+          <Table.HeadCell>Status</Table.HeadCell>
         </Table.Head>
         <Table.Body className="divide-y">
           {allOrders.map((r)=>{
-              return <OrderItem key={r._id} uid ={r.uid} pid={r.pid} name={r.name} description={r.description} price={r.price} placeorder={r.placeorder}/>
+              return <OrderItem key={r._id} uid ={r.uid} date={r.date} rid={r._id} total={r.total} />
           })}
           
         </Table.Body>

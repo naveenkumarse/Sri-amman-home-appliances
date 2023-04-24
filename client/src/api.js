@@ -85,7 +85,8 @@ export const updateProduct = async (body = {}) => {
 
 export const placeOrder = async(data = {}) =>{
     console.log(data);
-    const body = {data};
+    const {uid} = data
+    const body = {uid};
     const res = await fetch("http://localhost:8080/user/placeorder", {
         method: "PUT",
         headers: { "content-Type": "application/json" },
@@ -107,4 +108,18 @@ export const addToOrder = async (postData) => {
     const jsonData = await res.json();
     console.log(jsonData)
     return jsonData;
+}
+
+
+export const listMyOrder = async ( body,setMyOrder) => {
+    console.log(body);
+    
+    const res = await fetch("http://localhost:8080/user/listmyorder", {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    console.log(jsonData)
+    return setMyOrder(jsonData);
 }
