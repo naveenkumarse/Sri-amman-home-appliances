@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 
-const CartCard = ({product}) => {
-    const { image, name, description, price, pid,id,quantity} = product;
+const CartCard = (props) => {
+    const {product} = props;
+    const { image, name, description, price, pid, id, quantity } = product;
+    // const {getMyOrders} = props;
+    // const [count, setCount] = useState(1);
+    // let newprice = 1;
+    // const onCountChange = () => {
+    //     newprice = count * newprice;
+    //     const body = { image, name, description, newprice, pid, id, count };
+    //     getMyOrders(body);
+    // }
+    // useEffect(() => {
+    //     onCountChange()
+    // }, [count])
 
-    const [count, setCount] = useState(1);
-    let newprice = 1;
-   const  onCountChange = () =>{
-        newprice = count*newprice;
-    }
-    useEffect(()=>{
-        onCountChange()
-    },[count])
-    
 
     return (
         <>
@@ -33,7 +36,10 @@ const CartCard = ({product}) => {
                         <p className="text-base font-black leading-none text-gray-800">
                             {name}
                         </p>
-                        <div className="flex w-24 justify-between">
+                        <p className="text-base font-black leading-none text-gray-800">
+                            {quantity}
+                        </p>
+                        {/* <div className="flex w-24 justify-between">
                             <div className="border-2 w-1/3 mx-1 border-black">
                                 <button onClick={() => setCount(count - 1)} >-</button>
                             </div>
@@ -43,10 +49,10 @@ const CartCard = ({product}) => {
                             <div className="border-2	w-1/3 mx-1 border-black">
                                 <button onClick={() => setCount(count + 1)}>+</button>
                             </div >
-                        </div>
-                      
+                        </div> */}
+
                     </div>
-                 
+
                     <p className=" text-xs leading-3 text-gray-600">
                         {description}
                     </p>
@@ -56,7 +62,7 @@ const CartCard = ({product}) => {
                         </p>
                     </div>
                 </div>
-                
+
             </div>
         </>
     )

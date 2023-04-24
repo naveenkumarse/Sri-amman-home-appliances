@@ -6,20 +6,21 @@ const MyCart = () => {
   const [mycart,setMyCart] = useState([])
   
   const subtotal = mycart.reduce((acc, cur) => acc + cur.price*cur.quantity, 0)
-
+  
   console.log(mycart)
   const uid = localStorage.getItem("uid")
   const body = {uid};
   useEffect(() => {
     listMyCart(setMyCart,body)
   }, []);
-  const getMyOrders = ({orderdata}) =>{
-      
-  }
+  // const getMyOrders = (val) =>{
+  //     console.log(val);
+  //     const {image,uid,pid,name,description,newprice:price,placeOrder,count:quantity} = val;
+  //     pay(body)
+  // }
 
  const pay = () => {
-  
-  placeOrder()
+  placeOrder(mycart)
   alert("Paid SuccessFully and Order Placed");
  }
  
@@ -45,7 +46,7 @@ const MyCart = () => {
               </p>
               {mycart ? (
                 mycart.map((product) => (
-                  <CartCard key={product.id} product={product}  />
+                  <CartCard key={product.id} product={product}  /> //getMyOrders={getMyOrders}
                 ))
               ) : (
                 <div> No Items In Cart </div>
