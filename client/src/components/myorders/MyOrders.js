@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "flowbite-react";
 import MyOrdersList from "./MyOrdersList";
-import { listAllMyOrder, listMyOrder } from "../../api";
+import { getAllOrders, listAllMyOrder, listMyOrder } from "../../api";
 
 const MyOrders = () => {
     const [myorders,setMyOrder] = useState([])
     const uid = localStorage.getItem("uid")
-    alert(uid)
+    // alert(uid)
     const body = {uid};
     useEffect(()=>{
-      listMyOrder(body,setMyOrder);
+      getAllOrders(setMyOrder);
     },[])
     return (
         <>
@@ -23,7 +23,7 @@ const MyOrders = () => {
         </Table.Head>
         <Table.Body className="divide-y">
           {myorders.map((r)=>{
-              return <MyOrdersList key={r._id}  total={r.total} date={r.date} />
+              return <MyOrdersList key={r._id} rid={r._id} total={r.total} date={r.date} />
           })}
           
         </Table.Body>
