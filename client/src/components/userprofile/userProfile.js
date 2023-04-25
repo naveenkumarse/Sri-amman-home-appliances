@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { listMyUser } from '../../api';
 
 export default function UserProfile() {
+
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
@@ -10,9 +12,17 @@ export default function UserProfile() {
     const [city, setCity] = useState('');
     const [state, setState] = useState('Tamil Nadu');
     const [pincode, setPincode] = useState('');
+    const [myuser, setMyUser] = useState([]);
+    var uid =  localStorage.getItem("uid");
     function handleAddrTypeChange(e) {
         setState(e.target.value);
       }
+    useEffect(()=>{
+        const body = {uid};
+        listMyUser(setMyUser,body);
+        console.log(setMyUser);
+    },[])
+
   return (
     <div>
             <div class="flex h-screen justify-center mt-8">

@@ -10,7 +10,7 @@ const AddProduct = () => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
   const [stocks, setStocks] = useState(0);
-  const [url, setUrl] = useState(null);
+  // const [url, setUrl] = useState(null);
 
   const onAddProducts = async (e) => {
     e.preventDefault();

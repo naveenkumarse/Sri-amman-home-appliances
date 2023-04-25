@@ -9,7 +9,7 @@ app.use(cors())
 
 const mongoose = require("mongoose");
 // const jwt = require("jsonwebtoken");
-const {  SignUp, Login, ListUser } = require("./controllers/user");
+const {  SignUp, Login, ListUser, ListMyUser } = require("./controllers/user");
 const {  ListProduct, UpdateProduct, DeleteProduct, CreateProduct } = require("./controllers/product");
 const { ListAllOrder, ListMyOrder, ListMycart, AddOrder, PlaceOrder } = require("./controllers/order");
 const { CreateOrder, ListMyOrders, OrderList } = require("./controllers/orderedProducts");
@@ -67,6 +67,8 @@ app.put("/user/placeorder",PlaceOrder); //checked
 app.post("/user/listmyorder",ListMyOrder); // checked
 
 app.post("/addtoorder", CreateOrder);//checked
+
+app.post("/user/listmyuser",ListMyUser);
 
 // const verifyJwt = (req,res,next) =>{
 //     const token = req.headers["access-token"];
