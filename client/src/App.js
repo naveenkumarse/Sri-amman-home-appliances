@@ -101,7 +101,7 @@ function App() {
               } />
             </Route>
 
-            <Route element={<ProtectedRoutes />}>
+            {/* <Route element={<ProtectedRoutes />}> */}
               <Route path="/cart" element={
                 <div>
                   <NavBar />
@@ -109,8 +109,8 @@ function App() {
                   <Footer />
                 </div>
               } />
-            </Route>
-            <Route element={<ProtectedRoutes />}>
+            {/* </Route> */}
+            {/* <Route element={<ProtectedRoutes />}> */}
               <Route path="/myorders" element={
                 <div>
                   <NavBar />
@@ -118,7 +118,7 @@ function App() {
                   <Footer />
                 </div>
               } />
-            </Route>
+            {/* </Route> */}
               <Route path="/adminproduct" element={
                 <div>
                   <AdminNavBar />

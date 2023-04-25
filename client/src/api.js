@@ -16,7 +16,14 @@ export const getMyCart = (setMyCart) => {
 export const getAllOrders = (setAllOrders) => {
     fetch('http://localhost:8080/admin/listorder')
         .then((response) => response.json())
-        .then((expense_data) => setAllOrders(expense_data.data));
+        .then((expense_data) => {
+
+            const Orders = expense_data.data.map(order => {
+                let dateArray = order.date.split('.');
+                return {...order,Date:new Date(dateArray[2]+'-'+dateArray[1]+'-'+dateArray[0])}
+              })
+            setAllOrders(Orders)
+        });
 }
 
 

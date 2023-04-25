@@ -2,12 +2,13 @@ import React from "react";
 import { Table } from "flowbite-react";
 const OrderItem = (props)=>{
     const {uid,date,total,rid} = props
+    const dateArray = props.date.split('.');
     let orderstatus="Success";
     
     return(
         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
             <Table.Cell>{uid}</Table.Cell>
-            <Table.Cell>{date}</Table.Cell>
+            <Table.Cell>{dateArray[2]+'-'+dateArray[1]+'-'+dateArray[0]}</Table.Cell>
             <Table.Cell>{total}</Table.Cell>
             <Table.Cell>{rid}</Table.Cell>
             <Table.Cell>{orderstatus}</Table.Cell>
