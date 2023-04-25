@@ -6,20 +6,20 @@ const MyCarousel =()=>{
 <br/>
     const slides = [
         {
-          url: 'https://oasis.opstatics.com/content/dam/oasis/page/2023/in/kv-banner/40-y1s/HeroBanner_PC.jpg.thumb.webp',
+          url: 'https://iasetraining.org/wp-content/uploads/2021/09/Top-home-appliances-training-center.jpg',
         },
         {
-          url: 'https://oasis.opstatics.com/content/dam/oasis/page/2023/in/large-card/oneplus-11r/udon-pc-2.7.jpg.thumb.webp',
+          url: 'https://cdn.pixabay.com/photo/2014/05/05/10/39/stove-338139_960_720.jpg',
         },
         {
-          url: 'https://imgnew.outlookindia.com/uploadimage/library/16_9/16_9_5/IMAGE_1676183711.jpg',
+          url: 'https://images.pexels.com/photos/213162/pexels-photo-213162.jpeg?cs=srgb&dl=pexels-photomix-company-213162.jpg&fm=jpg',
         },
     
         {
-          url: 'https://www.premierkitchen.in/wp-content/uploads/2022/07/Best-Wet-Grinder-To-Buy-In-India-2022.jpg',
+          url: 'https://cdn.pixabay.com/photo/2017/02/21/07/59/kitchen-2084994_960_720.jpg',
         },
         {
-          url: 'https://cdn.opstatics.com/store/20170907/assets/images/events/2020/07/tws/pc/s4-pc.jpg',
+          url: 'https://cdn.pixabay.com/photo/2016/01/09/05/08/kitchen-1129803_960_720.jpg',
         },
       ];
     
