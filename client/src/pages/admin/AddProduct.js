@@ -28,6 +28,7 @@ const AddProduct = () => {
     } catch (err) {
       console.error(err.message);
     }
+    window.location.reload();
   };
 
   // const handleImgChange = (e) => {

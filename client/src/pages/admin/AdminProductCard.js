@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button, Label, Modal, TextInput, Textarea } from "flowbite-react";
 import { deleteProduct, updateProduct } from "../../api";
+import {  useNavigate } from "react-router-dom";
 
 const AdminProductCard = ({ product }) => {
+  const navigate = useNavigate();
   const { image, name, description, price,quantity } = product;
   const [uname,setUname] = useState();
   const [uprice,setUprice] = useState();
@@ -16,15 +18,14 @@ const AdminProductCard = ({ product }) => {
   const deleteOneProduct = () => {
     const body = {pid};
     deleteProduct(body);
+    window.location.reload();
   };
-  useEffect(()=>{
 
-  },[]
-  )
 
   const updateOneProduct =()=>{
     const body = {pid,uname,uprice,udesc,image,quantity}
-    updateProduct(body) 
+    updateProduct(body);
+    window.location.reload();
   }
   const [modelShow, updateModelShow] = useState(false);
 
@@ -89,7 +90,7 @@ const AdminProductCard = ({ product }) => {
                       <Label htmlFor="email" value="Product Name" />
                     </div>
                     <TextInput
-                    defaultValue={Uname}
+                   
                       type="text"
                       id="email" 
                       value={uname}
