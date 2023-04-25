@@ -5,7 +5,7 @@ import {  useNavigate } from "react-router-dom";
 
 const AdminProductCard = ({ product }) => {
   const navigate = useNavigate();
-  const { image, name, description, price,quantity } = product;
+  const { image, name, description, price,stocks } = product;
   const [uname,setUname] = useState();
   const [uprice,setUprice] = useState();
   const [udesc,setUdesc] = useState();
@@ -23,7 +23,7 @@ const AdminProductCard = ({ product }) => {
 
 
   const updateOneProduct =()=>{
-    const body = {pid,uname,uprice,udesc,image,quantity}
+    const body = {pid,uname,uprice,udesc,image,stocks}
     updateProduct(body);
     window.location.reload();
   }
@@ -49,7 +49,7 @@ const AdminProductCard = ({ product }) => {
         </center>
         <center>
           <span className="font-body text-slate-500 block my-3">
-            Stocks: <span className="text-black"> {quantity}</span>
+            Stocks: <span className="text-black"> {stocks}</span>
           </span>
 
         </center>
