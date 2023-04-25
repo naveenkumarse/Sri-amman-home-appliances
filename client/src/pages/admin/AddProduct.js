@@ -9,13 +9,13 @@ const AddProduct = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
-  const [quantity, setQuantity] = useState(0);
+  const [stocks, setStocks] = useState(0);
   const [url, setUrl] = useState(null);
 
   const onAddProducts = async (e) => {
     e.preventDefault();
     try {
-      const body = { image, pid, name, description, price,quantity};
+      const body = { image, pid, name, description, price,stocks};
       console.log(body);
       const res = await fetch("http://localhost:8080/addproducts", {
         method: "POST",
@@ -177,15 +177,15 @@ const AddProduct = () => {
                 className="block text-gray-700 text-sm font-bold mb-2"
                 htmlFor="password"
               >
-                Quantity
+                Stocks
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="password"
                 type="number"
                 placeholder="Price"
-                onChange={(e) => setQuantity(e.target.value)}
-                value={quantity}
+                onChange={(e) => setStocks(e.target.value)}
+                value={stocks}
               />
               
               {/* <p className="text-red-500 text-xs italic">Please enter a password.</p> */}
