@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import CartCard from "./CartCard";
+import { Link } from "react-router-dom";
 import { addToOrder, listMyCart, placeOrder } from "../../api";
-
+import  {Checkout}  from "../checkout/Checkout";
 const MyCart = () => {
   const [mycart,setMyCart] = useState([])
   
@@ -89,9 +90,11 @@ placeOrder(data)
                       ₹{ subtotal }
                     </p>
                   </div>
-                  <button onClick={pay} className="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white">
-                    Buy
+                  <Link to="/checkout">
+                  <button  className="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white">
+                  Buy
                   </button>
+                  </Link>
                 </div>
               </div>
             </div>

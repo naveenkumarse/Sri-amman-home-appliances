@@ -19,7 +19,7 @@ import Filters from "./components/listproducts/Filters";
 import AddProduct from "./pages/admin/AddProduct";
 import MyCart from "./components/listproducts/MyCart";
 import Contact from "./components/contact/Contact";
-
+import { Checkout } from "./components/checkout/Checkout";
 import AdminNavBar from "./components/navbar/AdminNavbar";
 import AdminFilters from "./pages/admin/AdminFilters";
 import Userlist from "./pages/admin/UserList";
@@ -76,6 +76,14 @@ function App() {
               <div>
                 <AdminNavBar />
                 <AddProduct />
+                <Footer />
+              </div>
+            } />
+
+            <Route path="/checkout" element={
+              <div>
+                <NavBar />
+                <Checkout/>
                 <Footer />
               </div>
             } />

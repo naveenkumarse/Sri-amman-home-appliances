@@ -5,13 +5,13 @@ import { getAllOrders } from "../../api";
 
 const Orderlist = () => {
   const [allOrders,setAllOrders ] = useState([]);
-  const [startDate,setStartDate] = useState();
-  const [endDate,setEndDate] = useState();
+  const [startDate,setStartDate] = useState(new Date());
+  const [endDate,setEndDate] = useState(new Date());
 
   useEffect(()=>{
       getAllOrders(setAllOrders)
-      setStartDate(new Date("2023-4-24"));
-      setEndDate(new Date("2023-4-24"));
+      setStartDate(new Date(startDate));
+      setEndDate(new Date(endDate));
 
       // const Orders = allOrders.map(order => {
       //   let dateArray = order.date.split('.');
@@ -24,12 +24,20 @@ const Orderlist = () => {
 
   return (
     <div className="m-20">
+      <label htmlFor="from-date">From Date: </label>
+      <input type="date" style={{borderRadius:10}} value={startDate.getFullYear().toString() +
+          "-" +
+          (startDate.getMonth() + 1).toString().padStart(2, 0) +
+          "-" +
+          startDate.getDate().toString().padStart(2, 0)} onChange={(e)=>setStartDate(new Date(e.target.value))}/>
+      &nbsp; &nbsp;
+      <label htmlFor="from-date">To Date: </label>
+      <input type="date" style={{borderRadius:10}} value={endDate.getFullYear().toString() +"-" +  (endDate.getMonth() + 1).toString().padStart(2, 0) +   "-" +  endDate.getDate().toString().padStart(2, 0)} onChange={(e)=>setEndDate(new Date(e.target.value))}/>
       <Table>
         <Table.Head>
           <Table.HeadCell>uid</Table.HeadCell>
           <Table.HeadCell>Date</Table.HeadCell>
           <Table.HeadCell>Total</Table.HeadCell>
-          
           <Table.HeadCell>Order-Id</Table.HeadCell>
           <Table.HeadCell>Status</Table.HeadCell>
         </Table.Head>
