@@ -19,7 +19,7 @@ const MyCarousel =()=>{
           url: 'https://cdn.pixabay.com/photo/2017/02/21/07/59/kitchen-2084994_960_720.jpg',
         },
         {
-          url: 'https://cdn.pixabay.com/photo/2016/01/09/05/08/kitchen-1129803_960_720.jpg',
+          url: 'https://cdn.pixabay.com/photo/2020/10/04/01/07/house-5624887_960_720.jpg',
         },
       ];
     

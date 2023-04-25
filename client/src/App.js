@@ -25,6 +25,7 @@ import AdminFilters from "./pages/admin/AdminFilters";
 import Userlist from "./pages/admin/UserList";
 import Orderlist from "./pages/admin/OrderList";
 import MyOrders from "./components/myorders/MyOrders";
+import UserProfile from "./components/userprofile/userProfile";
 function App() {
 
   const [user, setUser] = useState("");
@@ -89,6 +90,12 @@ function App() {
               <div>
                 <NavBar />
                 <Register />
+              </div>
+            } />
+                <Route path="/userprofile" element={
+              <div>
+                <NavBar />
+                <UserProfile />
               </div>
             } />
             <Route element={<ProtectedRoutes />}>
