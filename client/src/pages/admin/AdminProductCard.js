@@ -4,6 +4,7 @@ import { deleteProduct, updateProduct } from "../../api";
 import {  useNavigate } from "react-router-dom";
 
 const AdminProductCard = ({ product }) => {
+  
   const navigate = useNavigate();
   const { image, name, description, price,stocks } = product;
   const [uname,setUname] = useState();
@@ -49,11 +50,11 @@ const AdminProductCard = ({ product }) => {
         </center>
         <center>
           <span className="font-body text-slate-500 block my-3">
-            Stocks: <span className="text-black"> {stocks}</span>
+            Stocks: <span className="text-black"> <input value={stocks} /></span>
           </span>
 
         </center>
-        <span className="font-body text-slate-500">₹{price}</span>
+        <span className="font-body text-slate-500">₹<input value={uprice} defaultValue={price} onChange={(e)=>setUprice(e.target.value)}/></span>
         <div className="flex justify-between w-1/2">
           <button
             className="bg-black hover:bg-lblue hover:text-black text-bblue font-bold py-2 px-4 my-3 rounded-full"
@@ -70,7 +71,7 @@ const AdminProductCard = ({ product }) => {
             Delete{" "}
           </button>
 
-          <React.Fragment>
+          {/* <React.Fragment>
             <Modal
               show={modelShow}
               size="lg"
@@ -89,31 +90,33 @@ const AdminProductCard = ({ product }) => {
                     <div className="mb-2 block">
                       <Label htmlFor="email" value="Product Name" />
                     </div>
-                    <TextInput
+                    {/* <TextInput
                    
                       type="text"
                       id="email" 
                       value={uname}
                        onMouseLeave={(e) => setUname(e.target.value)}
-                    />
+                    /> */}
+                    {/* <input type="text" value={uname} onChange={(e)=>setUname(e.target.value)} />
                     
                   </div>
                   <div>
                     <div className="mb-2 block">
                       <Label htmlFor="email" value="Product Price" />
-                    </div>
-                    <TextInput
+                    </div> */}
+                    {/* <TextInput
                       type="text"
                       id="price"
                        value={uprice}
                       onMouseLeave={(e) => setUprice(e.target.value)}
-                    />
+                    /> */}
+                    {/* <input type="text" value={uprice} onMouseLeave={(e)=>setUprice(e.target.value)} />
                   </div>
                   <div>
                     <div className="mb-2 block">
                       <Label htmlFor="text" value="Description" />
                     </div>
-                    <Textarea id="desc" type="text" value= {udesc} onMouseLeave={(e) => setUdesc(e.target.value)}/>
+                    <textarea id="desc" type="text" value= {udesc} onMouseDown={(e) => setUdesc(e.target.value)}/>
                   </div>
                   
                   <div className="flex justify-center">
@@ -122,7 +125,7 @@ const AdminProductCard = ({ product }) => {
                 </div>
               </Modal.Body>
             </Modal>
-          </React.Fragment>
+          </React.Fragment> */} 
         </div>
       </div>
     </div>
