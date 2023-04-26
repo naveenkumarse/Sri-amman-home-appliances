@@ -8,10 +8,18 @@ const OrderedSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    total: {
+    amount: {
         type: Number,
-       
     },
+    email:{
+        type:String
+    },
+    address:{
+        type:String
+    },
+    phone:{
+        type:Number
+    }
   
   
 

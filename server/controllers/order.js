@@ -74,7 +74,7 @@ exports.PlaceOrder = async(req,res)=>{
         const myquery = req.body.uid;
         console.log(myquery);
          
-        await Order.findByIdAndUpdate( {_id:req.body.uid} , {placeorder:true});
+        await Order.updateMany( {uid:req.body.uid} , {$set:{placeorder:true}});
         res.status(200).json({
             msg: 'updated'
         })

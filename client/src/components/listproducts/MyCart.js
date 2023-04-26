@@ -14,28 +14,9 @@ const MyCart = () => {
   useEffect(() => {
     listMyCart(setMyCart,body)
   }, []);
-  // const getMyOrders = (val) =>{
-  //     console.log(val);
-  //     const {image,uid,pid,name,description,newprice:price,placeOrder,count:quantity} = val;
-  //     pay(body)
-  // }
 
- const pay = () => {
-  let tdate = new Date()
-let day = tdate.getDate();
-let month = tdate.getMonth()+1;
-let year = tdate.getFullYear();
+const total = subtotal;
 
-let date = `${day}.${month}.${year}.`;
-let total = subtotal;
-const body = {date,uid,total}
- console.log(body);
-addToOrder(body);
-const data = {uid}
-placeOrder(data)
-  alert("Paid SuccessFully and Order Placed");
- }
- 
     
 
   return (
@@ -58,7 +39,7 @@ placeOrder(data)
               </p>
               {mycart ? (
                 mycart.map((product) => (
-                  <CartCard key={product.id} product={product}  /> 
+                  <CartCard key={product._id} product={product}  /> 
                 ))
               ) : (
                 <div> No Items In Cart </div>
@@ -100,7 +81,7 @@ placeOrder(data)
             </div>
           </div>
         </div>
-      </div>:<Checkout/>}
+      </div>:<Checkout uid={uid} total={total}/>}
     </>
   )
 }

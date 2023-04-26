@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
+import { addToOrder, placeOrder } from '../../api';
 
-export const Checkout = () => {
-
+export const Checkout = (props) => {
+    const {uid,total} = props
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
@@ -10,7 +11,22 @@ export const Checkout = () => {
     const [city, setCity] = useState('');
     const [state, setState] = useState('Tamil Nadu');
     const [pincode, setPincode] = useState('')
-
+    const pay = () => {
+        let tdate = new Date()
+      let day = tdate.getDate();
+      let month = tdate.getMonth()+1;
+      let year = tdate.getFullYear();
+      
+      let date = `${day}.${month}.${year}.`;
+       
+      const body = {uid,firstname,lastname,email,phoneno,streetname,city,state,pincode,total,date}
+      console.log(body);
+      addToOrder(body);
+      const data = {uid}
+      placeOrder(data)
+        alert("Paid SuccessFully and Order Placed");
+       }
+       
   return (
     <div class="flex h-screen justify-center mt-8">
             <form class="w-full max-w-lg" >
@@ -120,14 +136,11 @@ export const Checkout = () => {
                 </div>
                 <br />
                 <div class="w-full justify-center px-3 mb-6 md:mb-0 ">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" >
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={pay} >
                         Place Order
                     </button>
-                    
                 </div>
             </form>
-
-      
         </div>
   )
 }
