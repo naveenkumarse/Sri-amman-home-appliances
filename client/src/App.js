@@ -3,7 +3,7 @@ import { Routes, Route, HashRouter } from "react-router-dom";
 import NavBar from "./components/navbar/Navbar.js";
 import Login from "./components/login/login.js";
 import Register from "./components/login/register.js";
-import Description from "./components/products/Description";
+// import Description from "./components/products/Description";
 // import Cart from "./components/products/Cart";
 import ProtectedRoutes from "./components/protectedRoutes/ProtectedRoutes";
 import { UserContext } from "./components/protectedRoutes/UserContext";
@@ -65,13 +65,13 @@ function App() {
                 </div>
               }
             />
-            <Route path="/description/:param" element={
+            {/* <Route path="/description/:param" element={
               <div>
 
                 <NavBar />
                 <Description />
               </div>
-            } />
+            } /> */}
 
             <Route path="/admin" element={
               <div>
@@ -109,7 +109,7 @@ function App() {
               </div>
             } />
             {/* </Route> */}
-            <Route element={<ProtectedRoutes />}>
+            {/* <Route element={<ProtectedRoutes />}>
               <Route path="/description" element={
                 <div>
 
@@ -117,7 +117,7 @@ function App() {
                   <Description />
                 </div>
               } />
-            </Route>
+            </Route> */}
 
             {/* <Route element={<ProtectedRoutes />}> */}
               <Route path="/cart" element={

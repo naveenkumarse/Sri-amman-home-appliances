@@ -25,6 +25,7 @@ export const Checkout = (props) => {
       const data = {uid}
       placeOrder(data)
         alert("Paid SuccessFully and Order Placed");
+        window.location.reload()
        }
        
   return (
