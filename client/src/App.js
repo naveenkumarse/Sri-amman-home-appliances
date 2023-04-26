@@ -3,16 +3,13 @@ import { Routes, Route, HashRouter } from "react-router-dom";
 import NavBar from "./components/navbar/Navbar.js";
 import Login from "./components/login/login.js";
 import Register from "./components/login/register.js";
-// import Description from "./components/products/Description";
-// import Cart from "./components/products/Cart";
+
 import ProtectedRoutes from "./components/protectedRoutes/ProtectedRoutes";
 import { UserContext } from "./components/protectedRoutes/UserContext";
 import { useState } from "react";
 import DashBoard from "./components/home/dashboard";
 import MyFooter from "./components/footer/footer";
-// import img1 from "./assets/placeholder.png";
-// import ProductList from "./components/products/productList";
-// import About from "./components/about/About";
+
 import Footer from "./components/footer/footer";
 import Filters from "./components/listproducts/Filters";
 
@@ -26,6 +23,7 @@ import Userlist from "./pages/admin/UserList";
 import Orderlist from "./pages/admin/OrderList";
 import MyOrders from "./components/myorders/MyOrders";
 import UserProfile from "./components/userprofile/userProfile";
+import AdminLogin from "./components/adminLogin/Admin";
 function App() {
 
   const [user, setUser] = useState("");
@@ -43,14 +41,14 @@ function App() {
                 <MyFooter />
               </div>
             } />
- <Route element={<ProtectedRoutes />}>
-            <Route path="/contact" element={
-              <div>
-                <NavBar />
-                <Contact />
-                <MyFooter />
-              </div>
-            } />
+            <Route element={<ProtectedRoutes />}>
+              <Route path="/contact" element={
+                <div>
+                  <NavBar />
+                  <Contact />
+                  <MyFooter />
+                </div>
+              } />
             </Route>
             <Route
               path="/productlist"
@@ -65,13 +63,7 @@ function App() {
                 </div>
               }
             />
-            {/* <Route path="/description/:param" element={
-              <div>
 
-                <NavBar />
-                <Description />
-              </div>
-            } /> */}
 
             <Route path="/admin" element={
               <div>
@@ -81,31 +73,28 @@ function App() {
               </div>
             } />
 
-            <Route path="/checkout" element={
-              <div>
-                <NavBar />
-                <Checkout/>
-                <Footer />
-              </div>
-            } />
 
-            <Route path="/login" element={
-              <div>
-                <NavBar />
-                <UserProfile />
-              </div>
-            } />
-            <Route path="/register" element={
-              <div>
-                <NavBar />
-                <Register />
-              </div>
-            } />
+            <Route element={<ProtectedRoutes />}>
+              <Route path="/login" element={
+                <div>
+                  <NavBar />
+                  <UserProfile />
+                </div>
+              } />
+            </Route>
+            <Route element={<ProtectedRoutes />}>
+              <Route path="/register" element={
+                <div>
+                  <NavBar />
+                  <Register />
+                </div>
+              } />
+            </Route>
             {/* <Route element={<ProtectedRoutes />}> */}
-                <Route path="/userprofile" element={
+            <Route path="/userprofile" element={
               <div>
                 <NavBar />
-                <UserProfile />
+                <Login />
               </div>
             } />
             {/* </Route> */}
@@ -119,7 +108,7 @@ function App() {
               } />
             </Route> */}
 
-            {/* <Route element={<ProtectedRoutes />}> */}
+            <Route element={<ProtectedRoutes />}>
               <Route path="/cart" element={
                 <div>
                   <NavBar />
@@ -127,8 +116,8 @@ function App() {
                   <Footer />
                 </div>
               } />
-            {/* </Route> */}
-            {/* <Route element={<ProtectedRoutes />}> */}
+            </Route>
+            <Route element={<ProtectedRoutes />}>
               <Route path="/myorders" element={
                 <div>
                   <NavBar />
@@ -136,31 +125,39 @@ function App() {
                   <Footer />
                 </div>
               } />
-            {/* </Route> */}
+            </Route>
+           
               <Route path="/adminproduct" element={
                 <div>
                   <AdminNavBar />
                   <AdminFilters />
-                  {/* <AdminProductList /> */}
-                  <Footer />
-                </div>
-              } />
 
+                  <Footer />
+                </div>
+              } />
+           
 
-              <Route path="/usersList" element={
-                <div>
-                  <AdminNavBar />
-                  <Userlist />
-                  <Footer />
-                </div>
-              } />
-              <Route path="/orderList" element={
-                <div>
-                  <AdminNavBar />
-                  <Orderlist />
-                  <Footer />
-                </div>
-              } />
+            <Route path="/usersList" element={
+              <div>
+                <AdminNavBar />
+                <Userlist />
+                <Footer />
+              </div>
+            } />
+            <Route path="/orderList" element={
+              <div>
+                <AdminNavBar />
+                <Orderlist />
+                <Footer />
+              </div>
+            } />
+                <Route path="/adminlogin" element={
+              <div>
+                <AdminNavBar />
+                <AdminLogin/>
+                <Footer />
+              </div>
+            } />
           </Routes>
         </UserContext.Provider>
       </HashRouter>

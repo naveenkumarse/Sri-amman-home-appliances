@@ -6,11 +6,13 @@ exports.CreateOrder = async (req, res) => {
     const {uid,firstname,lastname,email,phoneno:phone,streetname,city,state,pincode,total:amount,date } = req.body;
     const address = firstname+" "+lastname+" "+streetname+" "+city+" "+state+" "+pincode;
     console.log(address);
+    const name = firstname
     const order =  new Ordered({
         date,
         uid,
         amount,
         email,
+        name,
         address,
         phone
     })
@@ -43,5 +45,21 @@ exports.OrderList=async(req,res)=>{
         })
     } catch (error) {
         return res.send(error);
+    }
+}
+
+
+exports.ListMyOrders = async (req, res) => {
+    console.log(req.body);
+    const uid = req.body.uid;
+    console.log("uid"+uid);
+    const data = await Ordered.find(
+        {uid: req.body.uid},
+    );
+    if (data) {
+        console.log(data);
+        res.send(data);
+    } else {
+        res.send(err);
     }
 }

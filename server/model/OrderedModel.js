@@ -14,6 +14,9 @@ const OrderedSchema = new mongoose.Schema({
     email:{
         type:String
     },
+    name:{
+        type:String
+    },
     address:{
         type:String
     },

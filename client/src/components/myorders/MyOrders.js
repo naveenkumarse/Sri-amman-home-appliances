@@ -1,29 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "flowbite-react";
 import MyOrdersList from "./MyOrdersList";
-import { getAllOrders, listAllMyOrder, listMyOrder } from "../../api";
+import { listMyOrder } from "../../api";
 
 const MyOrders = () => {
-    const [myorders,setMyOrder] = useState([])
+    const [myorders,setMyOrders] = useState([])
     const uid = localStorage.getItem("uid")
     // alert(uid)
     const body = {uid};
     useEffect(()=>{
-      getAllOrders(setMyOrder);
+      listMyOrder(body,setMyOrders);
     },[])
     return (
         <>
         <div className="m-20">
       <Table>
         <Table.Head>
-          <Table.HeadCell>Order-Id</Table.HeadCell>
+          <Table.HeadCell>Name</Table.HeadCell>
           <Table.HeadCell>Date</Table.HeadCell>
           <Table.HeadCell>Total</Table.HeadCell>
-         
+          <Table.HeadCell>Address</Table.HeadCell>
+          <Table.HeadCell>Phone</Table.HeadCell>
+          <Table.HeadCell>Status</Table.HeadCell>
         </Table.Head>
         <Table.Body className="divide-y">
           {myorders.map((r)=>{
-              return <MyOrdersList key={r._id} rid={r._id} total={r.total} date={r.date} />
+              return <MyOrdersList key={r._id} name={r.name} total={r.amount} date={r.date} address={r.address} phone={r.phone} status={r.status}/>
           })}
           
         </Table.Body>

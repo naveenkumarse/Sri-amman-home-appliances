@@ -14,7 +14,7 @@ export const getMyCart = (setMyCart) => {
         .then((expense_data) => setMyCart(expense_data.data));
 }
 export const getAllOrders = (setAllOrders) => {
-    fetch('http://localhost:8080/admin/listorder')
+    fetch('http://localhost:8080/admin/mycart')
         .then((response) => response.json())
         .then((expense_data) => {
 
@@ -131,7 +131,7 @@ export const addToOrder = async (postData) => {
 }
 
 
-export const listMyOrder = async ( body,setMyOrder) => {
+export const listMyOrder = async ( body,setMyOrders) => {
     console.log(body);
     
     const res = await fetch("http://localhost:8080/user/listmyorder", {
@@ -141,7 +141,7 @@ export const listMyOrder = async ( body,setMyOrder) => {
     });
     const jsonData = await res.json();
     console.log(jsonData)
-    return setMyOrder(jsonData);
+    return setMyOrders(jsonData);
 }
 
 

@@ -64,7 +64,7 @@ app.post("/user/listmycart",ListMycart); //checked
 
 app.put("/user/placeorder",PlaceOrder); //checked
 
-app.post("/user/listmyorder",ListMyOrder); // checked
+app.post("/user/listmyorder",ListMyOrders); // checked
 
 app.post("/addtoorder", CreateOrder);//checked
 

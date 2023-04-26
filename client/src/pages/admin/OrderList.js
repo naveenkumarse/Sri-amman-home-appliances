@@ -35,16 +35,16 @@ const Orderlist = () => {
       <input type="date" style={{borderRadius:10}} value={endDate.getFullYear().toString() +"-" +  (endDate.getMonth() + 1).toString().padStart(2, 0) +   "-" +  endDate.getDate().toString().padStart(2, 0)} onChange={(e)=>setEndDate(new Date(e.target.value))}/>
       <Table>
         <Table.Head>
-          <Table.HeadCell>uid</Table.HeadCell>
+          <Table.HeadCell>Order-Id</Table.HeadCell>
           <Table.HeadCell>Date</Table.HeadCell>
           <Table.HeadCell>Total</Table.HeadCell>
-          <Table.HeadCell>Order-Id</Table.HeadCell>
+          <Table.HeadCell>Address</Table.HeadCell>
           <Table.HeadCell>Status</Table.HeadCell>
         </Table.Head>
         <Table.Body className="divide-y">
           {allOrders.map((r)=>{
             if(r.Date.getTime()>=startDate.getTime() && r.Date.getTime()<=endDate.getTime())
-              return <OrderItem key={r._id} uid ={r.uid} date={r.date} rid={r._id} total={r.total} />
+              return <OrderItem key={r._id} address ={r.address} date={r.date} rid={r._id} total={r.amount}  />
           })}
           
         </Table.Body>

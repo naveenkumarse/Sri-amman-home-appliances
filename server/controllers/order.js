@@ -49,21 +49,21 @@ exports.ListAllOrder = async (req,res)=>{
     }
 }
 
-exports.ListMyOrder = async (req, res) => {
-    console.log(req.body);
-    const uid = req.body.uid;
-    console.log("uid"+uid);
-    const data = await Order.find({
-        "uid": req.body.uid,
-        "placeorder" : true
-    });
-    if (data) {
-        console.log(data);
-        res.send(data);
-    } else {
-        res.send(err);
-    }
-}
+// exports.ListMyOrder = async (req, res) => {
+//     console.log(req.body);
+//     const uid = req.body.uid;
+//     console.log("uid"+uid);
+//     const data = await Order.find(
+//         {uid: req.body.uid},
+//         {placeorder : true}
+//     );
+//     if (data) {
+//         console.log(data);
+//         res.send(data);
+//     } else {
+//         res.send(err);
+//     }
+// }
 
 
 
