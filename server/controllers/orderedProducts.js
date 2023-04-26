@@ -21,18 +21,18 @@ exports.CreateOrder = async (req, res) => {
 }
 
 
-exports.ListMyOrders= async (req, res) => {
-    console.log(req);
+// exports.ListMyOrders= async (req, res) => {
+//     console.log(req);
     
-    console.log("--->uid"+req.body.uid);
-    const data = await Ordered.findById(req.body.uid);
-    if (data) {
-        console.log(data);
-        res.send(data);
-    } else {
-        res.send(err);
-    }
-}
+//     console.log("--->uid"+req.body.uid);
+//     const data = await Ordered.findById(req.body.uid);
+//     if (data) {
+//         console.log(data);
+//         res.send(data);
+//     } else {
+//         res.send(err);
+//     }
+// }
 
 
 exports.OrderList=async(req,res)=>{

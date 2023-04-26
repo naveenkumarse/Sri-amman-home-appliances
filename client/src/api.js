@@ -14,7 +14,7 @@ export const getMyCart = (setMyCart) => {
         .then((expense_data) => setMyCart(expense_data.data));
 }
 export const getAllOrders = (setAllOrders) => {
-    fetch('http://localhost:8080/admin/mycart')
+    fetch('http://localhost:8080/admin/listallorders')
         .then((response) => response.json())
         .then((expense_data) => {
 
