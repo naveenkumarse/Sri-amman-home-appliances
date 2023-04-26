@@ -143,3 +143,17 @@ export const listMyOrder = async ( body,setMyOrder) => {
     console.log(jsonData)
     return setMyOrder(jsonData);
 }
+
+
+
+export const removefromcart = async (body) => {
+    console.log(body);
+    const res = await fetch("http://localhost:8080/cart/removeone", {
+        method: "DELETE",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    // const jsonData = await res.json();
+
+    return res;
+}

@@ -5,7 +5,7 @@ import { Button, Label, Modal, TextInput } from 'flowbite-react';
 const ProductCard = ({ product }) => {
   const { image, name, description, price, pid, id,stocks} = product
   const [modelShow, updateModelShow] = useState(false);
-  const [quantity,setQuantity] = useState();
+  const [quantity,setQuantity] = useState(1);
 
   const AddToCart = async () => {
     updateModelShow(!modelShow);
@@ -68,18 +68,18 @@ const ProductCard = ({ product }) => {
                  
                   <div>
                     <div className="mb-2 block">
-                      <Label htmlFor="email" value="Product Price" />
+                      <Label htmlFor="email" value="Product Count"  />
                     </div>
                     <TextInput
-                      type="text"
+                      type="number"
                       id="price"
-                       value={quantity}
-                       onMouseLeave={(e) => setQuantity(e.target.value)}
+                       value={quantity}  min={1}
+                       onChange={(e) => setQuantity(e.target.value)}
                     />
                   </div>
                 
                   <div className="flex justify-center">
-                    <Button onClick={AddToCart}>Update</Button>
+                    <Button onClick={AddToCart}>Submit</Button>
                   </div>
                 </div>
               </Modal.Body>

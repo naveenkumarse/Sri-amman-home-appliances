@@ -58,7 +58,7 @@ placeOrder(data)
               </p>
               {mycart ? (
                 mycart.map((product) => (
-                  <CartCard key={product.id} product={product}  /> //getMyOrders={getMyOrders}
+                  <CartCard key={product.id} product={product}  /> 
                 ))
               ) : (
                 <div> No Items In Cart </div>

@@ -1,24 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { removefromcart } from "../../api";
 
 const CartCard = (props) => {
     const {product} = props;
-    const { image, name, description, price, pid, id, quantity } = product;
-    // const {getMyOrders} = props;
-    // const [count, setCount] = useState(1);
-    // let newprice = 1;
-    // const onCountChange = () => {
-    //     newprice = count * newprice;
-    //     const body = { image, name, description, newprice, pid, id, count };
-    //     getMyOrders(body);
-    // }
-    // useEffect(() => {
-    //     onCountChange()
-    // }, [count])
-
-
+    const { image, name, description, price, pid, _id, quantity } = product;
+    const remove = ()=>{
+        const body = {_id}
+        const res = removefromcart(body);
+        console.log(res);
+        window.location.reload();
+    }
     return (
         <>
-            <div key={id} className="md:flex items-center py-8 border-t border-gray-200">
+            <div key={_id} className="md:flex items-center py-8 border-t border-gray-200">
                 <div className="w-1/4">
                     <img
                         src={`${image}`}
@@ -39,17 +33,6 @@ const CartCard = (props) => {
                         <p className="text-base font-black leading-none text-gray-800">
                             {quantity}
                         </p>
-                        {/* <div className="flex w-24 justify-between">
-                            <div className="border-2 w-1/3 mx-1 border-black">
-                                <button onClick={() => setCount(count - 1)} >-</button>
-                            </div>
-                            <div className="border-2 w-1/3 mx-1 border-black">
-                                <p>{count}</p>
-                            </div>
-                            <div className="border-2	w-1/3 mx-1 border-black">
-                                <button onClick={() => setCount(count + 1)}>+</button>
-                            </div >
-                        </div> */}
 
                     </div>
 
@@ -60,7 +43,13 @@ const CartCard = (props) => {
                         <p className="text-base font-black leading-none text-gray-800">
                             ₹{price}
                         </p>
+                       
                     </div>
+                    <div className="flex items-center justify-end pt-5 pr-3">
+                            <button className=" bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={remove}>
+                                Remove
+                            </button>
+                        </div>
                 </div>
 
             </div>
