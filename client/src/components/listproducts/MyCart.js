@@ -5,7 +5,7 @@ import { addToOrder, listMyCart, placeOrder } from "../../api";
 import  {Checkout}  from "../checkout/Checkout";
 const MyCart = () => {
   const [mycart,setMyCart] = useState([])
-  
+  const [buy,setBuy] = useState(false);
   const subtotal = mycart.reduce((acc, cur) => acc + cur.price*cur.quantity, 0)
   
   console.log(mycart)
@@ -40,7 +40,7 @@ placeOrder(data)
 
   return (
     <>
-      <div
+      {!buy?<div
         className="w-full h-full bg-black bg-opacity-50 top-0 overflow-y-auto overflow-x-hidden "
         id="chec-div"
       >
@@ -90,17 +90,17 @@ placeOrder(data)
                       ₹{ subtotal }
                     </p>
                   </div>
-                  <Link to="/checkout">
-                  <button  className="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white">
+                  
+                  <button  className="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white" onClick={()=>setBuy(!buy)}>
                   Buy
                   </button>
-                  </Link>
+                  
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div>:<Checkout/>}
     </>
   )
 }

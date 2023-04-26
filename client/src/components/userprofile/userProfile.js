@@ -17,18 +17,18 @@ export default function UserProfile() {
     function handleAddrTypeChange(e) {
         setState(e.target.value);
       }
-    useEffect(async()=>{
+    useEffect(()=>{
         const body = {uid};
-       await listMyUser(setMyUser,body);
-       await add();
+        listMyUser(setMyUser,body);
+    //    await add();
     },[])
-    const add =()=>{
+    // const add =()=>{
         
-        console.log(myuser.data.city)
+    //     console.log(myuser.data.city)
         
-        const {firstname,lastname,email,phoneno,password,streetname,city,state,pincode} = myuser.data;
-        setFirstname(firstname);
-    }
+    //     const {firstname,lastname,email,phoneno,password,streetname,city,state,pincode} = myuser.data;
+    //     setFirstname(firstname);
+    // }
   
     
   return (
