@@ -16,6 +16,7 @@ const ProductCard = ({ product }) => {
     const body = { image, name, description, price,uid,pid,quantity};
     alert(quantity)
     const val = addOrder(body);
+
     // try {
      
     //   console.log(body);
@@ -29,7 +30,7 @@ const ProductCard = ({ product }) => {
     //   alert("Successfully added to the cart!")
 
     // } catch (err) {
-    //   console.error(err.message);
+    //   console.e rror(err.message);
     // }
   }
  

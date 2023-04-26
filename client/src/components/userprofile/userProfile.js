@@ -2,27 +2,35 @@ import React, { useEffect, useState } from 'react'
 import { listMyUser } from '../../api';
 
 export default function UserProfile() {
+    const [efirstname, setFirstname] = useState('');
+    const [elastname, setLastname] = useState('');
+    const [eemail, setEmail] = useState('');
+    const [ephoneno, setPhoneno] = useState('');
+    const [epassword, setPassword] = useState('');
+    const [estreetname, setStreetname] = useState('');
+    const [ecity, setCity] = useState('');
+    const [estate, setState] = useState('Tamil Nadu');
+    const [epincode, setPincode] = useState('');
 
-    const [firstname, setFirstname] = useState('');
-    const [lastname, setLastname] = useState('');
-    const [email, setEmail] = useState('');
-    const [phoneno, setPhoneno] = useState('');
-    const [password, setPassword] = useState('');
-    const [streetname, setStreetname] = useState('');
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('Tamil Nadu');
-    const [pincode, setPincode] = useState('');
-    const [myuser, setMyUser] = useState([]);
+    const [myuser, setMyUser] = useState();
     var uid =  localStorage.getItem("uid");
     function handleAddrTypeChange(e) {
         setState(e.target.value);
       }
-    useEffect(()=>{
+    useEffect(async()=>{
         const body = {uid};
-        listMyUser(setMyUser,body);
-        console.log(setMyUser);
+       await listMyUser(setMyUser,body);
+       await add();
     },[])
-
+    const add =()=>{
+        
+        console.log(myuser.data.city)
+        
+        const {firstname,lastname,email,phoneno,password,streetname,city,state,pincode} = myuser.data;
+        setFirstname(firstname);
+    }
+  
+    
   return (
     <div>
             <div class="flex h-screen justify-center mt-8">
@@ -33,14 +41,14 @@ export default function UserProfile() {
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                             First Name
                         </label>
-                        <input class=" appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="name" name="fname" type="text" onChange={(e) => setFirstname(e.target.value)} value={firstname} placeholder="Raj" required />
+                        <input class=" appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="name" name="fname" type="text" onChange={(e) => setFirstname(e.target.value)} value={efirstname} placeholder="Raj" required />
                      
                     </div>
                     <div class="w-full md:w-1/2 px-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                             Last Name
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="lname" name="lname" type="text" onChange={(e) => setLastname(e.target.value)} value={lastname} placeholder="Kumar" />
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="lname" name="lname" type="text" onChange={(e) => setLastname(e.target.value)} value={elastname} placeholder="Kumar" />
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6" >
@@ -48,14 +56,14 @@ export default function UserProfile() {
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                             Email
                         </label>
-                        <input class="  appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="email" name="email" type="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="abc123@gmail.com" required />
+                        <input class="  appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="email" name="email" type="email" onChange={(e) => setEmail(e.target.value)} value={eemail} placeholder="abc123@gmail.com" required />
                      
                     </div>
                     <div class="w-full md:w-1/2 px-3">
                         <label class=" peer block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                             Phone No
                         </label>
-                        <input pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="peer appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="ph" name="ph" type="text" onChange={(e) => setPhoneno(e.target.value)} value={phoneno} placeholder="9876543210" required/>
+                        <input pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="peer appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="ph" name="ph" type="text" onChange={(e) => setPhoneno(e.target.value)} value={ephoneno} placeholder="9876543210" required/>
                     
                     </div>
                 </div>
@@ -65,7 +73,7 @@ export default function UserProfile() {
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                             Password
                         </label>
-                        <input class="peer-focus:font-medium appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="password" name="password" onChange={(e) => setPassword(e.target.value)} value={password} type="password" placeholder="******************" required />
+                        <input class="peer-focus:font-medium appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="password" name="password" onChange={(e) => setPassword(e.target.value)} value={epassword} type="password" placeholder="******************" required />
                         {/* <p class="invisible peer-invalid:visible text-red-700 font-light">
                 Please enter a strong password
             </p> */}
@@ -77,7 +85,7 @@ export default function UserProfile() {
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                             Door no & street name
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="sname" name="sname" type="text" onChange={(e) => setStreetname(e.target.value)} value={streetname} placeholder="2/12,periyar street" required/>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="sname" name="sname" type="text" onChange={(e) => setStreetname(e.target.value)} value={estreetname} placeholder="2/12,periyar street" required/>
 
                     </div>
                 </div>
@@ -86,14 +94,14 @@ export default function UserProfile() {
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
                             City
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="city" name="city" type="text" onChange={(e) => setCity(e.target.value)} value={city} placeholder="Chennai" required />
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="city" name="city" type="text" onChange={(e) => setCity(e.target.value)} value={ecity} placeholder="Chennai" required />
                     </div>
                     <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
                             State
                         </label>
                         <div class="relative">
-                            <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="state" name="state" defaultValue={state}
+                            <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="state" name="state" defaultValue={estate}
   onChange={handleAddrTypeChange}  required >
                                 <option value="Tamil Nadu">Tamil Nadu</option>
                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -141,7 +149,7 @@ export default function UserProfile() {
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
                             Pincode
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="pincode" name="pincode" type="text" onChange={(e) => setPincode(e.target.value)} value={pincode} placeholder="6380056" />
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="pincode" name="pincode" type="text" onChange={(e) => setPincode(e.target.value)} value={epincode} placeholder="6380056" />
                     </div>
                 </div>
                 <br />
