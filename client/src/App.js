@@ -43,7 +43,7 @@ function App() {
                 <MyFooter />
               </div>
             } />
-
+ <Route element={<ProtectedRoutes />}>
             <Route path="/contact" element={
               <div>
                 <NavBar />
@@ -51,6 +51,7 @@ function App() {
                 <MyFooter />
               </div>
             } />
+            </Route>
             <Route
               path="/productlist"
 

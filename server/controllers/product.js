@@ -49,8 +49,8 @@ exports.DeleteProduct = async (req, res) => {
 
 exports.UpdateProduct = async (req, res) => {
     try {
-        const {uname:name,uprice:price,udesc:description,image} =req.body;
-        const value ={name,price,description,image};
+        const {uname:name,uprice:price,udesc:description,image,stock:stocks} =req.body;
+        const value ={name,price,description,image,stocks};
         console.log(value)
         await Product.findByIdAndUpdate(req.body.pid,value);
         res.status(200).json({
