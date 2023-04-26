@@ -84,3 +84,18 @@ exports.PlaceOrder = async(req,res)=>{
         })
     }
 }
+
+exports.RemoveProduct = async (req, res) => {
+    try {
+        console.log(req.body._id)
+        await Order.findByIdAndDelete(req.body._id);
+        res.status(200).json({
+            msg: 'deleted'
+        })
+        console.log("deleted");
+    } catch (err) {
+        res.status(500).json({
+            msg: 'server internal error'
+        })
+    }
+}
