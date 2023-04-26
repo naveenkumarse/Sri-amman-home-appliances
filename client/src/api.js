@@ -52,6 +52,19 @@ export const listMyCart = async (setMyCart, body) => {
     return setMyCart(jsonData);
 }
 
+export const listMyUser = async (setMyUser, body) => {
+    console.log(body);
+    const res = await fetch("http://localhost:8080/user/listmyuser", {
+        method: "POST",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    console.log(jsonData)
+    return setMyUser(jsonData);
+}
+
+
 export const listAllMyOrder = async (uid = {}, setMyOrder) => {
     console.log(uid);
     const body = {uid};

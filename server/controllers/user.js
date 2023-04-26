@@ -75,3 +75,17 @@ exports.ListUser=async(req,res)=>{
     }
 }
 
+
+exports.ListMyUser=async(req,res)=>{
+    try {
+        const {uid} = req.body;
+        const expense = await User.findById(uid);
+        // console.log(expenses);
+        return res.status(200).json({
+            data: expense,
+            length: expense.length
+        })
+    } catch (error) {
+        return res.send(error);
+    }
+}
