@@ -73,61 +73,7 @@ const AdminProductCard = ({ product }) => {
             Delete{" "}
           </button>
 
-          {/* <React.Fragment>
-            <Modal
-              show={modelShow}
-              size="lg"
-              popup={true}
-              onClose={() => {
-                updateModelShow(!modelShow);
-              }}
-            >
-              <Modal.Header />
-              <Modal.Body>
-                <div className="space-y-6 px-6 pb-4 sm:pb-6 lg:px-8 xl:pb-8">
-                  <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-                    Update Product
-                  </h3>
-                  <div>
-                    <div className="mb-2 block">
-                      <Label htmlFor="email" value="Product Name" />
-                    </div>
-                    {/* <TextInput
-                   
-                      type="text"
-                      id="email" 
-                      value={uname}
-                       onMouseLeave={(e) => setUname(e.target.value)}
-                    /> */}
-                    {/* <input type="text" value={uname} onChange={(e)=>setUname(e.target.value)} />
-                    
-                  </div>
-                  <div>
-                    <div className="mb-2 block">
-                      <Label htmlFor="email" value="Product Price" />
-                    </div> */}
-                    {/* <TextInput
-                      type="text"
-                      id="price"
-                       value={uprice}
-                      onMouseLeave={(e) => setUprice(e.target.value)}
-                    /> */}
-                    {/* <input type="text" value={uprice} onMouseLeave={(e)=>setUprice(e.target.value)} />
-                  </div>
-                  <div>
-                    <div className="mb-2 block">
-                      <Label htmlFor="text" value="Description" />
-                    </div>
-                    <textarea id="desc" type="text" value= {udesc} onMouseDown={(e) => setUdesc(e.target.value)}/>
-                  </div>
-                  
-                  <div className="flex justify-center">
-                    <Button onClick={updateOneProduct}>Update</Button>
-                  </div>
-                </div>
-              </Modal.Body>
-            </Modal>
-          </React.Fragment> */} 
+    
         </div>
       </div>
     </div>

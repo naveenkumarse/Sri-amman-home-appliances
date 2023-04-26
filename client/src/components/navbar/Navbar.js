@@ -19,7 +19,7 @@ const NavBar = () => {
                 <ul className="hidden md:flex ">
                     <li className="px-3 text-lg"><Link to="/">Home</Link></li>
                     <li className="px-3 text-lg"><Link to="/productlist">Products</Link></li>
-                    <li className="px-3 text-lg"><Link to="/contact">Contact us</Link></li>
+                    <li className="px-3 text-lg"><Link to="/contact">Request us</Link></li>
                     <li className="px-3 text-lg"><Link to="/cart">My cart</Link></li>
                     <li className="px-3 text-lg"><Link to="/myorders">My Orders</Link></li>
 
@@ -36,7 +36,7 @@ const NavBar = () => {
                         <li className="p-4 border-b border-gray-600"><Link to="/productlist">Products</Link></li>
 
                         <li className="p-4 border-b border-gray-600"><Link to="/cart">My cart</Link></li>
-                        <li className="p-4 border-b border-gray-600"><Link to="/">Contact us</Link></li>
+                        <li className="p-4 border-b border-gray-600"><Link to="/">Request us</Link></li>
                         <li className="p-4 border-b border-gray-600"><Link to="/login">Login/register</Link></li>
 
                     </ul>
