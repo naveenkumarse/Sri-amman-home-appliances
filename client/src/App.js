@@ -82,14 +82,14 @@ function App() {
                 </div>
               } />
             </Route>
-            <Route element={<ProtectedRoutes />}>
+            {/* <Route element={<ProtectedRoutes />}> */}
               <Route path="/register" element={
                 <div>
                   <NavBar />
                   <Register />
                 </div>
               } />
-            </Route>
+            {/* </Route> */}
             {/* <Route element={<ProtectedRoutes />}> */}
             <Route path="/userprofile" element={
               <div>
