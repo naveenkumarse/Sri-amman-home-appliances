@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from '../../assets/company_logo.png'
 
 const NavBar = () => {
+    console.log(localStorage.uid)
+    const navigate = useNavigate();
+
     const [nav, setNav] = useState(false)
+    const [uid,setUid] = useState(localStorage.uid)
+    console.log(uid)
 
     const handleNav = () => {
         setNav(!nav)
@@ -23,7 +28,7 @@ const NavBar = () => {
                     <li className="px-3 text-lg"><Link to="/cart">My cart</Link></li>
                     <li className="px-3 text-lg"><Link to="/myorders">My Orders</Link></li>
 
-                    <li className="px-3 text-lg"><Link to="/login">Login/register</Link></li>
+                    {uid? <li className="px-3 text-lg"> <button onClick={() => {localStorage.setItem("uid",null); setUid(null); navigate("/login")}} >Sign Out</button> </li> : <li className="px-3 text-lg"><Link to="/login">Login/register</Link></li>}
                 </ul>
                 <div onClick={handleNav} className='block md:hidden '>
                     {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}

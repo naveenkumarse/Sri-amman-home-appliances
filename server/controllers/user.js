@@ -1,5 +1,7 @@
 const User = require('../model/UserModel')
 const Counter = require('../model/counterModel')
+const jwt = require('jsonwebtoken');
+
 
 exports.SignUp = async (req, res) => {
     let userid;
@@ -44,22 +46,27 @@ exports.Login = async (req, res) => {
     // jwt.sign({id},"jwtwebtoken",{expiresIn: 300})
     const data = await User.findOne({ email: email });
     if (data) {
-
-        if (data) {
             if (password == data.password) {
                 console.log(data.id)
-                res.send(data)
+                res.status(201).json({
+                    status: 'success',
+                    data: data,
+                });
             }
             else {
-                res.send({ message: "Password didn't match" })
+                res.status(400).json({
+                    status:'error',
+                    message: `Password didn't match`
+                });
             }
         }
-
-        else {
-            res.send("This email id is not register")
-        }
-
+    else {
+        res.status(400).json({
+            status:'error',
+            message: `This email id is not register`
+        });
     }
+
 }
 
 exports.ListUser=async(req,res)=>{
