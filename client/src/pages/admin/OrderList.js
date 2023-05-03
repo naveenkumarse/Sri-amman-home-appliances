@@ -36,6 +36,7 @@ const Orderlist = () => {
       <Table>
         <Table.Head>
           <Table.HeadCell>Order-Id</Table.HeadCell>
+          <Table.HeadCell>Ordered-Products</Table.HeadCell>
           <Table.HeadCell>Date</Table.HeadCell>
           <Table.HeadCell>Total</Table.HeadCell>
           <Table.HeadCell>Address</Table.HeadCell>
@@ -44,7 +45,7 @@ const Orderlist = () => {
         <Table.Body className="divide-y">
           {allOrders.map((r)=>{
             if(r.Date.getTime()>=startDate.getTime() && r.Date.getTime()<=endDate.getTime())
-              return <OrderItem key={r._id} address ={r.address} date={r.date} rid={r._id} total={r.amount}  />
+              return <OrderItem key={r._id} address ={r.address} date={r.date} rid={r._id} total={r.amount} OrderedProducts={r.OrderedProducts} />
           })}
           
         </Table.Body>

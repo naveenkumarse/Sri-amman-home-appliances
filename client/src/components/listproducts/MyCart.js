@@ -81,7 +81,7 @@ const total = subtotal;
             </div>
           </div>
         </div>
-      </div>:<Checkout uid={uid} total={total} />}
+      </div>:<Checkout uid={uid} total={total} mycart={mycart}/>}
     </>
   )
 }

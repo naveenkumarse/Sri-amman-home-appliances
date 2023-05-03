@@ -3,7 +3,7 @@ const Ordered = require('../model/OrderedModel');
 
 exports.CreateOrder = async (req, res) => {
     console.log(req.body)
-    const {uid,firstname,lastname,email,phoneno:phone,streetname,city,state,pincode,total:amount,date } = req.body;
+    const {uid,firstname,lastname,email,phoneno:phone,streetname,city,state,pincode,total:amount,date,OrderedProducts } = req.body;
     const address = firstname+" "+lastname+" "+streetname+" "+city+" "+state+" "+pincode;
     console.log(address);
     const name = firstname
@@ -14,7 +14,8 @@ exports.CreateOrder = async (req, res) => {
         email,
         name,
         address,
-        phone
+        phone,
+        OrderedProducts
     })
     await order.save();
     res.send({ message: "Successfull Register" })

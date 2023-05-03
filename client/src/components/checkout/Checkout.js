@@ -1,8 +1,10 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { addToOrder, placeOrder } from '../../api';
 
 export const Checkout = (props) => {
     const {uid,total} = props
+    const {mycart} = props
+
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
@@ -10,7 +12,14 @@ export const Checkout = (props) => {
     const [streetname, setStreetname] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('Tamil Nadu');
-    const [pincode, setPincode] = useState('')
+    const [pincode, setPincode] = useState('');
+    const OrderedProducts = mycart.reduce((prev,cur)=>prev+","+cur.name,"");
+    // useEffect(()=>{
+        // console.log(mycart);
+        
+        // console.log(OrderedProducts);
+    // },[])
+
     const pay = () => {
         let tdate = new Date()
       let day = tdate.getDate();
@@ -19,13 +28,14 @@ export const Checkout = (props) => {
       
       let date = `${day}.${month}.${year}.`;
        
-      const body = {uid,firstname,lastname,email,phoneno,streetname,city,state,pincode,total,date}
+      const body = {uid,firstname,lastname,email,phoneno,streetname,city,state,pincode,total,date,OrderedProducts}
       console.log(body);
       addToOrder(body);
       const data = {uid}
       placeOrder(data)
         alert("Paid SuccessFully and Order Placed");
-        window.location.reload()
+      
+      //  window.location.reload()
        }
        
   return (

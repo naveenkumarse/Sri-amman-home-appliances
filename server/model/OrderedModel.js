@@ -22,10 +22,10 @@ const OrderedSchema = new mongoose.Schema({
     },
     phone:{
         type:Number
+    },
+    OrderedProducts:{
+        type:String
     }
-  
-  
-
 });
 
 const Ordered = mongoose.model("Ordered", OrderedSchema);
