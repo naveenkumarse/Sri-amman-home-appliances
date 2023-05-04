@@ -35,9 +35,12 @@ const AdminNavBar = () => {
           <li className="px-3 text-lg">
             <Link to="/orderList">Orders</Link>
           </li>
-          <li className="px-3 text-lg">
-            <Link to="/usersList">Users</Link>
-          </li>
+            <li className="px-3 text-lg">
+              <Link to="/usersList">Users</Link>
+            </li>
+            <li className="px-3 text-lg">
+              <Link to="/adminlogin">Sign Out</Link>
+            </li>
        
         </ul>
         <div onClick={handleNav} className="block md:hidden ">

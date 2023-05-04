@@ -9,12 +9,12 @@ const ProductCard = ({ product }) => {
 
   const AddToCart = async () => {
     updateModelShow(!modelShow);
-    alert(id);
+    // alert(id);
 
     var uid = localStorage.getItem("uid");
     
     const body = { image, name, description, price,uid,pid,quantity};
-    alert(quantity)
+    // alert(quantity)
     const val = addOrder(body);
 
     // try {

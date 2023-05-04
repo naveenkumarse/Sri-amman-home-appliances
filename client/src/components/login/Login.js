@@ -8,6 +8,7 @@ const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
+    console.log(localStorage.uid)
     const { user, setUser } = useContext(UserContext);
    
     const navigate = useNavigate();
@@ -16,24 +17,30 @@ const Login = () => {
         try {
             const body = { email, password };
             console.log(body);
-            const res = await fetch("http://localhost:8080/login", {
+            await fetch("http://localhost:8080/login", {
                 method: "POST",
                 headers: { "content-Type": "application/json" },
                 body: JSON.stringify(body)
-            });
-            const jsonData = await res.json();
-            console.log(jsonData)
-            localStorage.setItem("uid",jsonData._id);
-            alert(jsonData.id)
-            const param = jsonData.email
-            if (jsonData.email === 'naveenelango.se@gmail.com') {
+            })
+            .then((response) => response.json())
+            .then(async (data) => {
+                if(data.status=="success"){
+                    localStorage.setItem("uid",data.data._id);
+                    console.log(localStorage.uid)
+                    if (data.data.email === 'naveenelango.se@gmail.com') {
 
-                navigate("/admin")
-            } else {
-            navigate("/")
-            await setUser(jsonData.email);
-            alert(user);
-             }
+                        navigate("/admin")
+                    } else {
+                    navigate("/")
+                    await setUser(data.data.email);
+                     }
+                }
+                else{
+                    alert("Incorrect credintials");
+                }
+
+            });
+            
         } catch (err) {
             console.error(err.message);
         }

@@ -35,7 +35,7 @@ export const Checkout = (props) => {
       placeOrder(data)
         alert("Paid SuccessFully and Order Placed");
       
-      //  window.location.reload()
+        window.location.reload()
        }
        
   return (

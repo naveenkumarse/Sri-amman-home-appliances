@@ -74,14 +74,14 @@ function App() {
             } />
 
 
-            <Route element={<ProtectedRoutes />}>
+            {/* <Route element={<ProtectedRoutes />}>
               <Route path="/login" element={
                 <div>
                   <NavBar />
                   <UserProfile />
                 </div>
               } />
-            </Route>
+            </Route> */}
             {/* <Route element={<ProtectedRoutes />}> */}
               <Route path="/register" element={
                 <div>
@@ -91,7 +91,7 @@ function App() {
               } />
             {/* </Route> */}
             {/* <Route element={<ProtectedRoutes />}> */}
-            <Route path="/userprofile" element={
+            <Route path="/login" element={
               <div>
                 <NavBar />
                 <Login />
