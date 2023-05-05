@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from 'react'
-import { addOrder } from '../../api';
+import { addOrder, updatestock } from '../../api';
 import { Button, Label, Modal, TextInput } from 'flowbite-react';
 
 const ProductCard = ({ product }) => {
-  const { image, name, description, price, pid, id,stocks} = product
+  const { image, name, description, price, pid, _id,stocks} = product
   const [modelShow, updateModelShow] = useState(false);
   const [quantity,setQuantity] = useState(1);
 
   const AddToCart = async () => {
     updateModelShow(!modelShow);
+    
     // alert(id);
 
     var uid = localStorage.getItem("uid");
-    
     const body = { image, name, description, price,uid,pid,quantity};
     // alert(quantity)
     const val = addOrder(body);
-
+    const bal = stocks-quantity;
+    const values = {image,name,description,price,pid,bal,_id}
+   const res = updatestock(values);
     // try {
      
     //   console.log(body);
@@ -47,8 +49,8 @@ const ProductCard = ({ product }) => {
         <span className='font-body text-slate-500 block font-bold text-xl'>{name}</span>
         <center><span className='font-body text-slate-500 block my-3'>{description}</span></center>
         <span className='font-body text-slate-500'>₹{price}</span>
-        <span className='font-body text-slate-500'>Stocks remaining :  {stocks}</span>
-        <button className='bg-black hover:bg-lblue hover:text-black text-bblue font-bold py-2 px-4 my-3 rounded-full' onClick={()=>updateModelShow(!modelShow)}>Add to Cart </button>
+        <span className='font-body text-slate-500'>Stocks remaining :  {stocks>5?stocks:<span style={{color:"red"}}>Out of stock</span>}</span>
+        {stocks>5?<button className='bg-black hover:bg-lblue hover:text-black text-bblue font-bold py-2 px-4 my-3 rounded-full' onClick={()=>updateModelShow(!modelShow)}>Add to Cart </button>:<span></span>}
       </div>
       <>
             <Modal
@@ -65,7 +67,6 @@ const ProductCard = ({ product }) => {
                   <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                     Enter the Quantity 
                   </h3>
-                 
                   <div>
                     <div className="mb-2 block">
                       <Label htmlFor="email" value="Product Count"  />
@@ -73,8 +74,8 @@ const ProductCard = ({ product }) => {
                     <TextInput
                       type="number"
                       id="price"
-                       value={quantity}  min={1}
-                       onChange={(e) => setQuantity(e.target.value)}
+                       value={quantity}  min={1} max={5}
+                       onChange={(e) => setQuantity(e.target.value)} 
                     />
                   </div>
                 

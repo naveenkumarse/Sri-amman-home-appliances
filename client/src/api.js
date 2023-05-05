@@ -102,6 +102,18 @@ export const updateProduct = async (body = {}) => {
     console.log(jsonData)
     return jsonData;
 }
+export const updatestock = async (body = {}) => {
+    console.log(body);
+    const res = await fetch("http://localhost:8080/product/updatestock", {
+        method: "PUT",
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+    const jsonData = await res.json();
+    console.log(jsonData)
+    return jsonData;
+}
+
 
 export const placeOrder = async(data = {}) =>{
     console.log(data);

@@ -10,7 +10,7 @@ app.use(cors())
 const mongoose = require("mongoose");
 // const jwt = require("jsonwebtoken");
 const {  SignUp, Login, ListUser, ListMyUser } = require("./controllers/user");
-const {  ListProduct, UpdateProduct, DeleteProduct, CreateProduct } = require("./controllers/product");
+const {  ListProduct, UpdateProduct, DeleteProduct, CreateProduct, UpdateStock } = require("./controllers/product");
 const { ListAllOrder, ListMyOrder, ListMycart, AddOrder, PlaceOrder, RemoveProduct } = require("./controllers/order");
 const { CreateOrder, ListMyOrders, OrderList } = require("./controllers/orderedProducts");
 mongoose.connect("mongodb+srv://shwethachandran:saha@cluster0.u2ae1kb.mongodb.net/sahadb?retryWrites=true&w=majority", {
@@ -50,6 +50,7 @@ app.get("/mycart", ListProduct);//checked
 
 app.put("/product/updateone",UpdateProduct);//checked
 
+app.put("/product/updatestock",UpdateStock);
 // delete product 
 
 app.delete("/product/deleteone",DeleteProduct);//checked
@@ -87,6 +88,9 @@ app.delete("/cart/removeone",RemoveProduct);//checked
 //         })
 //     }
 // }
+
+
+
 
 /// localstorage.setItem("token",res.data.token);
 /// headers: {'access-token': localStorage.getItem("token");} // app.get 
