@@ -28,7 +28,7 @@ const NavBar = () => {
                     <li className="px-3 text-lg"><Link to="/cart">My cart</Link></li>
                     <li className="px-3 text-lg"><Link to="/myorders">My Orders</Link></li>
 
-                    {uid!=null? <div><li className="px-3 text-lg"> <button onClick={() => {localStorage.setItem("uid",null); setUid(null); navigate("/login")}} >Sign Out</button> </li> </div>: <li className="px-3 text-lg"><Link to="/login">Login/register</Link></li>}
+                    {uid!=null? <div><li className="px-3 text-lg"> <button onClick={() => {localStorage.setItem("uid",""); setUid(null); navigate("/login")}} >Sign Out</button> </li> </div>: <li className="px-3 text-lg"><Link to="/login">Login/register</Link></li>}
                 </ul>
                 <div onClick={handleNav} className='block md:hidden '>
                     {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}

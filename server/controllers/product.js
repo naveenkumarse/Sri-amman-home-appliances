@@ -5,15 +5,15 @@ var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'shwethachandran06@gmail.com',
-        pass: 'chandran13!'
+        pass: 'eddgqauvujenfaag'
     }
 });
 
 var mailOptions = {
     from: 'shwethachandran06@gmail.com',
     to: 'shwethachandran06@gmail.com',
-    subject: 'Stocks are going to lost !!',
-    text: 'Update the product'
+    subject: 'Alert !! Stocks are getting low !!',
+    text: 'Please update the product'   
 };
 
 

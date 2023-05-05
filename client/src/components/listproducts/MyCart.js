@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from "react";
 import CartCard from "./CartCard";
-import { Link } from "react-router-dom";
-import { addToOrder, listMyCart, placeOrder } from "../../api";
+import {  listMyCart } from "../../api";
 import  {Checkout}  from "../checkout/Checkout";
 const MyCart = () => {
   const [mycart,setMyCart] = useState([])
   const [buy,setBuy] = useState(false);
   const subtotal = mycart.reduce((acc, cur) => acc + cur.price*cur.quantity, 0)
-  
+  const [set,Setset] =useState(false);
   console.log(mycart)
   const uid = localStorage.getItem("uid")
   const body = {uid};
   useEffect(() => {
     listMyCart(setMyCart,body)
-  }, []);
+  }, [set]);
 
 const total = subtotal;
 
     
 
-  return (
+return (
     <>
       {!buy?<div
         className="w-full h-full bg-black bg-opacity-50 top-0 overflow-y-auto overflow-x-hidden "
@@ -39,7 +38,7 @@ const total = subtotal;
               </p>
               {mycart ? (
                 mycart.map((product) => (
-                  <CartCard key={product._id} product={product}  /> 
+                  <CartCard key={product._id} product={product} /> 
                 ))
               ) : (
                 <div> No Items In Cart </div>

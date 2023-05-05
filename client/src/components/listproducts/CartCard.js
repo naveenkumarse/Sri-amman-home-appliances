@@ -1,15 +1,32 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { removefromcart } from "../../api";
 
 const CartCard = (props) => {
+    const navigate = useNavigate()
     const {product} = props;
+    
+    const [val,setVal] = useState()
     const { image, name, description, price, pid, _id, quantity } = product;
     const remove = ()=>{
+        
         const body = {_id}
-        const res = removefromcart(body);
+        const res = removefromcart(body)
+        .then((data)=>{
+            navigate('/cart')
+            console.log(data)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+        console.log("first")
+        
         console.log(res);
-        window.location.reload();
+        setVal(!val)
+       window.location.reload();
+       
     }
+    // useEffect(()=>{remove()},[])
     return (
         <>
             <div key={_id} className="md:flex items-center py-8 border-t border-gray-200">
